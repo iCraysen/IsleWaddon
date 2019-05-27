@@ -1,3 +1,14 @@
+///////////////////////////////
+// CHANGE YOU KEY BIND       //
+var MenuKey = "b"            //
+var SalvageKey = "f"         //
+var EquipKey = "t"           //
+var DisplayVersionKey = "g"  //
+var TimerKey = "y"           //
+var MapKey = "n"             //
+var QuestKey = "6"           //
+///////////////////////////////
+
 var MenuSTATUS = "OFF"
 var Version = "3.3"
 var DisplayVersionSTATUS = "OFF"
