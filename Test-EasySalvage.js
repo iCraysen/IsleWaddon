@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         FastSalvage for IWD 0.3.2
+// @name         FastSalvage for IWD 0.3.2 
 // @version      1
 // @description  Salvage an item with 1 keypress
 // @author       Polfy's
