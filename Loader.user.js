@@ -7,4 +7,4 @@
 // @match        play.isleward.com*
 // @grant        none
 // ==/UserScript==
-var d=a=>window.$?$.getScript`https://polfy.github.io/IsleWaddonWeb/IsleWaddonWeb.js`:setTimeout(d,50);d()
+var d=a=>window.$?$.getScript`https://polfy.github.io/IsleWaddonWeb/IsleWaddon.js`:setTimeout(d,50);d()
