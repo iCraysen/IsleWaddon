@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Hide quest for IWD 0.3.2
+// @name         Hide quest for IWD 0.3.2 
 // @version      2
 // @description  Hide quest list by pressing 1 key
 // @author       Chronus / Polfy's
