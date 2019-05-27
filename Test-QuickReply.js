@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         QuickReply for IWD 0.3.2
+// @name         QuickReply for IWD 0.3.2 
 // @version      1
 // @description  Replace '/r' by the name of the last character who send you a private message + sound when you get a private message
 // @author       Polfy's
