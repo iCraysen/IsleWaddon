@@ -1,30 +1,3 @@
-// ==UserScript==
-// @name         Isle Waddon
-// @version      3.3
-// @description  ALL Timer / Quick Salvage / Quick Equip / Quick Reply / MiniMap / Rune Range / Quest Hide option / lvl 20 Roll Range and more
-// @author       Polfy's
-// @match        https://play.isleward.com/
-// @namespace    https://greasyfork.org/users/234234
-// ==/UserScript==
-
-///////////////////////////////
-// CHANGE YOU KEY BIND       //
-var MenuKey = "b"            //
-var SalvageKey = "f"         //
-var EquipKey = "t"           //
-var DisplayVersionKey = "g"  //
-var TimerKey = "y"           //
-var MapKey = "n"             //
-var QuestKey = "6"           //
-///////////////////////////////
-
-/////////////////////////////////////////////////////////////
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-/////////////////////////////////////////////////////////////
-
-// MENU VALUE
 var MenuSTATUS = "OFF"
 var Version = "3.3"
 var DisplayVersionSTATUS = "OFF"
