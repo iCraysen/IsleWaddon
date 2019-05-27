@@ -9,6 +9,13 @@ var MapKey = "n"             //
 var QuestKey = "6"           //
 ///////////////////////////////
 
+/////////////////////////////////////////////////////////////
+///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
+///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
+///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
+/////////////////////////////////////////////////////////////
+
+// MENU VALUE
 var MenuSTATUS = "OFF"
 var Version = "3.3"
 var DisplayVersionSTATUS = "OFF"
@@ -154,7 +161,7 @@ addons.register({
             'top':  (this.uiContainer[0].clientHeight / 60) ,
             'background-color': "#3c3f4c",
             'border': "",
-            'color':"#ffffff",
+            'color':"#ffeb38",
 		});
 		this.uiDisplayMenu.css({
             'position': "absolute",
@@ -162,7 +169,7 @@ addons.register({
             'top':  (this.uiContainer[0].clientHeight / 25) ,
             'background-color': "#3c3f4c",
             'border': "",
-            'color':"#ffffff",
+            'color':"#ffeb38",
 		});
 		this.uiDisplayMenu1.css({
             'position': "absolute",
@@ -170,7 +177,7 @@ addons.register({
             'top':  (this.uiContainer[0].clientHeight / 15.4) ,
             'background-color': "#3c3f4c",
             'border': "",
-            'color':"#ffffff",
+            'color':"#ffeb38",
 		});
 		this.uiDisplayMenu2.css({
             'position': "absolute",
@@ -178,7 +185,7 @@ addons.register({
             'top':  (this.uiContainer[0].clientHeight / 11) ,
             'background-color': "#3c3f4c",
             'border': "",
-            'color':"#ffffff",
+            'color':"#ffeb38",
 		});
 		this.uiDisplayVersion.css("display", "none");
 		this.uiDisplayMenu.css("display", "none");
