@@ -1,21 +1,10 @@
-///////////////////////////////
-// CHANGE YOU KEY BIND       //
-var MenuKey = "b"            //
-var SalvageKey = "f"         //
-var EquipKey = "t"           //
-var DisplayVersionKey = "g"  //
-var TimerKey = "y"           //
-var MapKey = "n"             //
-var QuestKey = "6"           //
-///////////////////////////////
-
-/////////////////////////////////////////////////////////////
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-/////////////////////////////////////////////////////////////
-
-// MENU VALUE
+var MenuKey = "b"
+var SalvageKey = "f"
+var EquipKey = "t"
+var DisplayVersionKey = "g"
+var TimerKey = "y"
+var MapKey = "n"
+var QuestKey = "6"
 var MenuSTATUS = "OFF"
 var Version = "3.3"
 var DisplayVersionSTATUS = "OFF"
@@ -65,21 +54,6 @@ visibility: visible;
 }
 </style>
 `;
-/*
-function secondsToString(seconds)
-{
-    var numhours = Math.floor((seconds % 86400) / 3600);
-    var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
-    var TextPlayed
-    if (numhours > 0) {
-        TextPlayed += numhours+" hours";
-        if (numhours > 1) { TextPlayed += "s "; }
-        else { TextPlayed += " "; }
-    }
-    TextPlayed += "and "+numminutes+" minutes";
-    return TextPlayed;
-}
-*/
 window.MenuADDON = function(){
     window.menu = jQuery('<div class="addon-loader" style="position:absolute;left:500px;"></div>').appendTo(jQuery('.ui-container'));
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">';
