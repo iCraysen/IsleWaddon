@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Rune info for IWD 0.3.2
+// @name         Rune info for IWD 0.3.2 
 // @version      1
 // @description  Add rune info in-game
 // @author       Polfy's
