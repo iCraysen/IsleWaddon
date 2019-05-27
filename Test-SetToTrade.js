@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Set to trade for IWD 0.3.2
+// @name         Set to trade for IWD 0.3.2 
 // @version      1
 // @description  Add how much set of card you can trade
 // @author       Polfy's
