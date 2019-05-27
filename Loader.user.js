@@ -1,10 +1,9 @@
 // ==UserScript==
-// @name         Isleward - Addon Bundle Loader
-// @namespace    Isleward.Addon
-// @version      0.3
-// @description  Loads Addon Bundle
-// @author       Qndel
-// @match        play.isleward.com*
-// @grant        none
+// @name         Isle Waddon
+// @version      3.3
+// @description  Check readme : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        https://play.isleward.com/
 // ==/UserScript==
+
 var d=a=>window.$?$.getScript`https://polfy.github.io/IsleWaddon/IsleWaddon.js`:setTimeout(d,50);d()
