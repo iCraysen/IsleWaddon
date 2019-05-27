@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Minimap for IWD 0.3.2
+// @name         Minimap for IWD 0.3.2 
 // @version      1
 // @description  Add a minimap in-game
 // @author       Polfy's
