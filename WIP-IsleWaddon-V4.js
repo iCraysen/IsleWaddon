@@ -1055,7 +1055,7 @@ addons.register({
                     audioElement = document.createElement("audio");
                     audioElement.type = "audio/wav";
                     audioElement.src = "http://www.wavlist.com/soundfx/027/drum_stick.wav";
-                    audioElement.volume = 0.05;
+                    audioElement.volume = 0.1;
                     audioElement.play();
                 }
                 window.lastReply = matched[1];
@@ -1101,7 +1101,7 @@ addons.register({
                 audioElement = document.createElement("audio");
                 audioElement.type = "audio/wav";
                 audioElement.src = "http://wavlist.com/soundfx/027/drum_stick.wav";
-                audioElement.volume = 0.05;
+                audioElement.volume = 0.1;
                 audioElement.play();
 
                 window.bossID2 = obj.id;
@@ -1151,7 +1151,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/002/cat-meow3.wav";
-            audioElement.volume = 0.05;
+            audioElement.volume = 0.1;
             audioElement.play();
         }
     }
@@ -1162,7 +1162,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
-            audioElement.volume = 0.05;
+            audioElement.volume = 0.1;
             audioElement.play();
         }
     }
@@ -1173,7 +1173,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/014/cricket-3.wav";
-            audioElement.volume = 0.05;
+            audioElement.volume = 0.1;
             audioElement.play();
         }
     }
@@ -1293,7 +1293,7 @@ addons.register({
                         audioElement = document.createElement("audio");
                         audioElement.type = "audio/wav";
                         audioElement.src = "http://wavlist.com/soundfx/027/tomtom_hi.wav";
-                        audioElement.volume = 0.05;
+                        audioElement.volume = 0.1;
                         audioElement.play();
                     }
                 }
