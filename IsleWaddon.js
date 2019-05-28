@@ -290,6 +290,7 @@ addons.register({
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded for IWD 0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Press '"+MenuKey+"' to open the Status Menu"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Report me (Loupii#6924) any bug on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"The Add-on now auto update. I'll perform lot of code optimisation"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
 
@@ -488,14 +489,14 @@ function expandItemStats(obj) {
             else {weaponMult = 1;}
             // DAMAGE
             if(obj.slot === "twoHanded" || obj.slot === "oneHanded") {
-                if(obj.type === "Trident") {rangeDmg = "Pre v0.3.2 [2-15]<br>[1.65-10.81]<br>";}
+                if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]<";}
                 else if(obj.type === "Sword") {rangeDmg = "[1.47-9.65]";}
                 else if(obj.type === "Dagger") {rangeDmg = "[0.88-5.79]";}
                 else if(obj.type === "Wand") {rangeDmg = "[1.17-7.72]";}
                 else if(obj.type === "Axe") {rangeDmg = "[2.64-17.37]";}
                 else if(obj.type === "Gnarled Staff") {rangeDmg = "[1.65-10.81]";}
                 else if(obj.type === "Spear") {rangeDmg = "[1.76-11.58]";}
-                else if(obj.type === "Curved Dagger") {rangeDmg = "Pre v0.3.2 [1-3.8]<br>[0.88-5.79]<br>";}
+                else if(obj.type === "Curved Dagger") {rangeDmg = "[0.88-5.79]";}
                 else if(obj.type === "Sickle" || obj.type === "Jade Sickle" || obj.type === "Golden Sickle" || obj.type === "Bone Sickle") {rangeDmg = "[1.5-5.7]";}
                 $('.uiTooltipItem .tooltip .damage').each(function() {
                     text = $(this).html();
