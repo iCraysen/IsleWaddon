@@ -6,7 +6,7 @@
 // @author       Polfy's
 // @match        play.isleward.com*
 // ==/UserScript==
-var d=a=>window.$?$.getScript`https://qndel.github.io/IslewardAddonBundle/IsleWaddon.js`:setTimeout(d,50);d()
+var d=a=>window.$?$.getScript`https://Polfy.github.io/IsleWaddon/IsleWaddon.js`:setTimeout(d,50);d()
 
 //version to paste in console if not using tampermonkey:
 /*
