@@ -1065,7 +1065,6 @@ addons.register({
     },
 
     onGetObject: function(obj) {
-        console.log(JSON.stringify(obj, null, 4));
         if(TimerSTATUS == "ON") {
 
             if(obj.name === "m'ogresh"){
