@@ -12,7 +12,7 @@ var MapKey = "n"             //
 // MENU VALUE
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
-var Version = "4.0 TEST"
+var Version = "4.0 BETA WORK IN PROGRESS"
 
 var SalvageSTATUS = localStorage.getItem('isleWaddonSalvage')
 if(SalvageSTATUS === undefined || SalvageSTATUS === null){
