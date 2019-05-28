@@ -5,7 +5,7 @@ var audioElement
 // MENU VALUE
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
-var Version = "4.0 BETA WORK IN PROGRESS"
+var Version = "4.0 BETA FINAL TEST"
 // COMBAT LOG VALUE
 var idToName = {}
 var inCombatWith = {}
