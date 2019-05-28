@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         IsleWaddon
+// @name         Isle Waddon
 // @namespace    Isleward.Waddon
 // @version      1.0
 // @description  Read README here : https://github.com/Polfy/IsleWaddon
