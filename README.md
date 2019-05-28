@@ -1,3 +1,5 @@
+Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
+
 # IsleWaddon
 
 Get Tampermonkey addon :
