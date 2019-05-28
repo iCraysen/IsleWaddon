@@ -1,18 +1,9 @@
-    
-// ==UserScript==
-// @name         Isleward - Addon Bundle Loader
-// @namespace    Isleward.Addon
-// @version      0.3
-// @description  Loads Addon Bundle
-// @author       Qndel
+    // ==UserScript==
+// @name         Isle Waddon TEST
+// @version      1.0
+// @description  Isle Waddon TEST
+// @author       Polfy's
 // @match        play.isleward.com*
-// @grant        none
 // ==/UserScript==
-var d=a=>window.$?$.getScript`https://Polfy.github.io/IsleWaddon/testqndelAddon.js`:setTimeout(d,50);d()
+var d=a=>window.$?$.getScript`https://Polfy.github.io/IsleWaddon/IsleWaddon.js`:setTimeout(d,50);d()
 
-//version to paste in console if not using tampermonkey:
-/*
-$.getScript`https://qndel.github.io/IslewardAddonBundle/core.js`;
-wait for a second then
-window.loadAddonBundlePanel();
-*/
