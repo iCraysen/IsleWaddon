@@ -1,11 +1,3 @@
-// ==UserScript==
-// @name         Isle Waddon TEST
-// @version      4.0
-// @description  Isle Waddon TEST
-// @author       Polfy's
-// @match        https://play.isleward.com/
-// ==/UserScript==
-
 ///////////////////////////////
 // CHANGE YOU KEY BIND       //
 var MenuKey = "b"            //
