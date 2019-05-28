@@ -51,10 +51,6 @@ var ShowVersionSTATUS = localStorage.getItem('isleWaddonShowVersion')
 if(ShowVersionSTATUS === undefined || ShowVersionSTATUS === null){
     ShowVersionSTATUS = "OFF"
 }
-if(ShowVersionSTATUS === "ON"){
-    document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.1";
-    jQuery(".addon-loader").css("display","none");
-}
 var TimerSoundSTATUS = localStorage.getItem('isleWaddonTimerSound')
 if(TimerSoundSTATUS === undefined || TimerSoundSTATUS === null){
     TimerSoundSTATUS = "ON"
@@ -297,6 +293,10 @@ addons.register({
 
     onEnterGame: function(obj) {
         gameStarted = "ON"
+        if(ShowVersionSTATUS === "ON"){
+            document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.2";
+            jQuery(".addon-loader").css("display","none");
+        }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded for IWD 0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Press '"+MenuKey+"' to open the Status Menu"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Report me (Loupii#6924) any bug on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
@@ -406,7 +406,9 @@ addons.register({
     onGetObject: function(obj) {
         if(obj.name === "m'ogresh"){
             mogHp = obj.components[1].values.hpMax;
-            if(TimerSTATUS == "ON") {
+        }
+        if(TimerSTATUS == "ON") {
+            if(obj.name === "m'ogresh"){
                 window.bossID = obj.id;
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
                     window.lastRespawned = new Date();
@@ -418,9 +420,6 @@ addons.register({
                     window.respawnTime = 141;
                 }
             }
-        }
-        if(TimerSTATUS == "ON") {
-
             if(obj.name === "Stinktooth"){
 
                 window.bossID1 = obj.id;
