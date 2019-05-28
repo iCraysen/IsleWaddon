@@ -209,7 +209,7 @@ addons.register({
             }
         }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Isle Waddon "+Version+" for IWD 0.3.1"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"v4.0 update is comming SOON"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"v4.0 update is comming SOON AUTO UPDATE MON CUL"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Press '"+MenuKey+"' to open the Menu"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
     },
 
