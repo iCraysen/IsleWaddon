@@ -32,6 +32,7 @@ You need to remove the old add-on version from you TamperMonkey :
   - Press 5 , 6 to change the map opacity
   - Press 7 , 8 , 9 , 0 to change the map position
 - Stats range : Show stats roll range on gear
+- Rune stats range : Show the min/max stats of a rune
   Link to my work : https://docs.google.com/spreadsheets/d/19QyBzRNMCFd3l8GwQPfDfPvwvXO_vnDtY3IHFa6kQeU/edit?usp=sharing
 - Combat Log : Add a combat log in the "reputation" chat
 - Pvp Mode : Add ⚔️ in butcher name + sound when a butcher is near you
