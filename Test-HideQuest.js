@@ -1,4 +1,4 @@
-// ==UserScript==
+// ==UserScript== 
 // @name         Hide quest for IWD 0.3.2 
 // @version      3
 // @description  Hide quest list by pressing 1 key
