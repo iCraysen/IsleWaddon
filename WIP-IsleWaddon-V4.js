@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         IsleWaddon BETA V4gfdgz
+// @namespace    Isleward.Waddon
+// @version      4.0
+// @description  Read README here : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        play.isleward.com*
+// @grant        none
+// ==/UserScript==
+
 var MenuKey = "b"
 var SalvageKey = "f"
 var MapKey = "n"
@@ -316,15 +326,15 @@ addons.register({
 
 	// KEYS
 	onKeyDown: function(key) {
-		if (!key) {
-			return;
-		} else if (MenuSTATUS == "OFF" && key == MenuKey) {
-				MenuSTATUS = "ON";
-				document.getElementById('DisplayMenu1').textContent = "";
-				document.getElementById('DisplayMenu2').textContent = "";
-				document.getElementById('DisplayMenu').textContent = "";
-                window.MenuADDON();
-		} else if (MenuSTATUS == "ON") {
+        if (!key) {
+            return;
+        } else if (MenuSTATUS == "OFF" && key == MenuKey) {
+            MenuSTATUS = "ON";
+            document.getElementById('DisplayMenu1').textContent = "";
+            document.getElementById('DisplayMenu2').textContent = "";
+            document.getElementById('DisplayMenu').textContent = "";
+            window.MenuADDON();
+        } else if (MenuSTATUS == "ON") {
 			if (key == MenuKey) {
 				MenuSTATUS = "OFF";
                 jQuery(".addon-loader").css("display","none");
@@ -340,7 +350,7 @@ addons.register({
                 window.MenuADDON();
 			}
 		} else if (SalvageSTATUS == "ON" && key == SalvageKey) {
-			if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
+            if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
                 jQuery(".ui-container .uiInventory .grid .item").eq(itemPos).find(".icon").contextmenu();
                 for(var i=0;i< $(".uiContext .list .option").length;++i){
                     if(jQuery(".uiContext .list .option").eq(i).text() == "salvage"){
@@ -349,9 +359,8 @@ addons.register({
                     }
                 }
             }
-
         }
-	},
+    },
 });
 
 // LVL 20 ROLL RANGE + CARD SET TO TRADE COUNT
@@ -1055,7 +1064,7 @@ addons.register({
                     audioElement = document.createElement("audio");
                     audioElement.type = "audio/wav";
                     audioElement.src = "http://www.wavlist.com/soundfx/027/drum_stick.wav";
-                    audioElement.volume = 0.1;
+                    audioElement.volume = 0.2;
                     audioElement.play();
                 }
                 window.lastReply = matched[1];
@@ -1101,7 +1110,7 @@ addons.register({
                 audioElement = document.createElement("audio");
                 audioElement.type = "audio/wav";
                 audioElement.src = "http://wavlist.com/soundfx/027/drum_stick.wav";
-                audioElement.volume = 0.1;
+                audioElement.volume = 0.2;
                 audioElement.play();
 
                 window.bossID2 = obj.id;
@@ -1151,7 +1160,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/002/cat-meow3.wav";
-            audioElement.volume = 0.1;
+            audioElement.volume = 0.2;
             audioElement.play();
         }
     }
@@ -1162,7 +1171,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
-            audioElement.volume = 0.1;
+            audioElement.volume = 0.2;
             audioElement.play();
         }
     }
@@ -1173,7 +1182,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/014/cricket-3.wav";
-            audioElement.volume = 0.1;
+            audioElement.volume = 0.05;
             audioElement.play();
         }
     }
@@ -1293,7 +1302,7 @@ addons.register({
                         audioElement = document.createElement("audio");
                         audioElement.type = "audio/wav";
                         audioElement.src = "http://wavlist.com/soundfx/027/tomtom_hi.wav";
-                        audioElement.volume = 0.1;
+                        audioElement.volume = 0.2;
                         audioElement.play();
                     }
                 }
