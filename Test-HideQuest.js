@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hide quest for IWD 0.3.2 
-// @version      2
+// @version      3
 // @description  Hide quest list by pressing 1 key
 // @author       Chronus / Polfy's
 // @match        https://play.isleward.com/
