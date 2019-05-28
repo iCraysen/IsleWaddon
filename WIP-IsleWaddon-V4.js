@@ -1479,7 +1479,7 @@ var funy = function(){
         jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/show version on", ""));
         ShowVersionSTATUS = "ON"
         localStorage.setItem('isleWaddonShowVersion', ShowVersionSTATUS)
-        document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.1";
+        document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.2";
         jQuery(".addon-loader").css("display","none");
     }
     if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 17) == "/show version off"){
