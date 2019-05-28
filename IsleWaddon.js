@@ -413,12 +413,12 @@ addons.register({
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
                     window.lastRespawned = new Date();
                 }
-                if (typeof window.bossID != "undefined" && obj.id == window.bossID && obj.destroyed){
-                    if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
-                        window.lastKilled = new Date();
-                    }
-                    window.respawnTime = 141;
+            }
+            if (typeof window.bossID != "undefined" && obj.id == window.bossID && obj.destroyed){
+                if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
+                    window.lastKilled = new Date();
                 }
+                window.respawnTime = 141;
             }
             if(obj.name === "Stinktooth"){
 
