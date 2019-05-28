@@ -183,7 +183,7 @@ window.MenuADDON = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += '<tr><td><div class="tooltip"><font color="#ffeb38">'+L16+'</font><span class="tooltiptext">'+"Add number of set you can trade to Vikar<br>You already play with this character for :<br>"+TextPlayed+'</span></div></td>';
+    src += '<tr><td><div class="tooltip"><font color="#ffeb38">'+L16+'</font><span class="tooltiptext">'+"Add number of set you can trade to Vikar<br>Add runes stats range<br>You already play with this character for :<br>"+TextPlayed+'</span></div></td>';
     src += "</table>";
     window.menu.html(src);
 }
