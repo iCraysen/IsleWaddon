@@ -17,8 +17,7 @@ You need to remove the old add-on version from you TamperMonkey :
 
 # FEATURES
 
-!! DON'T FORGET TO PUT YOUR CURSOR ON THE MENU TO HAVE MORE INFORMATION !!
-                 !! AND THE COMMAND TO USE THE ADD-ON!!
+!! DON'T FORGET TO PUT YOUR CURSOR ON THE MENU TO HAVE MORE INFORMATION AND THE COMMAND TO USE THE ADD-ON !!
 
 - Status Menu : Press "B"
 - Easy salvage : Salvage an item by pressing "F"
