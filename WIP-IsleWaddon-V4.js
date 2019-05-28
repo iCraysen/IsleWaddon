@@ -1,18 +1,18 @@
-///////////////////////////////
-// CHANGE YOU KEY BIND       //
-var MenuKey = "b"            //
-var SalvageKey = "f"         //
-var MapKey = "n"             //
-///////////////////////////////
-
-/////////////////////////////////////////////////////////////
-///DON'T TOUCH BELOW//DON'T TOUCH BELOW//DON'T TOUCH BELOW///
-/////////////////////////////////////////////////////////////
-
+var MenuKey = "b"
+var SalvageKey = "f"
+var MapKey = "n"
+var audioElement
 // MENU VALUE
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
 var Version = "4.0 BETA WORK IN PROGRESS"
+// COMBAT LOG VALUE
+var idToName = {}
+var inCombatWith = {}
+var mogHp
+var mogDmg = 0
+var mogDmgPercent
+var timerReset = 0
 
 var SalvageSTATUS = localStorage.getItem('isleWaddonSalvage')
 if(SalvageSTATUS === undefined || SalvageSTATUS === null){
@@ -1052,9 +1052,10 @@ addons.register({
             var matched = myReg.exec(msg.messages[0].message);
             if(matched != undefined && matched.length >= 2){
                 if(WhisperSoundSTATUS === "ON") {
-                    var audioElement = document.createElement("audio");
+                    audioElement = document.createElement("audio");
                     audioElement.type = "audio/wav";
                     audioElement.src = "http://www.wavlist.com/soundfx/027/drum_stick.wav";
+                    audioElement.volume = 0.05;
                     audioElement.play();
                 }
                 window.lastReply = matched[1];
@@ -1063,21 +1064,11 @@ addons.register({
     },
 
     onGetObject: function(obj) {
-        function deferTillChat(method) {
-            if (jQuery(".uiMessages .list")[0] !== undefined) {
-                method();
-            } else {
-                setTimeout(function() { deferTillChat(method) }, 50);
-            }
-        }
+        console.log(JSON.stringify(obj, null, 4));
         if(TimerSTATUS == "ON") {
 
-            if(obj.name === "Polfyyyy"){
-                obj.name = obj.components[1].values.hpMax+" " +obj.name
-            }
-
             if(obj.name === "m'ogresh"){
-
+                mogHp = obj.components[1].values.hpMax;
                 window.bossID = obj.id;
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
                     window.lastRespawned = new Date();
@@ -1106,6 +1097,12 @@ addons.register({
             }
 
             if(obj.name === "Steelclaw"){
+
+                audioElement = document.createElement("audio");
+                audioElement.type = "audio/wav";
+                audioElement.src = "http://wavlist.com/soundfx/027/drum_stick.wav";
+                audioElement.volume = 0.05;
+                audioElement.play();
 
                 window.bossID2 = obj.id;
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
@@ -1151,9 +1148,10 @@ var repeatEverySec = function(){
     if(window.respawnTime > 0){
         window.respawnTime--;
         if(window.respawnTime == 14 && TimerSTATUS == "ON" && TimerSoundSTATUS == "ON"){
-            var audioElement = document.createElement("audio");
+            audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/002/cat-meow3.wav";
+            audioElement.volume = 0.05;
             audioElement.play();
         }
     }
@@ -1164,6 +1162,7 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
+            audioElement.volume = 0.05;
             audioElement.play();
         }
     }
@@ -1174,7 +1173,16 @@ var repeatEverySec = function(){
             audioElement = document.createElement("audio");
             audioElement.type = "audio/wav";
             audioElement.src = "http://www.wavlist.com/soundfx/014/cricket-3.wav";
+            audioElement.volume = 0.05;
             audioElement.play();
+        }
+    }
+
+    if(timerReset != 0){
+        timerReset-=1
+        if(timerReset == 0){
+            $(".ui-container .right .uiEvents .heading").text("Events");
+            mogDmg = 0
         }
     }
 
@@ -1211,6 +1219,106 @@ var repeatEverySec = function(){
     }
 };
 setInterval(repeatEverySec, 1000);
+
+function addCombatMessage(txt){
+    var msg = "*"+txt+"*";
+    var color = "redA";
+    jQuery('<div class="list-message color-'+color+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
+    jQuery(".uiMessages .list").scrollTop(9999999);
+}
+addons.register({
+    init: function(events) {
+        events.on('onGetDamage',this.onGetDamage.bind(this));
+        events.on('onGetObject',this.onGetObject.bind(this));
+		events.on('onGetSpellCooldowns', this.onGetSpellCooldowns.bind(this));
+    },
+    onGetDamage: function(dmg) {
+        if (CombatLogSTATUS === "ON") {
+            if(dmg.crit !== undefined){
+                if(dmg.id !== undefined && dmg.source !== undefined){
+                    var enemyName;
+                    var action="hit";
+                    if(dmg.heal !== undefined && dmg.heal == true){
+                        action="heal";
+                    }
+                    if(window.player !== undefined && dmg.source == window.player.id){
+                        inCombatWith[dmg.id] = true;
+                        enemyName = idToName[dmg.id];
+                        addCombatMessage("You "+(dmg.crit == true ? "critically ":"")+action+" "+enemyName+" for "+ (~~dmg.amount) +" damage.");
+                    } else if(window.player !== undefined && dmg.id == window.player.id){
+                        enemyName = idToName[dmg.source];
+                        inCombatWith[dmg.source] = true;
+                        addCombatMessage(enemyName+(dmg.crit == true ? " critically":"")+" "+action+"s you for "+ (~~dmg.amount) +" damage.");
+                    }
+                }
+            } else{
+                if(dmg.event !== undefined){
+                    if(window.player !== undefined && dmg.id == window.player.id && dmg.text.indexOf(" xp") != -1){
+                        addCombatMessage("You gained "+dmg.text+".");
+                    }
+                }
+            }
+        }
+        if(dmg.crit !== undefined){
+            if(dmg.id !== undefined && dmg.source !== undefined){
+                if(window.player !== undefined && dmg.source == window.player.id){
+                    inCombatWith[dmg.id] = true;
+                    enemyName = idToName[dmg.id];
+                    if(enemyName === "m'ogresh"){
+                        timerReset = 21
+                        mogDmg+=(dmg.amount)
+                        mogDmgPercent = ~~((mogDmg/mogHp)*100)
+                        if(mogDmgPercent > 98) {mogDmgPercent = 100}
+                        if(mogDmgPercent < 15){
+                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 😑");
+                        } else if(mogDmgPercent < 50){
+                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 👍");
+                        } else if(mogDmgPercent < 100){
+                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 💪");
+                        } else if(mogDmgPercent == 100){
+                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 😎");
+                        }
+                    }
+                }
+            }
+        }
+    },
+    onGetObject: function(obj) {
+        //PVP MODE
+        if(obj.sheetName === "characters" && PvpModeSTATUS === "ON") {
+            if(obj.components[8].type !== "social"){
+                if(obj.components[8].list[0] === "butcher" || obj.components[8].list[1] === "butcher") {
+                    obj.name = "⚔️ "+obj.name+" ⚔️"
+                    if (PvpModeSTATUS === "ON" && PvpSoundSTATUS === "ON") {
+                        audioElement = document.createElement("audio");
+                        audioElement.type = "audio/wav";
+                        audioElement.src = "http://wavlist.com/soundfx/027/tomtom_hi.wav";
+                        audioElement.volume = 0.05;
+                        audioElement.play();
+                    }
+                }
+            }
+        }
+        if(obj.name !== undefined){
+            idToName[obj.id]=obj.name;
+        }
+        if (CombatLogSTATUS === "ON") {
+            if(obj.destroyed !== undefined && obj.destroyed == true){
+                if(obj.id in inCombatWith){
+                    addCombatMessage(idToName[obj.id] + " has been killed.");
+                    delete inCombatWith[obj.id];
+                }
+            }
+        }
+    },
+	onGetSpellCooldowns: function(spell) {
+        if (CombatLogSTATUS === "ON") {
+            if(spell.id !== undefined && window.player !== undefined && spell.id == window.player.id && spell.spell !== undefined){
+                addCombatMessage("You cast "+window.player.spellbook.getSpell(spell.spell).name);
+            }
+        }
+    }
+});
 
 // GET REPLY + COMMAND LIST
 var funy = function(){
@@ -1426,6 +1534,8 @@ var funy = function(){
         }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Combat log Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The log is on the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drop/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Disable it with /combat log off"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/combat log off"){
@@ -1449,6 +1559,7 @@ var funy = function(){
         }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Pvp mode Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Butcher now have ⚔️ on name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Report me if it doesn't work with some player"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 8) == "/pvp off"){
