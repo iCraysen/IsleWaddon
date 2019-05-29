@@ -158,7 +158,7 @@ window.MenuADDON = function(){
     src += QuestHideSTATUS+tooltipTextEnd+'<font color="green">'+"/quest hide on"+'</font>'+"<br>to hide the quest tab<br>"+'<font color="red">'+"/quest hide off"+'</font>'+"<br>to show the quest tab again"+'</span></div></td>'
     src += L11
     if (MapSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += MapSTATUS+tooltipTextEnd+"Press "+MapKey+" to open the MiniMap<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>Change the Scale<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>Change the Opacity<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+"<br>Change the Position<br>"+'<font color="green">'+"/reset map"+'</font>'+"<br>to reset the map settings"+'</span></div></td>'
+    src += MapSTATUS+tooltipTextEnd+"Press "+MapKey+" to open the MiniMap<br>⚠️ You can only open/close the map if you have this menu open<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>Change the Scale<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>Change the Opacity<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+"<br>Change the Position<br>"+'<font color="green">'+"/reset map"+'</font>'+"<br>to reset the map settings"+'</span></div></td>'
     src += L12
     if (StatsRangeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
     src += StatsRangeSTATUS+tooltipTextEnd+"Add more informations about stats range on the gear<br>"+'<font color="green">'+"/stats range on"+'</font>'+"<br>to enable the stats range<br>"+'<font color="red">'+"/stats range off"+'</font>'+"<br>to disable"+'</span></div></td>'
@@ -299,8 +299,7 @@ addons.register({
         }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded for IWD 0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Press '"+MenuKey+"' to open the Status Menu"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Report me (Loupii#6924) any bug on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Added Spirit Mode"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify that this add-on doesn't produce lag/fps drop. Report me (Loupii#6924) any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
 
