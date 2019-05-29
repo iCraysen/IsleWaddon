@@ -417,7 +417,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime = 143;
+                window.respawnTime = 141;
             }
             if(obj.name === "Stinktooth"){
 
