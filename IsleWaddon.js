@@ -417,7 +417,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime = 141;
+                window.respawnTime = 143;
             }
             if(obj.name === "Stinktooth"){
 
@@ -1254,13 +1254,13 @@ var repeatEverySec = function(){
             document.getElementById('DisplayMenu').textContent = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime);
         }
 
-        if(window.respawnTime1 == 1){
+        if(window.respawnTime1 == 0){
             document.getElementById('DisplayMenu1').textContent = "";
         }
-        if(window.respawnTime2 == 1){
+        if(window.respawnTime2 == 0){
             document.getElementById('DisplayMenu2').textContent = "";
         }
-        if(window.respawnTime == 1){
+        if(window.respawnTime == 0){
             document.getElementById('DisplayMenu').textContent = "";
         }
     }
