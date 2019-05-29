@@ -167,7 +167,7 @@ window.MenuADDON = function(){
     src += CombatLogSTATUS+tooltipTextEnd+"Add combat log in the "+'<font color="green">'+"Reputation"+'</font>'+" chat<br>"+'<font color="green">'+"/combat log on"+'</font>'+"<br>to enable the combat log<br>"+'<font color="red">'+"/combat log off"+'</font>'+"<br>to disable"+'</span></div></td>'
     src += L14
     if (SpiritModeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += SpiritModeSTATUS+tooltipTextEnd+"Add 🦉 on OWL<br>🐻 on BEAR<br>🐯 on LYNX<br>"+'<font color="green">'+"/spirit on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/spirit off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    src += "DISABLED"+tooltipTextEnd+"⚠️DISABLED⚠️<br>Add 🦉 on OWL<br>🐻 on BEAR<br>🐯 on LYNX<br>"+'<font color="green">'+"/spirit on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/spirit off"+'</font>'+"<br>to disable"+'</span></div></td>'
     src += L15
     if (PvpModeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
     src += PvpModeSTATUS+tooltipTextEnd+"Add ⚔️ to the butcher character<br>"+'<font color="green">'+"/pvp on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/pvp off"+'</font>'+"<br>to disable"+'</span></div></td>'
@@ -514,7 +514,7 @@ addons.register({
         }
         // PVP MODE + SPIRIT MODE
         if(obj.class === "owl" || obj.class === "bear" || obj.class === "lynx") {
-            if (SpiritModeSTATUS === "ON" ) {
+            if (SpiritModeSTATUS === "DISABLED" ) {
                 if(obj.class === "owl") { obj.name = "🦉"+obj.name }
                 else if(obj.class === "bear") { obj.name = "🐻"+obj.name }
                 else if(obj.class === "lynx") { obj.name = "🐯"+obj.name }
