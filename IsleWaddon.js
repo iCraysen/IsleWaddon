@@ -856,7 +856,7 @@ function expandItemStats(obj) {
                 text = $(this).html();
                 $(this).html(text.replaceAll("cast speed", "cast speed <font color="+colorTooltip+">[1-8.75]</font>"));
                 text = $(this).html();
-                $(this).html(text.replaceAll("attack speed", "cast speed <font color="+colorTooltip+">[1-8.75]</font>"));
+                $(this).html(text.replaceAll("attack speed", "attack speed <font color="+colorTooltip+">[1-8.75]</font>"));
                 text = $(this).html();
                 $(this).html(text.replaceAll("sprint chance", "sprint chance <font color="+colorTooltip+">[1-20]</font>"));
                 text = $(this).html();
