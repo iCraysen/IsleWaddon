@@ -226,34 +226,34 @@ addons.register({
 
 		this.uiDisplayVersion.css({
             'position': "absolute",
-            'left': (this.uiContainer[0].clientWidth / 2.3),
-            'top':  (this.uiContainer[0].clientHeight / 60) ,
+            'left': "632px",
+            'top':  "10px",
             'background-color': "#3c3f4c",
-            'border': "",
+            'border': "10px",
             'color':"#ffeb38",
 		});
 		this.uiDisplayMenu.css({
             'position': "absolute",
-            'left': (this.uiContainer[0].clientWidth / 2.3),
-            'top':  (this.uiContainer[0].clientHeight / 25) ,
+            'left': "632px",
+            'top':  "30px",
             'background-color': "#3c3f4c",
-            'border': "",
+            'border': "5px",
             'color':"#ffffff",
 		});
 		this.uiDisplayMenu1.css({
             'position': "absolute",
-            'left': (this.uiContainer[0].clientWidth / 2.3),
-            'top':  (this.uiContainer[0].clientHeight / 15.4) ,
+            'left': "632px",
+            'top':  "50px",
             'background-color': "#3c3f4c",
-            'border': "",
+            'border': "5px",
             'color':"#ffffff",
 		});
 		this.uiDisplayMenu2.css({
             'position': "absolute",
-            'left': (this.uiContainer[0].clientWidth / 2.3),
-            'top':  (this.uiContainer[0].clientHeight / 11) ,
+            'left': "632px",
+            'top':  "70px",
             'background-color': "#3c3f4c",
-            'border': "",
+            'border': "5px",
             'color':"#ffffff",
 		});
 		this.uiDisplayVersion.css("display", "none");
