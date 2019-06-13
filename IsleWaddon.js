@@ -752,7 +752,7 @@ function expandItemStats(obj) {
             else {weaponMult = 1;}
             // DAMAGE
             if(obj.slot === "twoHanded" || obj.slot === "oneHanded") {
-                if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]<";}
+                if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]";}
                 else if(obj.type === "Sword") {rangeDmg = "[1.47-9.65]";}
                 else if(obj.type === "Dagger") {rangeDmg = "[0.88-5.79]";}
                 else if(obj.type === "Wand") {rangeDmg = "[1.17-7.72]";}
