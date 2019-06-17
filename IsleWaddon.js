@@ -888,7 +888,7 @@ function expandFishingRodTooltip(obj) {
             text = $(this).html();
             $(this).html(text.replaceAll("increased fish weight", "increased fish weight <font color="+colorTooltip+">[0-75]</font>"));
             text = $(this).html();
-            $(this).html(text.replaceAll("extra chance to hook items", "extra chance to hook items <font color="+colorTooltip+">[0-30]</font>"));
+            $(this).html(text.replaceAll("extra chance to hook items", "extra chance to hook items <font color="+colorTooltip+">[0-50]</font>"));
         });
     }
 }
