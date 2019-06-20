@@ -37,7 +37,6 @@ You need to remove the old add-on version from you TamperMonkey :
 - Rune stats range : Show the min/max stats of a rune
   Link to my work : https://docs.google.com/spreadsheets/d/19QyBzRNMCFd3l8GwQPfDfPvwvXO_vnDtY3IHFa6kQeU/edit?usp=sharing
 - Combat Log : Add a combat log in the "reputation" chat
-- Pvp Mode : Add ⚔️ in butcher name + sound when a butcher is near you
 - Little Feature :
   - Add how much set of card you can trade
   - Show how much time you have played on a char
