@@ -1,10 +1,8 @@
 // DEFAULT SETTINGS //
-var MenuKey = "b"
 var SalvageKey = "f"
-var MapKey = "n"
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
-var Version = "4.1"
+var Version = "5"
 var audioElement
 var gameStarted = "OFF"
 
@@ -47,10 +45,6 @@ var TimerSTATUS = localStorage.getItem('isleWaddonTimer')
 if(TimerSTATUS === undefined || TimerSTATUS === null){
     TimerSTATUS = "ON"
 }
-var ShowVersionSTATUS = localStorage.getItem('isleWaddonShowVersion')
-if(ShowVersionSTATUS === undefined || ShowVersionSTATUS === null){
-    ShowVersionSTATUS = "OFF"
-}
 var TimerSoundSTATUS = localStorage.getItem('isleWaddonTimerSound')
 if(TimerSoundSTATUS === undefined || TimerSoundSTATUS === null){
     TimerSoundSTATUS = "ON"
@@ -67,50 +61,35 @@ var QuestHideSTATUS = localStorage.getItem('isleWaddonHideQuest')
 if(QuestHideSTATUS === undefined || QuestHideSTATUS === null){
     QuestHideSTATUS = "OFF"
 }
-var PvpModeSTATUS = localStorage.getItem('isleWaddonPvpMode')
-if(PvpModeSTATUS === undefined || PvpModeSTATUS === null){
-    PvpModeSTATUS = "OFF"
-}
-var PvpSoundSTATUS = localStorage.getItem('isleWaddoPvpSoundn')
-if(PvpSoundSTATUS === undefined || PvpSoundSTATUS === null){
-    PvpSoundSTATUS = "OFF"
-}
 var CombatLogSTATUS = localStorage.getItem('isleWaddonCombatLog')
 if(CombatLogSTATUS === undefined || CombatLogSTATUS === null){
     CombatLogSTATUS = "OFF"
-}
-var SpiritModeSTATUS = localStorage.getItem('isleWaddonSpiritMode')
-if(SpiritModeSTATUS === undefined || SpiritModeSTATUS === null){
-    SpiritModeSTATUS = "OFF"
 }
 
 // ALL STATUS MENU SETUP //
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
-var L1 = tooltipTextStart+"------------STATUS ADDON------------"
-var L2 = tooltipTextStart+"Put your cursor here or type /help"
-var L3 = tooltipTextStart+"Version : "+Version
-var L4 = tooltipTextStart+"Usefull link"
-var L5 = tooltipTextStart+"Easy Salvage | "
-var L6 = tooltipTextStart+"Timer ⏳ | "
-var L7 = tooltipTextStart+"--Timer Sound | "
-var L8 = tooltipTextStart+"Whisper"
-var L9 = tooltipTextStart+"--Whisper Sound | "
-var L10 = tooltipTextStart+"Quest Hided | "
-var L11 = tooltipTextStart+"Map | "
-var L12 = tooltipTextStart+"Stats range | "
-var L13 = tooltipTextStart+"Combat Log | "
-var L14 = tooltipTextStart+"Spirit mode | "
-var L15 = tooltipTextStart+"Pvp mode ⚔️ | "
-var L16 = tooltipTextStart+"--Pvp mode Sound | "
-var L17 = tooltipTextStart+"+ Little Feature"
+var L1 = tooltipTextStart+"╔═════ISLEWADDON═════"
+var L2 = tooltipTextStart+"║Hover here 🔍"
+var L3 = tooltipTextStart+"║Version : "+Version
+var L4 = tooltipTextStart+"║ "
+var L5 = tooltipTextStart+"║Easy Salvage "
+var L6 = tooltipTextStart+"║Timer ⏳ "
+var L7 = tooltipTextStart+"║►Timer Sound "
+var L8 = tooltipTextStart+"║Whisper"
+var L9 = tooltipTextStart+"║►Whisper Sound "
+var L10 = tooltipTextStart+"║Quest Hided "
+var L11 = tooltipTextStart+"║Map "
+var L12 = tooltipTextStart+"║Stats range "
+var L13 = tooltipTextStart+"║Combat Log "
+var L14 = tooltipTextStart+"║+ Little Feature"
+var L15 = tooltipTextStart+"╚══════════════════"
 var tooltipStyle =
     `<style>
 /* Tooltip container */
 .tooltip {
 position: relative;
 display: inline-block;
-border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -134,47 +113,86 @@ visibility: visible;
 </style>
 `
 window.MenuADDON = function(){
-    window.menu = jQuery('<div class="addon-loader" style="position:absolute;left:500px;"></div>').appendTo(jQuery('.ui-container'))
+    window.menu = jQuery('<div class="addon-loader" style="position:absolute;right:10px;bottom:230px;"></div>').appendTo(jQuery('.ui-container'))
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">'
-    src += L1+tooltipTextEnd+"Press "+MenuKey+" to open/close the menu<br>Enjoy this add-on :p"+'</span></div></td>'
+    src += L1+tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"+'</span></div></td>'
     src += L2+tooltipTextEnd+"Put your cursor on all the menu !"+'</span></div></td>'
-    src += L3+tooltipTextEnd+'<font color="green">'+"/show version on"+'</font>'+"<br>to always show the version<br>"+'<font color="red">'+"/show version off"+'</font>'+"<br>to disable"+'</span></div></td>'
-    src += L4+tooltipTextEnd+'<font color="green">'+"/discord isleward<br>/discord isleWaddon<br>/wiki<br>"+'</font>'+"to directly get the link"+'</span></div></td>'
+    src += L3+tooltipTextEnd+"Current add-on Version"+'</span></div></td>'
+    var onClickLinkW =`window.ButtonLinkW()`
+    var drawButtonLinkW = '<button id="ButtonLinkW" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkW+'" type="button">Wiki</button>'
+    var onClickLinkD =`window.ButtonLinkD()`
+    var drawButtonLinkD = '<button id="ButtonPvpLinkD" style="color:rgb(0,0,0); width:65px; background:rgb(55,67,232);" onclick="'+onClickLinkD+'" type="button">Discord</button>'
+    var onClickLinkM =`window.ButtonLinkM()`
+    var drawButtonLinkM = '<button id="ButtonLinkM" style="color:rgb(0,0,0); width:40px; background:rgb(174, 13, 221);" onclick="'+onClickLinkM+'" type="button">Map</button>'
+    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+'<span class="tooltiptext">'+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+'</span></div></td>'
     src += L5
-    if (SalvageSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += SalvageSTATUS+tooltipTextEnd+"Press "+SalvageKey+" on an item to salvage it<br>"+'<font color="green">'+"/easy salvage on"+'</font>'+"<br>to enable the easy salvage<br>"+'<font color="red">'+"/easy salvage off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    var onClickButtonSalvage =`window.ButtonPressSalvage()`
+    if (SalvageSTATUS === "ON") {
+        var drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonSalvage+'" type="button">On</button>'
+    }else{
+        drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonSalvage+'" type="button">Off</button>'
+    }
+    src += drawButtonSalvage+'<span class="tooltiptext">'+"Enable to fast salvage by pressing "+'<font color="green">'+SalvageKey+'</font>'+" on an item<br>"+'</span></div></td>'
     src += L6
-    if (TimerSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += TimerSTATUS+tooltipTextEnd+"Timer show when bosses respawn<br>"+'<font color="green">'+"/timer on"+'</font>'+"<br>to enable the timer<br>"+'<font color="red">'+"/timer off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    var onClickButtonTimer =`window.ButtonPressTimer()`
+    if (TimerSTATUS === "ON") {
+        var drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimer+'" type="button">On</button>'
+    }else{
+        drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimer+'" type="button">Off</button>'
+    }
+    src += drawButtonTimer+'<span class="tooltiptext">'+"Add in-game timer that show when boss respawn"+'</span></div></td>'
     src += L7
-    if (TimerSoundSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += TimerSoundSTATUS+tooltipTextEnd+"Play a sound when the bosses will respawn<br>"+'<font color="green">'+"/timer sound on"+'</font>'+"<br>to enable the timer sound <br>"+'<font color="red">'+"/timer sound off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    var onClickButtonTimerSound =`window.ButtonPressTimerSound()`
+    if (TimerSoundSTATUS === "ON") {
+        var drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:60px; background:rgb(0,255,0);" onclick="'+onClickButtonTimerSound+'" type="button">On 🔊</button>'
+    }else{
+        drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:60px; background:rgb(255,0,0);" onclick="'+onClickButtonTimerSound+'" type="button">Off 🔈</button>'
+    }
+    src += drawButtonTimerSound+'<span class="tooltiptext">'+"Play a sound before the boss respawn"+'</span></div></td>'
     src += L8+tooltipTextEnd+"Use "+'<font color="green">'+"/r"+'</font>'+" to easy respond to whisper"+'</span></div></td>';
     src += L9
-    if (WhisperSoundSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += WhisperSoundSTATUS+tooltipTextEnd+"Play a sound when you receive a whisper<br>"+'<font color="green">'+"/whisp sound on"+'</font>'+"<br>to enable the whisper sound<br>"+'<font color="red">'+"/whisp sound off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    var onClickButtonWhisperSound =`window.ButtonPressWhisperSound()`
+    if (WhisperSoundSTATUS === "ON") {
+        var drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:60px; background:rgb(0,255,0);" onclick="'+onClickButtonWhisperSound+'" type="button">On 🔊</button>'
+    }else{
+        drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:60px; background:rgb(255,0,0);" onclick="'+onClickButtonWhisperSound+'" type="button">Off 🔈</button>'
+    }
+    src += drawButtonWhisperSound+'<span class="tooltiptext">'+"Play a sound when you receive a whisper"+'</span></div></td>'
     src += L10
-    if (QuestHideSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += QuestHideSTATUS+tooltipTextEnd+'<font color="green">'+"/quest hide on"+'</font>'+"<br>to hide the quest tab<br>"+'<font color="red">'+"/quest hide off"+'</font>'+"<br>to show the quest tab again"+'</span></div></td>'
+    var onClickButtonQuestHide =`window.ButtonPressQuestHide()`
+    if (QuestHideSTATUS === "ON") {
+        var drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonQuestHide+'" type="button">On</button>'
+    }else{
+        drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonQuestHide+'" type="button">Off</button>'
+    }
+    src += drawButtonQuestHide+'<span class="tooltiptext">'+"Hide the Quests tab"+'</span></div></td>'
     src += L11
-    if (MapSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += MapSTATUS+tooltipTextEnd+"Press "+MapKey+" to open the MiniMap<br>⚠️ You can only open/close the map if you have this menu open<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>Change the Scale<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>Change the Opacity<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+"<br>Change the Position<br>"+'<font color="green">'+"/reset map"+'</font>'+"<br>to reset the map settings"+'</span></div></td>'
+    var onClickButtonMap =`window.ButtonPressMap()`
+    var onClickButtonMapReset =`window.ButtonPressMapReset()`
+    var drawButtonMapReset = '<button id="ButtonMap" style="color:rgb(0,0,0); width:55px; background:rgb(139,145,232);" onclick="'+onClickButtonMapReset+'" type="button">Reset</button>'
+    if (MapSTATUS === "ON") {
+        var drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonMap+'" type="button">On</button>'
+    }else{
+        drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">Off</button>'
+    }
+    src += drawButtonMap+" "+drawButtonMapReset+'<span class="tooltiptext">'+"In-game map<br>►Change the Scale<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>►Change the Opacity<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>►Change the Position<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+""+'</span></div></td>'
     src += L12
-    if (StatsRangeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += StatsRangeSTATUS+tooltipTextEnd+"Add more informations about stats range on the gear<br>"+'<font color="green">'+"/stats range on"+'</font>'+"<br>to enable the stats range<br>"+'<font color="red">'+"/stats range off"+'</font>'+"<br>to disable"+'</span></div></td>'
+    var onClickButtonStatsRange =`window.ButtonPressStatsRange()`
+    if (StatsRangeSTATUS === "ON") {
+        var drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonStatsRange+'" type="button">On</button>'
+    }else{
+        drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">Off</button>'
+    }
+    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about stats roll range on the gear"+'</span></div></td>'
     src += L13
-    if (CombatLogSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += CombatLogSTATUS+tooltipTextEnd+"Add combat log in the "+'<font color="green">'+"Reputation"+'</font>'+" chat<br>"+'<font color="green">'+"/combat log on"+'</font>'+"<br>to enable the combat log<br>"+'<font color="red">'+"/combat log off"+'</font>'+"<br>to disable"+'</span></div></td>'
-    src += L14
-    if (SpiritModeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += "DISABLED"+tooltipTextEnd+"⚠️DISABLED⚠️<br>Add 🦉 on OWL<br>🐻 on BEAR<br>🐯 on LYNX<br>"+'<font color="green">'+"/spirit on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/spirit off"+'</font>'+"<br>to disable"+'</span></div></td>'
-    src += L15
-    if (PvpModeSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += PvpModeSTATUS+tooltipTextEnd+"Add ⚔️ to the butcher character<br>"+'<font color="green">'+"/pvp on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/pvp off"+'</font>'+"<br>to disable"+'</span></div></td>'
-    src += L16
-    if (PvpSoundSTATUS == "ON") { src += '</font><font color="green">' } else { src += '</font><font color="red">' }
-    src += PvpSoundSTATUS+tooltipTextEnd+"Play a sound when a butcher is near you<br>"+'<font color="green">'+"/pvp sound on"+'</font>'+"<br>to enable<br>"+'<font color="red">'+"/pvp sound off"+'</font>'+"<br>to disable"+'</span></div></td>'
-
+    var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
+    if (CombatLogSTATUS === "ON") {
+        var drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonCombatLog+'" type="button">On</button>'
+    }else{
+        drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonCombatLog+'" type="button">Off</button>'
+    }
+    src += drawButtonCombatLog+'<span class="tooltiptext">'+"Add combat log in the "+'<font color="green">'+"Reputation"+'</font>'+" chat<br>⚠️ Can cause lag/fps drop"+'</span></div></td>'
+    if(gameStarted === "ON") {
     var numhours = parseInt(player.stats.stats.played / 3600);
     var numminutes = parseInt((player.stats.stats.played % 3600) / 60);
     var TextPlayed = "";
@@ -185,14 +203,179 @@ window.MenuADDON = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += L17+tooltipTextEnd+"Add number of set you can trade to Vikar<br>Add runes stats range<br>You already play with this character for :<br>"+TextPlayed+'</span></div></td>';
-    src += '</table>';
+    src += L14+tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range<br>► You already play with this character for :<br>"+TextPlayed+'</span></div></td>'
+    }else{
+        src += L14+tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range"+'</span></div></td>'
+    }
+    src += L15+tooltipTextEnd+"This is a line"+'</span></div></td>'+'</table>';
     window.menu.html(src);
+}
+
+//BUTTON CODE//
+function menuSound(){
+    var audioElement = document.createElement("audio");
+    audioElement.type = "audio/wav";
+    audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
+    audioElement.volume = 0.2;
+    audioElement.play();
+}
+window.menuButton = function(){
+    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:10px;right:436px;"></div>').appendTo(jQuery('.ui-container'));
+    var src = tooltipStyle+'<table bgcolor="#3c3f4c">';
+    var onClick =`window.menuButtonPress()`
+    var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:95px; background:rgb(58,59,74,0.9);" onclick="'+onClick+'" type="button">IsleWaddon Menu</button>';
+    src += '<tr><td></td><td>'+drawButton+'</td>';
+    src += "</table>";
+    window.menuButtonTooltip.html(src);
+}
+window.menuButtonPress = function(){
+    menuSound()
+    jQuery(".menuButton").css("display","none");
+    window.menuButton();
+    if (MenuSTATUS === "OFF"){
+        window.MenuADDON();
+        MenuSTATUS = "ON"
+    }else{
+        MenuSTATUS = "OFF";
+        jQuery(".addon-loader").css("display","none");
+    }
+}
+window.ButtonLinkW = function(){
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    window.open('http://wiki.isleward.com/Main_Page', '_blank');
+}
+window.ButtonLinkD = function(){
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    window.open('https://discord.gg/3P43RRb', '_blank');
+}
+window.ButtonLinkM = function(){
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    window.open('https://polfy.github.io/isleward-wiki-map/Zone/Fjolarok/', '_blank');
+}
+window.ButtonPressSalvage = function(){
+    menuSound()
+    if(SalvageSTATUS === "ON") {
+        SalvageSTATUS = "OFF"
+    } else {
+        SalvageSTATUS = "ON"
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on a item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        jQuery(".uiMessages .list").scrollTop(9999999);
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
+}
+window.ButtonPressTimer = function(){
+    menuSound()
+    if(TimerSTATUS === "ON") {
+        jQuery(".Add-onTimer").css("display","none");
+        TimerSTATUS = "OFF"
+        TimerSoundSTATUS = "OFF"
+    } else {
+        TimerSTATUS = "ON"
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonTimer', TimerSTATUS)
+}
+window.ButtonPressTimerSound = function(){
+    menuSound()
+    if(TimerSoundSTATUS === "ON") {
+        TimerSoundSTATUS = "OFF"
+    } else {
+        TimerSoundSTATUS = "ON"
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
+}
+window.ButtonPressWhisperSound = function(){
+    menuSound()
+    if(WhisperSoundSTATUS === "ON") {
+        WhisperSoundSTATUS = "OFF"
+    } else {
+        WhisperSoundSTATUS = "ON"
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonWhisperSound', WhisperSoundSTATUS)
+}
+window.ButtonPressQuestHide = function(){
+    menuSound()
+    if(QuestHideSTATUS === "ON") {
+        QuestHideSTATUS = "OFF"
+        $(".ui-container .right .uiQuests .heading").text("Quests");
+        $(".ui-container .right .uiQuests .list").toggle(true);
+    } else {
+        QuestHideSTATUS = "ON"
+        $(".ui-container .right .uiQuests .heading").text("Quests hided ❌ ");
+        $(".ui-container .right .uiQuests .list").toggle(false);
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonHideQuest', QuestHideSTATUS)
+}
+window.ButtonPressMap = function(){
+    menuSound()
+    if(MapSTATUS === "ON") {
+        MapSTATUS = "FF";
+        window.toggleMap();
+        jQuery(".addon-loader").css("display","none");
+        window.MenuADDON();
+    } else {
+        MapSTATUS = "ON";
+        window.toggleMap();
+        jQuery(".addon-loader").css("display","none");
+        window.MenuADDON();
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+}
+window.ButtonPressMapReset = function(){
+    menuSound()
+    window.mapScale = 2;
+    window.xOffset=0;
+    window.yOffset=0;
+    window.opacity=1;
+    window.drawMap();
+    localStorage.setObject('islewardMinimap', {xOffset:window.xOffset, yOffset:window.yOffset,mapScale:window.mapScale,opacity:window.opacity});
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+}
+window.ButtonPressStatsRange = function(){
+    menuSound()
+    if(StatsRangeSTATUS === "ON") {
+        StatsRangeSTATUS = "OFF"
+    } else {
+        StatsRangeSTATUS = "ON"
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonStatsRange', StatsRangeSTATUS)
+}
+window.ButtonPressCombatLog = function(){
+    menuSound()
+    if(CombatLogSTATUS === "ON") {
+        CombatLogSTATUS = "OFF"
+    } else {
+        CombatLogSTATUS = "ON"
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The Combat log is on the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drop/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        jQuery(".uiMessages .list").scrollTop(9999999);
+    }
+    jQuery(".addon-loader").css("display","none");
+    window.MenuADDON();
+    localStorage.setItem('isleWaddonCombatLog', CombatLogSTATUS)
 }
 // EVENT REGISTER
 addons.register({
     init: function(events) {
         // ALL EVENT USED //
+        events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
+        events.on('onGetItems', this.onGetItems.bind(this));
         events.on('onBuiltItemTooltip', this.onBuiltItemTooltip.bind(this));
         events.on('onShowItemTooltip', this.onShowItemTooltip.bind(this));
         events.on('onHideItemTooltip', this.onHideItemTooltip.bind(this));
@@ -212,54 +395,11 @@ addons.register({
         // COMBAT LOG
 		events.on('onGetSpellCooldowns', this.onGetSpellCooldowns.bind(this));
         events.on('onGetDamage',this.onGetDamage.bind(this));
-
+    },
 		// AFFICHAGE SETUP //
-        this.uiContainer = $('.ui-container');
-		this.uiDisplayVersion = $('<div id = "DisplayVersion" class="addon-uiCoordinate"></div>')
-            .appendTo(this.uiContainer);
-		this.uiDisplayMenu = $('<div id = "DisplayMenu" class="addon-uiCoordinate"></div>')
-            .appendTo(this.uiContainer);
-		this.uiDisplayMenu1 = $('<div id = "DisplayMenu1" class="addon-uiCoordinate"></div>')
-            .appendTo(this.uiContainer);
-		this.uiDisplayMenu2 = $('<div id = "DisplayMenu2" class="addon-uiCoordinate"></div>')
-            .appendTo(this.uiContainer);
 
-		this.uiDisplayVersion.css({
-            'position': "absolute",
-            'left': "632px",
-            'top':  "10px",
-            'background-color': "#3c3f4c",
-            'border': "10px",
-            'color':"#ffeb38",
-		});
-		this.uiDisplayMenu.css({
-            'position': "absolute",
-            'left': "632px",
-            'top':  "30px",
-            'background-color': "#3c3f4c",
-            'border': "5px",
-            'color':"#ffffff",
-		});
-		this.uiDisplayMenu1.css({
-            'position': "absolute",
-            'left': "632px",
-            'top':  "50px",
-            'background-color': "#3c3f4c",
-            'border': "5px",
-            'color':"#ffffff",
-		});
-		this.uiDisplayMenu2.css({
-            'position': "absolute",
-            'left': "632px",
-            'top':  "70px",
-            'background-color': "#3c3f4c",
-            'border': "5px",
-            'color':"#ffffff",
-		});
-		this.uiDisplayVersion.css("display", "none");
-		this.uiDisplayMenu.css("display", "none");
-		this.uiDisplayMenu1.css("display", "none");
-		this.uiDisplayMenu2.css("display", "none");
+    onResourcesLoaded: function(obj) {
+        window.menuButton();
     },
 
     onShowItemTooltip: function(obj) {
@@ -271,6 +411,15 @@ addons.register({
         }
 
     },
+
+    onGetItems: function(items) {
+        if(items.name === "Rune of Smokebomb"){
+            items.sprite[0] = 10
+            items.sprite[1] = 3
+            items.spritesheet = '../../../images/abilityIcons.png'
+        }
+    },
+
     onHideItemTooltip: function(obj) {
         Obj = -1;
         itemPos = -1;
@@ -285,20 +434,11 @@ addons.register({
             window.collisionMap = mapData.collisionMap;
             window.map = mapData.map;
         }
-		this.uiDisplayVersion.css("display", "block");
-		this.uiDisplayMenu.css("display", "block");
-		this.uiDisplayMenu1.css("display", "block");
-		this.uiDisplayMenu2.css("display", "block");
     },
 
     onEnterGame: function(obj) {
         gameStarted = "ON"
-        if(ShowVersionSTATUS === "ON"){
-            document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.2";
-            jQuery(".addon-loader").css("display","none");
-        }
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded for IWD 0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"Press '"+MenuKey+"' to open the Status Menu"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Report me (Polfy#6924) any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
@@ -331,28 +471,7 @@ addons.register({
 	onKeyDown: function(key) {
         if (!key) {
             return;
-        } else if (MenuSTATUS == "OFF" && key == MenuKey) {
-            MenuSTATUS = "ON";
-            document.getElementById('DisplayMenu1').textContent = "";
-            document.getElementById('DisplayMenu2').textContent = "";
-            document.getElementById('DisplayMenu').textContent = "";
-            window.MenuADDON();
-        } else if (MenuSTATUS == "ON") {
-			if (key == MenuKey) {
-				MenuSTATUS = "OFF";
-                jQuery(".addon-loader").css("display","none");
-			} else if (MapSTATUS == "OFF" && key == MapKey) {
-                MapSTATUS = "ON";
-                window.toggleMap();
-				jQuery(".addon-loader").css("display","none");
-				window.MenuADDON();
-			} else if (MapSTATUS == "ON" && key == MapKey) {
-                MapSTATUS = "OFF";
-                window.toggleMap();
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-			}
-		} else if (SalvageSTATUS == "ON" && key == SalvageKey) {
+        } else if (SalvageSTATUS == "ON" && key == SalvageKey) {
             if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
                 jQuery(".ui-container .uiInventory .grid .item").eq(itemPos).find(".icon").contextmenu();
                 for(var i=0;i< $(".uiContext .list .option").length;++i){
@@ -407,7 +526,7 @@ addons.register({
             mogHp = obj.components[1].values.hpMax;
         }
         if(TimerSTATUS == "ON") {
-            if(obj.name === "m'ogresh"){
+            if(obj.name === "Pig"){ //m'ogresh
                 window.bossID = obj.id;
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
                     window.lastRespawned = new Date();
@@ -417,7 +536,9 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime = 146;
+                //window.respawnTime = 146+1;
+                window.respawnTime = 20;
+                window.respawnTime2 = 146+1;
             }
             if(obj.name === "Stinktooth"){
 
@@ -430,7 +551,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime1 = 60;
+                window.respawnTime1 = 60+1;
             }
 
             if(obj.name === "Steelclaw"){
@@ -450,7 +571,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime1 = 60;
+                window.respawnTime1 = 60+1;
             }
 
             if(obj.name === "Radulos"){
@@ -464,7 +585,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                window.respawnTime2 = 600;
+                window.respawnTime2 = 600+1;
             }
         }
         // MAP
@@ -509,26 +630,6 @@ addons.register({
                 if(obj.destroyed !== undefined && obj.destroyed == true){
                     jQuery(".minimapName."+window.thingsToDraw[obj.id].name).remove();
                     delete window.thingsToDraw[obj.id];
-                }
-            }
-        }
-        // PVP MODE + SPIRIT MODE
-        if(obj.class === "owl" || obj.class === "bear" || obj.class === "lynx") {
-            if (SpiritModeSTATUS === "DISABLED" ) {
-                if(obj.class === "owl") { obj.name = "🦉"+obj.name }
-                else if(obj.class === "bear") { obj.name = "🐻"+obj.name }
-                else if(obj.class === "lynx") { obj.name = "🐯"+obj.name }
-            }
-            if(PvpModeSTATUS === "ON" && obj.components[8].type !== "social") {
-                if(obj.components[8].list[0] === "butcher" || obj.components[8].list[1] === "butcher" || obj.components[8].list[2] === "butcher" || obj.components[8].list[3] === "butcher" || obj.components[8].list[4] === "butcher") {
-                    obj.name = "⚔️ "+obj.name+" ⚔️"
-                    if (PvpModeSTATUS === "ON" && PvpSoundSTATUS === "ON") {
-                        audioElement = document.createElement("audio");
-                        audioElement.type = "audio/wav";
-                        audioElement.src = "http://wavlist.com/soundfx/027/tomtom_hi.wav";
-                        audioElement.volume = 0.2;
-                        audioElement.play();
-                    }
                 }
             }
         }
@@ -602,7 +703,7 @@ addons.register({
                     inCombatWith[dmg.id] = true;
                     enemyName = idToName[dmg.id];
                     if(enemyName === "m'ogresh"){
-                        timerReset = 21
+                        timerReset = 31
                         mogDmg+=(dmg.amount)
                         mogDmgPercent = ~~((mogDmg/mogHp)*100)
                         if(mogDmgPercent > 98) {mogDmgPercent = 100}
@@ -888,7 +989,7 @@ function expandFishingRodTooltip(obj) {
             text = $(this).html();
             $(this).html(text.replaceAll("increased fish weight", "increased fish weight <font color="+colorTooltip+">[0-75]</font>"));
             text = $(this).html();
-            $(this).html(text.replaceAll("extra chance to hook items", "extra chance to hook items <font color="+colorTooltip+">[0-50]</font>"));
+            $(this).html(text.replaceAll("extra chance to hook items", "extra chance to hook items <font color="+colorTooltip+">[0-30]</font>"));
         });
     }
 }
@@ -1243,29 +1344,51 @@ var repeatEverySec = function(){
             .filter((v,i) => v !== "00" || i > 0)
             .join(":")
     }
-    if(MenuSTATUS == "OFF") {
-        if(window.respawnTime1 != 0 && TimerSTATUS == "ON"){
-            document.getElementById('DisplayMenu1').textContent = "Stinktooth respawns in "+ toHHMMSS(window.respawnTime1);
-        }
-        if(window.respawnTime2 != 0 && TimerSTATUS == "ON"){
-            document.getElementById('DisplayMenu2').textContent = "Radulos respawns in "+ toHHMMSS(window.respawnTime2);
-        }
-        if(window.respawnTime != 0 && TimerSTATUS == "ON"){
-            document.getElementById('DisplayMenu').textContent = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime);
-        }
-
-        if(window.respawnTime1 == 0){
-            document.getElementById('DisplayMenu1').textContent = "";
-        }
-        if(window.respawnTime2 == 0){
-            document.getElementById('DisplayMenu2').textContent = "";
-        }
-        if(window.respawnTime == 0){
-            document.getElementById('DisplayMenu').textContent = "";
-        }
+    if(window.respawnTime1 != 0 && TimerSTATUS == "ON"){
+        L1T = "Stinktooth respawns in "+ toHHMMSS(window.respawnTime1-1);
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
+    }
+    if(window.respawnTime2 != 0 && TimerSTATUS == "ON"){
+        L2T = "Radulos respawns in "+ toHHMMSS(window.respawnTime2-1);
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
+    }
+    if(window.respawnTime != 0 && TimerSTATUS == "ON"){
+        L3T = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime-1);
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
+    }
+    if(window.respawnTime1 == 1){
+        L1T = "";
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
+    }
+    if(window.respawnTime2 == 1){
+        L2T = "";
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
+    }
+    if(window.respawnTime == 1){
+        L3T = "";
+        jQuery(".Add-onTimer").css("display","none");
+        window.TimerAddon();
     }
 };
 setInterval(repeatEverySec, 1000);
+var L1T = "";
+var L2T = "";
+var L3T = "";
+window.TimerAddon = function(){
+    window.menuTimer = jQuery('<div class="Add-onTimer" style="position:absolute;left:632px;top:10px;"></div>').appendTo(jQuery('.ui-container'))
+    var src = tooltipStyle+'<table bgcolor="#3c3f4c">'
+    if (L1T != "") {src += tooltipTextStart+L1T+'</span></div></td>'}
+    if (L2T != "") {src += tooltipTextStart+L2T+'</span></div></td>'}
+    if (L3T != "") {src += tooltipTextStart+L3T+'</span></div></td>'}
+    src += '</table>'
+    window.menuTimer.html(src);
+}
+jQuery(".Add-onTimer").css("display","none");
 
 function addCombatMessage(txt){
     var msg = "*"+txt+"*";
@@ -1277,297 +1400,9 @@ function addCombatMessage(txt){
 // GET REPLY + CHAT COMMAND LIST
 var chatCheck = function(){
     if(gameStarted === "ON") {
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 2) == "/r" && window.lastReply != undefined){https://discord.gg/3P43RRb
+        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 2) == "/r" && window.lastReply != undefined){
         jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/r", "@"+window.lastReply+" "));
         jQuery(".uiMessages .list").scrollTop(9999999);
-    }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 17) == "/discord isleward"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/discord isleward", "https://discord.gg/MBFJ7Wt"));
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You can copy/paste this link"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 19) == "/discord isleWaddon"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/discord isleWaddon", "https://discord.gg/3P43RRb"));
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You can copy/paste this link"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 5) == "/wiki"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/wiki", "http://wiki.isleward.com/Main_Page"));
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You can copy/paste this link"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 10) == "/reset map"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/reset map", ""));
-            window.mapScale = 2;
-            window.xOffset=0;
-            window.yOffset=0;
-            window.opacity=1;
-            window.drawMap();
-            localStorage.setObject('islewardMinimap', {xOffset:window.xOffset, yOffset:window.yOffset,mapScale:window.mapScale,opacity:window.opacity});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Map settings reset"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 9) == "/timer on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/timer on", ""));
-            TimerSTATUS = "ON";
-            localStorage.setItem('isleWaddonTimer', TimerSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Timer Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 10) == "/timer off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/timer off", ""));
-            TimerSTATUS = "OFF";
-            localStorage.setItem('isleWaddonTimer', TimerSTATUS)
-            document.getElementById('DisplayMenu').textContent = "";
-            document.getElementById('DisplayMenu1').textContent = "";
-            document.getElementById('DisplayMenu2').textContent = "";
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Timer Disable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/timer sound on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/timer sound on", ""));
-            TimerSoundSTATUS = "ON"
-            localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Timer Sound Enable 🔊"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 16) == "/timer sound off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/timer sound off", ""));
-            TimerSoundSTATUS = "OFF"
-            localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Timer Sound Diasable 🔈"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 16) == "/easy salvage on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/easy salvage on", ""));
-            SalvageSTATUS = "ON"
-            localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Easy Salvage Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Press "+SalvageKey+" to salvage an item"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 17) == "/easy salvage off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/easy salvage off", ""));
-            SalvageSTATUS = "OFF"
-            localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Easy Salvage Diasable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/whisp sound on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/whisp sound on", ""));
-            WhisperSoundSTATUS = "ON"
-            localStorage.setItem('isleWaddonWhisperSound', WhisperSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Whipser Sound Enable 🔊"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 16) == "/whisp sound off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/whisp sound off", ""));
-            WhisperSoundSTATUS = "OFF"
-            localStorage.setItem('isleWaddonWhisperSound', WhisperSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Whipser Sound Disable 🔈"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/stats range on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/stats range on", ""));
-            StatsRangeSTATUS = "ON"
-            localStorage.setItem('isleWaddonStatsRange', StatsRangeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Stats Range Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 16) == "/stats range off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/stats range off", ""));
-            StatsRangeSTATUS = "OFF"
-            localStorage.setItem('isleWaddonStatsRange', StatsRangeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Stats Range Diasable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 16) == "/show version on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/show version on", ""));
-            ShowVersionSTATUS = "ON"
-            localStorage.setItem('isleWaddonShowVersion', ShowVersionSTATUS)
-            document.getElementById('DisplayVersion').textContent = "Isle Waddon "+Version+" for IWD 0.3.2";
-            jQuery(".addon-loader").css("display","none");
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 17) == "/show version off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/show version off", ""));
-            ShowVersionSTATUS = "OFF"
-            localStorage.setItem('isleWaddonShowVersion', ShowVersionSTATUS)
-            document.getElementById('DisplayVersion').textContent = "";
-            jQuery(".addon-loader").css("display","none");
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 5) == "/help"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/help", ""));
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"To open the status menu press '"+MenuKey+"'"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Put your cursor on the menu to get feature description and all the commands to enable/disable them"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"For any question you can contact me on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"@Loupii#6924"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You can also type '/discord isleWaddon' to get the link to the add-on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 14) == "/quest hide on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/quest hide on", ""));
-            QuestHideSTATUS = "ON"
-            localStorage.setItem('isleWaddonHideQuest', QuestHideSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            $(".ui-container .right .uiQuests .heading").text("Quests hided ❌ ");
-            $(".ui-container .right .uiQuests .list").toggle(false);
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Quest Hide Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/quest hide off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/quest hide off", ""));
-            QuestHideSTATUS = "OFF"
-            localStorage.setItem('isleWaddonHideQuest', QuestHideSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            $(".ui-container .right .uiQuests .heading").text("Quests");
-            $(".ui-container .right .uiQuests .list").toggle(true);
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Quest Hide Disable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 14) == "/combat log on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/combat log on", ""));
-            CombatLogSTATUS = "ON"
-            localStorage.setItem('isleWaddonCombatLog', CombatLogSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Combat log Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The log is on the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drop/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Disable it with /combat log off"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 15) == "/combat log off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/combat log off", ""));
-            CombatLogSTATUS = "OFF"
-            localStorage.setItem('isleWaddonCombatLog', CombatLogSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Combat log Disable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 7) == "/pvp on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/pvp on", ""));
-            PvpModeSTATUS = "ON"
-            localStorage.setItem('isleWaddonPvpMode', PvpModeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Pvp mode Enable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Butcher now have ⚔️ on name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You need to relog to update the name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 8) == "/pvp off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/pvp off", ""));
-            PvpModeSTATUS = "OFF"
-            localStorage.setItem('isleWaddonPvpMode', PvpModeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Pvp mode Disable"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You need to relog to update the name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 13) == "/pvp sound on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/pvp sound on", ""));
-            PvpSoundSTATUS = "ON"
-            localStorage.setItem('isleWaddonPvpSound', PvpSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Pvp sound Enable 🔊"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"A sound will be played everytime a Butcher is near you"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 14) == "/pvp sound off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/pvp sound off", ""));
-            PvpSoundSTATUS = "OFF"
-            localStorage.setItem('isleWaddonPvpSound', PvpSoundSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Pvp sound Disable 🔈"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 10) == "/spirit on"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/spirit on", ""));
-            SpiritModeSTATUS = "ON"
-            localStorage.setItem('isleWaddonSpiritMode', SpiritModeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Enable the 🐻🐯🦉 before char name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You need to relog to update the name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
-        }
-        if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 11) == "/spirit off"){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/spirit off", ""));
-            SpiritModeSTATUS = "OFF"
-            localStorage.setItem('isleWaddonSpiritMode', SpiritModeSTATUS)
-            if(MenuSTATUS == "ON") {
-                jQuery(".addon-loader").css("display","none");
-                window.MenuADDON();
-            }
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"Disable the 🐻🐯🦉 before char name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"You need to relog to update the name"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            jQuery(".uiMessages .list").scrollTop(9999999);
         }
     }
 }
