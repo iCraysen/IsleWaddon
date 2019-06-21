@@ -1,11 +1,19 @@
 Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
 
 # IsleWaddon
+  BROWSER :
 
 Get Tampermonkey addon :
+
 - for chrome https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
 Install the addon : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
+
+  V2 CLIENT :
+  
+All inforamtion here : https://gitlab.com/Isleward/isleward-webview-client/blob/master/README.md
+
+Add-on download : https://drive.google.com/file/d/1h_6PdBLj_QYQgepfNBj3VaMHsxRyl3rF/view?usp=sharing
 
 # Old IsleWaddon user
 
