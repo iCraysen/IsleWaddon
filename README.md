@@ -1,5 +1,7 @@
 Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
 
+Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
+
 # IsleWaddon
   BROWSER :
 
