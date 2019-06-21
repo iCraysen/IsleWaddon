@@ -1572,3 +1572,4 @@ var chatCheck = function(){
     }
 }
 setInterval(chatCheck,100);
+ 
