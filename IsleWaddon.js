@@ -175,7 +175,7 @@ window.MenuADDON = function(){
     }else{
         drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">Off</button>'
     }
-    src += drawButtonMap+" "+drawButtonMapReset+'<span class="tooltiptext">'+"In-game map<br>►Change the Scale<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>►Change the Opacity<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>►Change the Position<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+""+'</span></div></td>'
+    src += drawButtonMap+" "+drawButtonMapReset+'<span class="tooltiptext">'+"In-game map<br>►Change the Size<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>►Change the Opacity<br>"+'<font color="green">'+"5"+'</font>'+" , "+'<font color="green">'+"6"+'</font>'+"<br>►Change the Position<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+""+'</span></div></td>'
     src += L12
     var onClickButtonStatsRange =`window.ButtonPressStatsRange()`
     if (StatsRangeSTATUS === "ON") {
