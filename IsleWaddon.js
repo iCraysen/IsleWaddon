@@ -1386,7 +1386,6 @@ window.TimerAddon = function(){
     src += '</table>'
     window.menuTimer.html(src);
 }
-jQuery(".Add-onTimer").css("display","none");
 
 function addCombatMessage(txt){
     var msg = "*"+txt+"*";
