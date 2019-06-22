@@ -2,7 +2,7 @@
 var SalvageKey = "f"
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
-var Version = "5"
+var Version = "5 for iwd 0.3.2"
 var audioElement
 var gameStarted = "OFF"
 
@@ -526,7 +526,7 @@ addons.register({
             mogHp = obj.components[1].values.hpMax;
         }
         if(TimerSTATUS == "ON") {
-            if(obj.name === "Pig"){ //m'ogresh
+            if(obj.name === "m'ogresh"){
                 window.bossID = obj.id;
                 if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
                     window.lastRespawned = new Date();
@@ -536,9 +536,7 @@ addons.register({
                 if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
                     window.lastKilled = new Date();
                 }
-                //window.respawnTime = 146+1;
-                window.respawnTime = 20;
-                window.respawnTime2 = 146+1;
+                window.respawnTime = 146+1;
             }
             if(obj.name === "Stinktooth"){
 
