@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         IsleWaddon TESTD
+// @namespace    Isleward.Waddon
+// @version      4.0
+// @description  Read README here : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        play.isleward.com*
+// @grant        none
+// ==/UserScript==
+
 // DEFAULT SETTINGS //
 var SalvageKey = "f"
 var MenuSTATUS = "OFF"
@@ -69,7 +79,7 @@ if(CombatLogSTATUS === undefined || CombatLogSTATUS === null){
 // ALL STATUS MENU SETUP //
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
-var L1 = tooltipTextStart+"╔═════ISLEWADDON═════"
+var L1 = tooltipTextStart+"╔═════ISLEWADDON═══"
 var L2 = tooltipTextStart+"║Hover here 🔍"
 var L3 = tooltipTextStart+"║Version : "+Version
 var L4 = tooltipTextStart+"║ "
@@ -115,7 +125,9 @@ visibility: visible;
 window.MenuADDON = function(){
     window.menu = jQuery('<div class="addon-loader" style="position:absolute;right:10px;bottom:230px;"></div>').appendTo(jQuery('.ui-container'))
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">'
-    src += L1+tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"+'</span></div></td>'
+    var onClickX =`window.menuButtonXPress()`
+    var drawButtonX = '<button id="ButtonX" style="color:rgb(0,0,0); width:23px; background:rgb(255,0,0);" onclick="'+onClickX+'" type="button">X</button>'
+    src += L1+drawButtonX+tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"+'</span></div></td>'
     src += L2+tooltipTextEnd+"Put your cursor on all the menu !"+'</span></div></td>'
     src += L3+tooltipTextEnd+"Current add-on Version"+'</span></div></td>'
     var onClickLinkW =`window.ButtonLinkW()`
@@ -212,13 +224,6 @@ window.MenuADDON = function(){
 }
 
 //BUTTON CODE//
-function menuSound(){
-    var audioElement = document.createElement("audio");
-    audioElement.type = "audio/wav";
-    audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
-    audioElement.volume = 0.2;
-    audioElement.play();
-}
 window.menuButton = function(){
     window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:10px;right:436px;"></div>').appendTo(jQuery('.ui-container'));
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">';
@@ -229,7 +234,6 @@ window.menuButton = function(){
     window.menuButtonTooltip.html(src);
 }
 window.menuButtonPress = function(){
-    menuSound()
     jQuery(".menuButton").css("display","none");
     window.menuButton();
     if (MenuSTATUS === "OFF"){
@@ -239,6 +243,10 @@ window.menuButtonPress = function(){
         MenuSTATUS = "OFF";
         jQuery(".addon-loader").css("display","none");
     }
+}
+window.menuButtonXPress = function(){
+    MenuSTATUS = "OFF";
+    jQuery(".addon-loader").css("display","none");
 }
 window.ButtonLinkW = function(){
     jQuery(".addon-loader").css("display","none");
@@ -256,7 +264,6 @@ window.ButtonLinkM = function(){
     window.open('https://polfy.github.io/isleward-wiki-map/Zone/Fjolarok/', '_blank');
 }
 window.ButtonPressSalvage = function(){
-    menuSound()
     if(SalvageSTATUS === "ON") {
         SalvageSTATUS = "OFF"
     } else {
@@ -269,7 +276,6 @@ window.ButtonPressSalvage = function(){
     localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
 }
 window.ButtonPressTimer = function(){
-    menuSound()
     if(TimerSTATUS === "ON") {
         jQuery(".Add-onTimer").css("display","none");
         TimerSTATUS = "OFF"
@@ -282,7 +288,6 @@ window.ButtonPressTimer = function(){
     localStorage.setItem('isleWaddonTimer', TimerSTATUS)
 }
 window.ButtonPressTimerSound = function(){
-    menuSound()
     if(TimerSoundSTATUS === "ON") {
         TimerSoundSTATUS = "OFF"
     } else {
@@ -293,7 +298,6 @@ window.ButtonPressTimerSound = function(){
     localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
 }
 window.ButtonPressWhisperSound = function(){
-    menuSound()
     if(WhisperSoundSTATUS === "ON") {
         WhisperSoundSTATUS = "OFF"
     } else {
@@ -319,7 +323,6 @@ window.ButtonPressQuestHide = function(){
     localStorage.setItem('isleWaddonHideQuest', QuestHideSTATUS)
 }
 window.ButtonPressMap = function(){
-    menuSound()
     if(MapSTATUS === "ON") {
         MapSTATUS = "FF";
         window.toggleMap();
@@ -335,7 +338,6 @@ window.ButtonPressMap = function(){
     window.MenuADDON();
 }
 window.ButtonPressMapReset = function(){
-    menuSound()
     window.mapScale = 2;
     window.xOffset=0;
     window.yOffset=0;
@@ -346,7 +348,6 @@ window.ButtonPressMapReset = function(){
     window.MenuADDON();
 }
 window.ButtonPressStatsRange = function(){
-    menuSound()
     if(StatsRangeSTATUS === "ON") {
         StatsRangeSTATUS = "OFF"
     } else {
@@ -357,7 +358,6 @@ window.ButtonPressStatsRange = function(){
     localStorage.setItem('isleWaddonStatsRange', StatsRangeSTATUS)
 }
 window.ButtonPressCombatLog = function(){
-    menuSound()
     if(CombatLogSTATUS === "ON") {
         CombatLogSTATUS = "OFF"
     } else {
