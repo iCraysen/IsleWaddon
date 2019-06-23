@@ -308,7 +308,6 @@ window.ButtonPressWhisperSound = function(){
     localStorage.setItem('isleWaddonWhisperSound', WhisperSoundSTATUS)
 }
 window.ButtonPressQuestHide = function(){
-    menuSound()
     if(QuestHideSTATUS === "ON") {
         QuestHideSTATUS = "OFF"
         $(".ui-container .right .uiQuests .heading").text("Quests");
