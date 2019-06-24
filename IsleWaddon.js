@@ -1,20 +1,10 @@
-// ==UserScript==
-// @name         IsleWaddon TESTD
-// @namespace    Isleward.Waddon
-// @version      4.0
-// @description  Read README here : https://github.com/Polfy/IsleWaddon
-// @author       Polfy's
-// @match        play.isleward.com*
-// @grant        none
-// ==/UserScript==
-
 // DEFAULT SETTINGS //
+var gameStarted = "OFF"
 var SalvageKey = "f"
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
 var Version = "5 for iwd 0.3.2"
 var audioElement
-var gameStarted = "OFF"
 
 // SEND CHAT MSG FUNCTION //
 function deferTillChat(method) {
@@ -28,10 +18,6 @@ function deferTillChat(method) {
 // COMBAT LOG VALUES //
 var idToName = {}
 var inCombatWith = {}
-var mogHp
-var mogDmg = 0
-var mogDmgPercent
-var timerReset = 0
 
 // INVENTORY POSITION + EXPAND STATS RANGES VALUES //
 var itemPos = -1
@@ -82,7 +68,7 @@ var tooltipTextEnd = '</font><span class="tooltiptext">'
 var L1 = tooltipTextStart+"╔═════ISLEWADDON═══"
 var L2 = tooltipTextStart+"║Hover here 🔍"
 var L3 = tooltipTextStart+"║Version : "+Version
-var L4 = tooltipTextStart+"║ "
+var L4 = tooltipTextStart+"║ "
 var L5 = tooltipTextStart+"║Easy Salvage "
 var L6 = tooltipTextStart+"║Timer ⏳ "
 var L7 = tooltipTextStart+"║►Timer Sound "
@@ -136,7 +122,7 @@ window.MenuADDON = function(){
     var drawButtonLinkD = '<button id="ButtonPvpLinkD" style="color:rgb(0,0,0); width:65px; background:rgb(55,67,232);" onclick="'+onClickLinkD+'" type="button">Discord</button>'
     var onClickLinkM =`window.ButtonLinkM()`
     var drawButtonLinkM = '<button id="ButtonLinkM" style="color:rgb(0,0,0); width:40px; background:rgb(174, 13, 221);" onclick="'+onClickLinkM+'" type="button">Map</button>'
-    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+'<span class="tooltiptext">'+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+'</span></div></td>'
+    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+'<span class="tooltiptext">'+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+'</span></div></td>'
     src += L5
     var onClickButtonSalvage =`window.ButtonPressSalvage()`
     if (SalvageSTATUS === "ON") {
@@ -521,9 +507,6 @@ addons.register({
         }
     },
     onGetObject: function(obj) {
-        if(obj.name === "m'ogresh"){
-            mogHp = obj.components[1].values.hpMax;
-        }
         if(TimerSTATUS == "ON") {
             if(obj.name === "m'ogresh"){
                 window.bossID = obj.id;
@@ -690,29 +673,6 @@ addons.register({
                 if(dmg.event !== undefined){
                     if(window.player !== undefined && dmg.id == window.player.id && dmg.text.indexOf(" xp") != -1){
                         addCombatMessage("You gained "+dmg.text+".");
-                    }
-                }
-            }
-        }
-        if(dmg.crit !== undefined){
-            if(dmg.id !== undefined && dmg.source !== undefined){
-                if(window.player !== undefined && dmg.source == window.player.id){
-                    inCombatWith[dmg.id] = true;
-                    enemyName = idToName[dmg.id];
-                    if(enemyName === "m'ogresh"){
-                        timerReset = 31
-                        mogDmg+=(dmg.amount)
-                        mogDmgPercent = ~~((mogDmg/mogHp)*100)
-                        if(mogDmgPercent > 98) {mogDmgPercent = 100}
-                        if(mogDmgPercent < 15){
-                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 😑");
-                        } else if(mogDmgPercent < 50){
-                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 👍");
-                        } else if(mogDmgPercent < 100){
-                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 💪");
-                        } else if(mogDmgPercent == 100){
-                            $(".ui-container .right .uiEvents .heading").text("You dealt "+(~~mogDmg)+" dmg ("+mogDmgPercent+"%) 😎");
-                        }
                     }
                 }
             }
@@ -1320,14 +1280,6 @@ var repeatEverySec = function(){
             audioElement.src = "http://www.wavlist.com/soundfx/014/cricket-3.wav";
             audioElement.volume = 0.05;
             audioElement.play();
-        }
-    }
-
-    if(timerReset != 0){
-        timerReset-=1
-        if(timerReset == 0){
-            $(".ui-container .right .uiEvents .heading").text("Events");
-            mogDmg = 0
         }
     }
 
