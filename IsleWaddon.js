@@ -424,7 +424,7 @@ addons.register({
     onEnterGame: function(obj) {
         gameStarted = "ON"
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Notify me (Polfy#6924) any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Notify me (Polfy#6924) of any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
 
