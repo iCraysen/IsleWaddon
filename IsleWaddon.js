@@ -181,7 +181,7 @@ window.MenuADDON = function(){
     }else{
         drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">Off</button>'
     }
-    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about stats roll range on the gear"+'</span></div></td>'
+    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about implicites stats and level 20 roll range on the gear"+'</span></div></td>'
     src += L13
     var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
     if (CombatLogSTATUS === "ON") {
