@@ -74,7 +74,7 @@ var L6 = tooltipTextStart+"║Timer ⏳ "
 var L7 = tooltipTextStart+"║►Timer Sound "
 var L8 = tooltipTextStart+"║Whisper"
 var L9 = tooltipTextStart+"║►Whisper Sound "
-var L10 = tooltipTextStart+"║Quest Hided "
+var L10 = tooltipTextStart+"║Quest Hid "
 var L11 = tooltipTextStart+"║Map "
 var L12 = tooltipTextStart+"║Stats range "
 var L13 = tooltipTextStart+"║Combat Log "
@@ -424,7 +424,7 @@ addons.register({
     onEnterGame: function(obj) {
         gameStarted = "ON"
         deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon "+Version+" loaded"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Report me (Polfy#6924) any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Notify me (Polfy#6924) any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
 
