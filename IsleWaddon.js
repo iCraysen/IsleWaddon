@@ -277,7 +277,7 @@ window.ButtonPressTimerSound = function(){
     if(TimerSoundSTATUS === "ON") {
         TimerSoundSTATUS = "OFF"
     } else {
-        TimerSoundSTATUS = "ON"
+	if(TimerSTATUS === "ON") {TimerSoundSTATUS = "ON"}
     }
     jQuery(".addon-loader").css("display","none");
     window.MenuADDON();
