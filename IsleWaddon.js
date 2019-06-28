@@ -272,6 +272,7 @@ window.ButtonPressTimer = function(){
     jQuery(".addon-loader").css("display","none");
     window.MenuADDON();
     localStorage.setItem('isleWaddonTimer', TimerSTATUS)
+    localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
 }
 window.ButtonPressTimerSound = function(){
     if(TimerSoundSTATUS === "ON") {
