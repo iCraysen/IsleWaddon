@@ -5,13 +5,14 @@ Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
 # How to install IsleWaddon
   BROWSER :
 
-1. Get Tampermonkey addon :
+- 1: Get Tampermonkey addon :
 
-- for chrome https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+  - 1.1: for chrome https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
-2. Install the addon : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
+- 2: Install the addon : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
 
-  CLIENT :
+ 
+ CLIENT :
   
 Client download : https://bigbadwaffle.itch.io/isleward
 
