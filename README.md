@@ -11,11 +11,16 @@ Get Tampermonkey addon :
 
 Install the addon : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
 
-  V2 CLIENT :
+  CLIENT :
   
-All inforamtion here : https://gitlab.com/Isleward/isleward-webview-client/blob/master/README.md
+Client download : https://bigbadwaffle.itch.io/isleward
 
 Add-on download : https://drive.google.com/file/d/1h_6PdBLj_QYQgepfNBj3VaMHsxRyl3rF/view?usp=sharing
+
+* Simply place the .js addon file in the following directory:
+    * Windows: %APPDATA%\isleward-client\addons
+    * Linux: ~/.config/isleward-client/addons
+    * macOS: ~/Library/Application Support/isleward-client/addons
 
 # Old IsleWaddon user
 
