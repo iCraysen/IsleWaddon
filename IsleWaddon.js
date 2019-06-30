@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         IsleWaddon test
+// @namespace    Isleward.Waddon
+// @version      4.0
+// @description  Read README here : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        play.isleward.com*
+// @grant        none
+// ==/UserScript==
+
 // DEFAULT SETTINGS //
 var gameStarted = "OFF"
 var SalvageKey = "f"
@@ -181,7 +191,7 @@ window.MenuADDON = function(){
     }else{
         drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">Off</button>'
     }
-    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about implicites stats and level 20 roll range on the gear"+'</span></div></td>'
+    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about implicites stats and level 20 roll range on the gear<br>⚠️Stat can be a stack of 2 or more of the same stat (Can't track it)"+'</span></div></td>'
     src += L13
     var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
     if (CombatLogSTATUS === "ON") {
