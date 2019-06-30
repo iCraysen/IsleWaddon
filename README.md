@@ -2,7 +2,7 @@ Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=you
 
 Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
 
-# IsleWaddon
+# How to install IsleWaddon
   BROWSER :
 
 Get Tampermonkey addon :
