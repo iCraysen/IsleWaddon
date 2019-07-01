@@ -1,0 +1,9 @@
+Version LOG :
+
+- v0.1 -> v0.3 : Old Beta/Working version
+- v0.4 : First Realase
+  - Full command chat to setup your settings
+- v0.5 : Menu refont
+  - Removed all the chat commands and switch to on/off button menu
+    - v0.5.1 : 
+      - Fix a ui issue (https://github.com/Polfy/IsleWaddon/commit/dab86a258fcf089503210dc3a420ba8d4c63afbc)
