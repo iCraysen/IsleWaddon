@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         IsleWaddon
-// @namespace    Isleward.Waddon
-// @version      1
-// @description  Read README here : https://github.com/Polfy/IsleWaddon/blob/master/README.md
-// @author       Polfy's
-// @match        play.isleward.com*
-// @grant        none
-// ==/UserScript==
-
 // DEFAULT SETTINGS //
 var SalvageKey = "f"
 var gameStarted = "false"
