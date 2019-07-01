@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         IsleWaddon test
+// @name         IsleWaddon
 // @namespace    Isleward.Waddon
 // @version      4.0
 // @description  Read README here : https://github.com/Polfy/IsleWaddon
