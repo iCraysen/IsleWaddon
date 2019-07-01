@@ -68,3 +68,7 @@ You need to remove the old add-on version from you TamperMonkey :
   - Removed all the chat commands and switch to on/off button menu
     - v0.5.1 : 
       - Fix a ui issue (https://github.com/Polfy/IsleWaddon/commit/dab86a258fcf089503210dc3a420ba8d4c63afbc)
+    - v0.5.2 :
+      - Remake the local storage
+      - Version now show as wanted
+      - Removed Map oppacity feature
