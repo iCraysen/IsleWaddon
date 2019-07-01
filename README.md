@@ -4,7 +4,7 @@ Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=you
 Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
 
 # How to install IsleWaddon
-  BROWSER :
+  **BROWSER :**
 
 - 1: Get Tampermonkey addon :
 
@@ -13,7 +13,7 @@ Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
 - 2: Install the addon : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
 
  
- CLIENT :
+ **CLIENT :**
   
 Client download : https://bigbadwaffle.itch.io/isleward
 
@@ -24,7 +24,7 @@ Add-on download : https://drive.google.com/file/d/1h_6PdBLj_QYQgepfNBj3VaMHsxRyl
     * Linux: ~/.config/isleward-client/addons
     * macOS: ~/Library/Application Support/isleward-client/addons
 
-# Old IsleWaddon user
+# Old IsleWaddon user from Greasy Fork
 
 You need to remove the old add-on version from you TamperMonkey :
 
@@ -36,7 +36,7 @@ You need to remove the old add-on version from you TamperMonkey :
 
 # FEATURES
 
-!! DON'T FORGET TO PUT YOUR CURSOR ON THE MENU TO HAVE MORE INFORMATION !!
+**!! DON'T FORGET TO PUT YOUR CURSOR ON THE MENU TO HAVE MORE INFORMATION !!**
 
 - Direct link to :
   - Isleward wiki
