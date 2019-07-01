@@ -230,32 +230,32 @@ window.menuButton = function(){
     window.menuButtonTooltip.html(src);
 }
 window.menuButtonPress = function(){
-    jQuery(".menuButton").css("display","none");
+    jQuery(".menuButton").remove()
     window.menuButton();
     if (MenuSTATUS === "OFF"){
         window.MenuADDON();
         MenuSTATUS = "ON"
     }else{
         MenuSTATUS = "OFF";
-        jQuery(".addon-loader").css("display","none");
+        jQuery(".addon-loader").remove();
     }
 }
 window.menuButtonXPress = function(){
     MenuSTATUS = "OFF";
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove();
 }
 window.ButtonLinkW = function(){
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     window.open('http://wiki.isleward.com/Main_Page', '_blank');
 }
 window.ButtonLinkD = function(){
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     window.open('https://discord.gg/3P43RRb', '_blank');
 }
 window.ButtonLinkM = function(){
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     window.open('https://polfy.github.io/isleward-wiki-map/Zone/Fjolarok/', '_blank');
 }
@@ -267,19 +267,19 @@ window.ButtonPressSalvage = function(){
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on a item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonSalvage', SalvageSTATUS)
 }
 window.ButtonPressTimer = function(){
     if(TimerSTATUS === "ON") {
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         TimerSTATUS = "OFF"
         TimerSoundSTATUS = "OFF"
     } else {
         TimerSTATUS = "ON"
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonTimer', TimerSTATUS)
     localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
@@ -290,7 +290,7 @@ window.ButtonPressTimerSound = function(){
     } else {
 	if(TimerSTATUS === "ON") {TimerSoundSTATUS = "ON"}
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonTimerSound', TimerSoundSTATUS)
 }
@@ -300,7 +300,7 @@ window.ButtonPressWhisperSound = function(){
     } else {
         WhisperSoundSTATUS = "ON"
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonWhisperSound', WhisperSoundSTATUS)
 }
@@ -314,7 +314,7 @@ window.ButtonPressQuestHide = function(){
         $(".ui-container .right .uiQuests .heading").text("Quests hided ❌ ");
         $(".ui-container .right .uiQuests .list").toggle(false);
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonHideQuest', QuestHideSTATUS)
 }
@@ -322,15 +322,15 @@ window.ButtonPressMap = function(){
     if(MapSTATUS === "ON") {
         MapSTATUS = "FF";
         window.toggleMap();
-        jQuery(".addon-loader").css("display","none");
+        jQuery(".addon-loader").remove()
         window.MenuADDON();
     } else {
         MapSTATUS = "ON";
         window.toggleMap();
-        jQuery(".addon-loader").css("display","none");
+        jQuery(".addon-loader").remove()
         window.MenuADDON();
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
 }
 window.ButtonPressMapReset = function(){
@@ -340,7 +340,7 @@ window.ButtonPressMapReset = function(){
     window.opacity=1;
     window.drawMap();
     localStorage.setObject('islewardMinimap', {xOffset:window.xOffset, yOffset:window.yOffset,mapScale:window.mapScale,opacity:window.opacity});
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
 }
 window.ButtonPressStatsRange = function(){
@@ -349,7 +349,7 @@ window.ButtonPressStatsRange = function(){
     } else {
         StatsRangeSTATUS = "ON"
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonStatsRange', StatsRangeSTATUS)
 }
@@ -362,7 +362,7 @@ window.ButtonPressCombatLog = function(){
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drop/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
-    jQuery(".addon-loader").css("display","none");
+    jQuery(".addon-loader").remove()
     window.MenuADDON();
     localStorage.setItem('isleWaddonCombatLog', CombatLogSTATUS)
 }
@@ -1241,7 +1241,7 @@ window.drawThings = function() {
             jQuery(".minimapName."+window.thingsToDraw[key].name).eq(0).css("left",left);
             if(window.localStorage.iwd_opt_shownames !== undefined){
                 if(window.localStorage.iwd_opt_shownames != "true"){
-                    jQuery(".minimapName."+window.thingsToDraw[key].name).eq(0).css("display","none");
+                    jQuery(".minimapName."+window.thingsToDraw[key].name).eq(0).remove()
                 } else{
                     jQuery(".minimapName."+window.thingsToDraw[key].name).eq(0).css("display","block");
                 }
@@ -1306,32 +1306,32 @@ var repeatEverySec = function(){
     }
     if(window.respawnTime1 != 0 && TimerSTATUS == "ON"){
         L1T = "Stinktooth respawns in "+ toHHMMSS(window.respawnTime1-1);
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime2 != 0 && TimerSTATUS == "ON"){
         L2T = "Radulos respawns in "+ toHHMMSS(window.respawnTime2-1);
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime != 0 && TimerSTATUS == "ON"){
         L3T = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime-1);
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime1 == 1){
         L1T = "";
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime2 == 1){
         L2T = "";
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime == 1){
         L3T = "";
-        jQuery(".Add-onTimer").css("display","none");
+        jQuery(".Add-onTimer").remove()
         window.TimerAddon();
     }
 };
