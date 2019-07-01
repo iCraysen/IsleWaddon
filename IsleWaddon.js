@@ -13,7 +13,7 @@ var gameStarted = "OFF"
 var SalvageKey = "f"
 var MenuSTATUS = "OFF"
 var MapSTATUS = "OFF"
-var Version = "5 for iwd 0.3.2"
+var Version = "0.5.1"
 var audioElement
 
 // SEND CHAT MSG FUNCTION //
