@@ -125,7 +125,7 @@ window.MenuADDON = function(){
     var drawButtonX = '<button id="ButtonX" style="color:rgb(0,0,0); width:23px; background:rgb(255,0,0);" onclick="'+onClickX+'" type="button">X</button>'
     src += L1+drawButtonX+tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"+'</span></div></td>'
     src += L2+tooltipTextEnd+"Put your cursor on all the menu !"+'</span></div></td>'
-    src += L3+tooltipTextEnd+"Current add-on Version"+'</span></div></td>'
+    src += L3+tooltipTextEnd+"Current add-on Version<br>For Isleward v0.3.2"+'</span></div></td>'
     var onClickLinkW =`window.ButtonLinkW()`
     var drawButtonLinkW = '<button id="ButtonLinkW" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkW+'" type="button">Wiki</button>'
     var onClickLinkD =`window.ButtonLinkD()`
