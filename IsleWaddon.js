@@ -87,19 +87,19 @@ function initUserData() {
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
 var L1 = tooltipTextStart+"╔═════ISLEWADDON═══" , L1_1 = tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"
-var L2 = tooltipTextStart+"║Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu !"
+var L2 = tooltipTextStart+"║Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"
 var L3 = tooltipTextStart+"║Version : "+Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"
 var L4 = tooltipTextStart+"║ " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"
-var L5 = tooltipTextStart+"║Easy Salvage " , L5_1 = tooltipTextEnd+"Enable the fast salvage by pressing <font color='#ffeb38'>"+SalvageKey+"</font> on an item<br>"
-var L6 = tooltipTextStart+"║Timer ⏳ " , L6_1 = tooltipTextEnd+"Add in-game timer that show when boss respawn"
-var L7 = tooltipTextStart+"║► Timer Sound " , L7_1 = tooltipTextEnd+"Play a sound before the boss respawn"
-var L8 = tooltipTextStart+"║Whisper" , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to easy respond to whisper"
+var L5 = tooltipTextStart+"║Easy Salvage " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+SalvageKey+"</font> on an item<br>"
+var L6 = tooltipTextStart+"║Timer ⏳ " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"
+var L7 = tooltipTextStart+"║► Timer Sound " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"
+var L8 = tooltipTextStart+"║Whisper" , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"
 var L9 = tooltipTextStart+"║► Whisper Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"
-var L10 = tooltipTextStart+"║Quest Hid " , L10_1 = tooltipTextEnd+"Hide the Quests tab"
+var L10 = tooltipTextStart+"║Hide Quests " , L10_1 = tooltipTextEnd+"Hide the Quests tab"
 var L11 = tooltipTextStart+"║Map " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"
-var L12 = tooltipTextStart+"║Stats range " , L12_1 = tooltipTextEnd+"Add more informations about implicites stats and level 20 roll range on the gear<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"
-var L13 = tooltipTextStart+"║Combat Log " , L13_1 = tooltipTextEnd+"Add combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drop"
-var L14 = tooltipTextStart+"║+ Little Feature" , L14_1 = tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range"
+var L12 = tooltipTextStart+"║Stats range " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"
+var L13 = tooltipTextStart+"║Combat Log " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"
+var L14 = tooltipTextStart+"║+ Little Features" , L14_1 = tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
 var L15 = tooltipTextStart+"╚══════════════════" , L15_1 = tooltipTextEnd+"This is a line"
 var tooltipStyle =
     `<style>
@@ -216,7 +216,7 @@ window.MenuAddon = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += L14+L14_1+"<br>► You already play with this character for :<br><font color='#ffeb38'>"+TextPlayed+'</font></span></div></td>'
+    src += L14+L14_1+"<br>► You have played this character for <br><font color='#ffeb38'>"+TextPlayed+'</font></span></div></td>'
     }else{
         src += L14+L14_1+'</span></div></td>'
     }
@@ -274,7 +274,7 @@ window.ButtonPressSalvage = function(){
         SalvageSTATUS = "false"
     } else {
         SalvageSTATUS = "true"
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on a item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on an item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".addon-loader").remove()
@@ -320,7 +320,7 @@ window.ButtonPressQuestHide = function(){
         $(".ui-container .right .uiQuests .list").toggle(true);
     } else {
         QuestHideSTATUS = "true"
-        $(".ui-container .right .uiQuests .heading").text("Quests hided ❌ ");
+        $(".ui-container .right .uiQuests .heading").text("Quests hidden ❌ ");
         $(".ui-container .right .uiQuests .list").toggle(false);
     }
     jQuery(".addon-loader").remove()
@@ -366,8 +366,8 @@ window.ButtonPressCombatLog = function(){
         CombatLogSTATUS = "false"
     } else {
         CombatLogSTATUS = "true"
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The Combat log is on the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drop/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The Combat log is in the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drops/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".addon-loader").remove()
@@ -435,14 +435,14 @@ addons.register({
         jQuery(".addon-loader").remove();
         MenuSTATUS = "false"
         gameStarted = "true"
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IlseWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't certify this add-on doesn't produce lag/fps drop. Notify me (Polfy#6924) of any bugs/problems on discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"IsleWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' chat">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
 
     },
 
     onUpdateUIQuests: function(){
         if (QuestHideSTATUS == "true") {
-            $(".ui-container .right .uiQuests .heading").text("Quests hided ❌ ");
+            $(".ui-container .right .uiQuests .heading").text("Quests hidden ❌ ");
             $(".ui-container .right .uiQuests .list").toggle(false);
        } else if (QuestHideSTATUS == "false" && $(".ui-container .right .uiQuests .heading").text() != 'Quests') {
             $(".ui-container .right .uiQuests .heading").text("Quests");
