@@ -1,4 +1,4 @@
-# ISLEWADDON v0.5.1 for ISLEWARD v0.3.2
+# ISLEWADDON v0.5.3 for ISLEWARD v0.3.2
 Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
 
 Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
@@ -72,3 +72,5 @@ You need to remove the old add-on version from you TamperMonkey :
       - Remake the local storage
       - Version now show as wanted
       - Removed Map oppacity feature
+    - v0.5.3 :
+      - Menu code cleaning
