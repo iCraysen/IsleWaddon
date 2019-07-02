@@ -11,3 +11,5 @@ Version LOG :
       - Remake the local storage
       - Version now show as wanted
       - Removed Map oppacity feature
+    - v0.5.3 :
+      - Menu code cleaning
