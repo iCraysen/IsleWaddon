@@ -226,7 +226,7 @@ window.MenuAddon = function(){
 
 // BUTTON CODE //
 window.menuButton = function(){
-    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:10px;right:436px;"></div>').appendTo(jQuery('.ui-container'));
+    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:10px;right:552px;"></div>').appendTo(jQuery('.ui-container'));
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">';
     var onClick =`window.menuButtonPress()`
     var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:95px; background:rgb(58,59,74,0.9);" onclick="'+onClick+'" type="button">IsleWaddon Menu</button>';
