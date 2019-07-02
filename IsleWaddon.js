@@ -3,7 +3,7 @@ var SalvageKey = "f"
 var gameStarted = "false"
 var MenuSTATUS = "false"
 var MapSTATUS = "false"
-var Version = "0.5.2"
+var Version = "0.5.3"
 var audioElement
 
 // SEND CHAT MSG FUNCTION //
@@ -34,7 +34,6 @@ var rangeArmor
 
 // GET USER SETTINGS //
 
-var newtest = "false"
 var SalvageSTATUS = "false"
 var TimerSTATUS = "true"
 var TimerSoundSTATUS = "true"
@@ -70,7 +69,7 @@ function initUserData() {
         map_xOffset = userData.map_xOffset
         map_yOffset = userData.map_yOffset
     } else {
-        // Clean old browser data
+        // Clean old islewaddon local storage
         localStorage.removeItem('islewardMinimap')
         localStorage.removeItem('isleWaddonSalvage')
         localStorage.removeItem('isleWaddonTimer')
@@ -82,24 +81,26 @@ function initUserData() {
     }
     setUserData()
 }
-// ALL STATUS MENU SETUP //
+
+// MENU SETUP //
+
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
-var L1 = tooltipTextStart+"╔═════ISLEWADDON═══"
-var L2 = tooltipTextStart+"║Hover here 🔍"
-var L3 = tooltipTextStart+"║Version : "+Version+" "
-var L4 = tooltipTextStart+"║ "
-var L5 = tooltipTextStart+"║Easy Salvage "
-var L6 = tooltipTextStart+"║Timer ⏳ "
-var L7 = tooltipTextStart+"║►Timer Sound "
-var L8 = tooltipTextStart+"║Whisper"
-var L9 = tooltipTextStart+"║►Whisper Sound "
-var L10 = tooltipTextStart+"║Quest Hid "
-var L11 = tooltipTextStart+"║Map "
-var L12 = tooltipTextStart+"║Stats range "
-var L13 = tooltipTextStart+"║Combat Log "
-var L14 = tooltipTextStart+"║+ Little Feature"
-var L15 = tooltipTextStart+"╚══════════════════"
+var L1 = tooltipTextStart+"╔═════ISLEWADDON═══" , L1_1 = tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"
+var L2 = tooltipTextStart+"║Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu !"
+var L3 = tooltipTextStart+"║Version : "+Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"
+var L4 = tooltipTextStart+"║ " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"
+var L5 = tooltipTextStart+"║Easy Salvage " , L5_1 = tooltipTextEnd+"Enable the fast salvage by pressing <font color='#ffeb38'>"+SalvageKey+"</font> on an item<br>"
+var L6 = tooltipTextStart+"║Timer ⏳ " , L6_1 = tooltipTextEnd+"Add in-game timer that show when boss respawn"
+var L7 = tooltipTextStart+"║► Timer Sound " , L7_1 = tooltipTextEnd+"Play a sound before the boss respawn"
+var L8 = tooltipTextStart+"║Whisper" , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to easy respond to whisper"
+var L9 = tooltipTextStart+"║► Whisper Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"
+var L10 = tooltipTextStart+"║Quest Hid " , L10_1 = tooltipTextEnd+"Hide the Quests tab"
+var L11 = tooltipTextStart+"║Map " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"
+var L12 = tooltipTextStart+"║Stats range " , L12_1 = tooltipTextEnd+"Add more informations about implicites stats and level 20 roll range on the gear<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"
+var L13 = tooltipTextStart+"║Combat Log " , L13_1 = tooltipTextEnd+"Add combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drop"
+var L14 = tooltipTextStart+"║+ Little Feature" , L14_1 = tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range"
+var L15 = tooltipTextStart+"╚══════════════════" , L15_1 = tooltipTextEnd+"This is a line"
 var tooltipStyle =
     `<style>
 /* Tooltip container */
@@ -119,7 +120,7 @@ border-radius: 6px;
 /* Position the tooltip text - see examples below! */
 position: absolute;
 z-index: 1;
-width: 200px;
+width: 250px;
 top: -5px;
 right: 105%;
 }
@@ -128,90 +129,82 @@ visibility: visible;
 }
 </style>
 `
-window.window.MenuAddon = function(){
+window.MenuAddon = function(){
     window.menu = jQuery('<div class="addon-loader" style="position:absolute;right:10px;bottom:230px;"></div>').appendTo(jQuery('.ui-container'))
     var src = tooltipStyle+'<table bgcolor="#3c3f4c">'
     var onClickX =`window.menuButtonXPress()`
     var drawButtonX = '<button id="ButtonX" style="color:rgb(0,0,0); width:23px; background:rgb(255,0,0);" onclick="'+onClickX+'" type="button">X</button>'
-    src += L1+drawButtonX+tooltipTextEnd+"By Polfy#6924<br>Enjoy this add-on :p"+'</span></div></td>'
-    src += L2+tooltipTextEnd+"Put your cursor on all the menu !"+'</span></div></td>'
+    src += L1+drawButtonX+L1_1+'</span></div></td>'
+    src += L2+L2_1+'</span></div></td>'
     var onClickLinkL =`window.ButtonLinkL()`
     var drawButtonLinkL = '<button id="ButtonLinkL" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkL+'" type="button">Log</button>'
-    src += L3+drawButtonLinkL+tooltipTextEnd+"Current add-on Version<br>For Isleward v0.3.2<br>► Link to the update log"+'</span></div></td>'
+    src += L3+drawButtonLinkL+L3_1+'</span></div></td>'
     var onClickLinkW =`window.ButtonLinkW()`
     var drawButtonLinkW = '<button id="ButtonLinkW" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkW+'" type="button">Wiki</button>'
     var onClickLinkD =`window.ButtonLinkD()`
     var drawButtonLinkD = '<button id="ButtonPvpLinkD" style="color:rgb(0,0,0); width:65px; background:rgb(55,67,232);" onclick="'+onClickLinkD+'" type="button">Discord</button>'
     var onClickLinkM =`window.ButtonLinkM()`
     var drawButtonLinkM = '<button id="ButtonLinkM" style="color:rgb(0,0,0); width:40px; background:rgb(174, 13, 221);" onclick="'+onClickLinkM+'" type="button">Map</button>'
-    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+'<span class="tooltiptext">'+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+'</span></div></td>'
-    src += L5
+    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+L4_1+'</span></div></td>'
     var onClickButtonSalvage =`window.ButtonPressSalvage()`
     if (SalvageSTATUS === "true") {
-        var drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonSalvage+'" type="button">On</button>'
+        var drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonSalvage+'" type="button">ON</button>'
     }else{
-        drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonSalvage+'" type="button">Off</button>'
+        drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonSalvage+'" type="button">OFF</button>'
     }
-    src += drawButtonSalvage+'<span class="tooltiptext">'+"Enable to fast salvage by pressing "+'<font color="green">'+SalvageKey+'</font>'+" on an item<br>"+'</span></div></td>'
-    src += L6
+    src += L5+drawButtonSalvage+L5_1+'</span></div></td>'
     var onClickButtonTimer =`window.ButtonPressTimer()`
     if (TimerSTATUS === "true") {
-        var drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimer+'" type="button">On</button>'
+        var drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimer+'" type="button">ON</button>'
     }else{
-        drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimer+'" type="button">Off</button>'
+        drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimer+'" type="button">OFF</button>'
     }
-    src += drawButtonTimer+'<span class="tooltiptext">'+"Add in-game timer that show when boss respawn"+'</span></div></td>'
-    src += L7
+    src += L6+drawButtonTimer+L6_1+'</span></div></td>'
     var onClickButtonTimerSound =`window.ButtonPressTimerSound()`
     if (TimerSoundSTATUS === "true") {
-        var drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:60px; background:rgb(0,255,0);" onclick="'+onClickButtonTimerSound+'" type="button">On 🔊</button>'
+        var drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimerSound+'" type="button">ON</button>'
     }else{
-        drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:60px; background:rgb(255,0,0);" onclick="'+onClickButtonTimerSound+'" type="button">Off 🔈</button>'
+        drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimerSound+'" type="button">OFF</button>'
     }
-    src += drawButtonTimerSound+'<span class="tooltiptext">'+"Play a sound before the boss respawn"+'</span></div></td>'
-    src += L8+tooltipTextEnd+"Use "+'<font color="green">'+"/r"+'</font>'+" to easy respond to whisper"+'</span></div></td>';
-    src += L9
+    src += L7+drawButtonTimerSound+L7_1+'</span></div></td>'
+    src += L8+L8_1+'</span></div></td>';
     var onClickButtonWhisperSound =`window.ButtonPressWhisperSound()`
     if (WhisperSoundSTATUS === "true") {
-        var drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:60px; background:rgb(0,255,0);" onclick="'+onClickButtonWhisperSound+'" type="button">On 🔊</button>'
+        var drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonWhisperSound+'" type="button">ON</button>'
     }else{
-        drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:60px; background:rgb(255,0,0);" onclick="'+onClickButtonWhisperSound+'" type="button">Off 🔈</button>'
+        drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonWhisperSound+'" type="button">OFF</button>'
     }
-    src += drawButtonWhisperSound+'<span class="tooltiptext">'+"Play a sound when you receive a whisper"+'</span></div></td>'
-    src += L10
+    src += L9+drawButtonWhisperSound+L9_1+'</span></div></td>'
     var onClickButtonQuestHide =`window.ButtonPressQuestHide()`
     if (QuestHideSTATUS === "true") {
-        var drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonQuestHide+'" type="button">On</button>'
+        var drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonQuestHide+'" type="button">ON</button>'
     }else{
-        drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonQuestHide+'" type="button">Off</button>'
+        drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonQuestHide+'" type="button">OFF</button>'
     }
-    src += drawButtonQuestHide+'<span class="tooltiptext">'+"Hide the Quests tab"+'</span></div></td>'
-    src += L11
+    src += L10+drawButtonQuestHide+L10_1+'</span></div></td>'
     var onClickButtonMap =`window.ButtonPressMap()`
     var onClickButtonMapReset =`window.ButtonPressMapReset()`
     var drawButtonMapReset = '<button id="ButtonMap" style="color:rgb(0,0,0); width:55px; background:rgb(139,145,232);" onclick="'+onClickButtonMapReset+'" type="button">Reset</button>'
     if (MapSTATUS === "true") {
-        var drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonMap+'" type="button">On</button>'
+        var drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonMap+'" type="button">ON</button>'
     }else{
-        drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">Off</button>'
+        drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">OFF</button>'
     }
-    src += drawButtonMap+" "+drawButtonMapReset+'<span class="tooltiptext">'+"In-game map<br>►Change the Size<br>"+'<font color="green">'+"+"+'</font>'+" , "+'<font color="green">'+"-"+'</font>'+"<br>►Change the Position<br>"+'<font color="green">'+"7"+'</font>'+" , "+'<font color="green">'+"8"+'</font>'+" , "+'<font color="green">'+"9"+'</font>'+" , "+'<font color="green">'+"0"+'</font>'+""+'</span></div></td>'
-    src += L12
+    src += L11+drawButtonMap+" "+drawButtonMapReset+L11_1+'</span></div></td>'
     var onClickButtonStatsRange =`window.ButtonPressStatsRange()`
     if (StatsRangeSTATUS === "true") {
-        var drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonStatsRange+'" type="button">On</button>'
+        var drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonStatsRange+'" type="button">ON</button>'
     }else{
-        drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">Off</button>'
+        drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">OFF</button>'
     }
-    src += drawButtonStatsRange+'<span class="tooltiptext">'+"Add more informations about implicites stats and level 20 roll range on the gear<br>⚠️Stat can be a stack of 2 or more of the same stat (Can't track it)"+'</span></div></td>'
-    src += L13
+    src += L12+drawButtonStatsRange+L12_1+'</span></div></td>'
     var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
     if (CombatLogSTATUS === "true") {
-        var drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonCombatLog+'" type="button">On</button>'
+        var drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonCombatLog+'" type="button">ON</button>'
     }else{
-        drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonCombatLog+'" type="button">Off</button>'
+        drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonCombatLog+'" type="button">OFF</button>'
     }
-    src += drawButtonCombatLog+'<span class="tooltiptext">'+"Add combat log in the "+'<font color="green">'+"Reputation"+'</font>'+" chat<br>⚠️ Can cause lag/fps drop"+'</span></div></td>'
+    src += L13+drawButtonCombatLog+L13_1+'</span></div></td>'
     if(gameStarted === "true") {
     var numhours = parseInt(player.stats.stats.played / 3600);
     var numminutes = parseInt((player.stats.stats.played % 3600) / 60);
@@ -223,11 +216,11 @@ window.window.MenuAddon = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += L14+tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range<br>► You already play with this character for :<br>"+TextPlayed+'</span></div></td>'
+    src += L14+L14_1+"<br>► You already play with this character for :<br><font color='#ffeb38'>"+TextPlayed+'</font></span></div></td>'
     }else{
-        src += L14+tooltipTextEnd+"► Add number of set you can trade to Vikar<br>► Add runes stats range"+'</span></div></td>'
+        src += L14+L14_1+'</span></div></td>'
     }
-    src += L15+tooltipTextEnd+"This is a line"+'</span></div></td>'+'</table>';
+    src += L15+L15_1+'</span></div></td></table>';
     window.menu.html(src);
 }
 
@@ -381,7 +374,7 @@ window.ButtonPressCombatLog = function(){
     window.MenuAddon();
     setUserData()
 }
-// EVENT REGISTER
+// EVENT REGISTER //
 addons.register({
     init: function(events) {
         // ALL EVENT USED //
