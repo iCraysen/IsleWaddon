@@ -95,7 +95,7 @@ var L6 = tooltipTextStart+"║Timer ⏳ " , L6_1 = tooltipTextEnd+"Add an in-g
 var L7 = tooltipTextStart+"║► Timer Sound " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"
 var L8 = tooltipTextStart+"║Whisper" , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"
 var L9 = tooltipTextStart+"║► Whisper Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"
-var L10 = tooltipTextStart+"║Quest Hid " , L10_1 = tooltipTextEnd+"Hide the Quests tab"
+var L10 = tooltipTextStart+"║Hide Quests " , L10_1 = tooltipTextEnd+"Hide the Quests tab"
 var L11 = tooltipTextStart+"║Map " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"
 var L12 = tooltipTextStart+"║Stats range " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"
 var L13 = tooltipTextStart+"║Combat Log " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"
