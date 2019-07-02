@@ -379,7 +379,6 @@ addons.register({
     init: function(events) {
         // ALL EVENT USED //
         events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
-        events.on('onGetItems', this.onGetItems.bind(this));
         events.on('onBuiltItemTooltip', this.onBuiltItemTooltip.bind(this));
         events.on('onShowItemTooltip', this.onShowItemTooltip.bind(this));
         events.on('onHideItemTooltip', this.onHideItemTooltip.bind(this));
@@ -414,14 +413,6 @@ addons.register({
             itemPos = obj.pos;
         }
 
-    },
-
-    onGetItems: function(items) {
-        if(items.name === "Rune of Smokebomb"){
-            items.sprite[0] = 10
-            items.sprite[1] = 3
-            items.spritesheet = '../../../images/abilityIcons.png'
-        }
     },
 
     onHideItemTooltip: function(obj) {
