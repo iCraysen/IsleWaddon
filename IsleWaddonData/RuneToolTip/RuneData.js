@@ -1,4 +1,4 @@
-let spells = {
+window.spells = {
     'magic missile': {
         statType: 'int',
         random: {
