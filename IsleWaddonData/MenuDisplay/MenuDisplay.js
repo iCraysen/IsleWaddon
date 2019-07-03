@@ -291,3 +291,4 @@ window.ButtonPressCombatLog = function(){
     window.MenuAddon();
     setUserData()
 }
+window.menuButton();
