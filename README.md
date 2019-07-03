@@ -1,7 +1,5 @@
 # ISLEWADDON v0.5.3 for ISLEWARD v0.3.2
-Install + Feature VID :  https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
-
-Menu Remake : https://www.youtube.com/watch?v=Lk7MfclXjjY&feature=youtu.be
+Install + Feature VID :  **THIS VID**
 
 # How to install IsleWaddon
   **BROWSER :**
