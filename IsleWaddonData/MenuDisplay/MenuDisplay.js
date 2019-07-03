@@ -3,7 +3,7 @@ var tooltipTextEnd = '</font><span class="tooltiptext">'
 var tooltipTextEndLine = '</span></div></td>'
  var L1 = tooltipTextStart+"╔═════ISLEWADDON═══" , L1_1 = tooltipTextEnd+"By Polfy#6924<br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord<br>The IsleWaddon remove the <font color='#ffeb38'>Login Reward</font> text (Will fix it if someone found how)<br>Enjoy this add-on :p"+tooltipTextEndLine
  var L2 = tooltipTextStart+"║Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
- var L3 = tooltipTextStart+"║Version : "+Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
+ var L3 = tooltipTextStart+"║Version : "+window.Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
  var L4 = tooltipTextStart+"║ " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+tooltipTextEndLine
  var L5 = tooltipTextStart+"║Easy Salvage " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+SalvageKey+"</font> on an item<br>"+tooltipTextEndLine
  var L6 = tooltipTextStart+"║Timer ⏳ " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"+tooltipTextEndLine
