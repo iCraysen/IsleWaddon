@@ -24,13 +24,9 @@ Add-on download : https://drive.google.com/file/d/1h_6PdBLj_QYQgepfNBj3VaMHsxRyl
 
 # Old IsleWaddon user from Greasy Fork
 
-You need to remove the old add-on version from you TamperMonkey :
+Ask me directly on Discord : **#Polfy6924**
 
-- 1 : Go in your dashboard : https://cdn.discordapp.com/attachments/493838864751001602/582830369578156054/1.PNG
-
-- 2 : Delete the old IsleWaddon (Version 3.3 or 3.4) : https://cdn.discordapp.com/attachments/493838864751001602/582830373948620810/2.PNG
-
-- 3 : Install with the new link : https://github.com/Polfy/IsleWaddon/raw/master/Loader.user.js
+Some info here : https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.be
 
 # FEATURES
 
@@ -59,16 +55,4 @@ You need to remove the old add-on version from you TamperMonkey :
 
 # Version LOG
 
-- v0.1 -> v0.3 : Old Beta/Working version
-- v0.4 : First Realase
-  - Full command chat to setup your settings
-- v0.5 : Menu refont
-  - Removed all the chat commands and switch to on/off button menu
-    - v0.5.1 : 
-      - Fix a ui issue (https://github.com/Polfy/IsleWaddon/commit/dab86a258fcf089503210dc3a420ba8d4c63afbc)
-    - v0.5.2 :
-      - Remake the local storage
-      - Version now show as wanted
-      - Removed Map oppacity feature
-    - v0.5.3 :
-      - Menu code cleaning
+Here : https://github.com/Polfy/IsleWaddon/blob/master/Version_Log.text
