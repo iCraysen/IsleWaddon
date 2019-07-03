@@ -1,5 +1,5 @@
 # ISLEWADDON v0.5.3 for ISLEWARD v0.3.2
-Install + Feature VID :  **THIS VID**
+Install explanation + Feature VID :  **THIS VID**
 
 # How to install IsleWaddon
   **BROWSER :**
