@@ -62,21 +62,21 @@ window.MenuAddon = function(){
     var drawButtonLinkM = '<button id="ButtonLinkM" style="color:rgb(0,0,0); width:40px; background:rgb(174, 13, 221);" onclick="'+onClickLinkM+'" type="button">Map</button>'
     src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+L4_1
     var onClickButtonSalvage =`window.ButtonPressSalvage()`
-    if (SalvageSTATUS === "true") {
+    if (window.SalvageSTATUS === "true") {
         var drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonSalvage+'" type="button">ON</button>'
     }else{
         drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonSalvage+'" type="button">OFF</button>'
     }
     src += L5+drawButtonSalvage+L5_1
     var onClickButtonTimer =`window.ButtonPressTimer()`
-    if (TimerSTATUS === "true") {
+    if (window.TimerSTATUS === "true") {
         var drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimer+'" type="button">ON</button>'
     }else{
         drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimer+'" type="button">OFF</button>'
     }
     src += L6+drawButtonTimer+L6_1
     var onClickButtonTimerSound =`window.ButtonPressTimerSound()`
-    if (TimerSoundSTATUS === "true") {
+    if (window.TimerSoundSTATUS === "true") {
         var drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimerSound+'" type="button">ON</button>'
     }else{
         drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimerSound+'" type="button">OFF</button>'
@@ -84,14 +84,14 @@ window.MenuAddon = function(){
     src += L7+drawButtonTimerSound+L7_1
     src += L8+L8_1
     var onClickButtonWhisperSound =`window.ButtonPressWhisperSound()`
-    if (WhisperSoundSTATUS === "true") {
+    if (window.WhisperSoundSTATUS === "true") {
         var drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonWhisperSound+'" type="button">ON</button>'
     }else{
         drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonWhisperSound+'" type="button">OFF</button>'
     }
     src += L9+drawButtonWhisperSound+L9_1
     var onClickButtonQuestHide =`window.ButtonPressQuestHide()`
-    if (QuestHideSTATUS === "true") {
+    if (window.QuestHideSTATUS === "true") {
         var drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonQuestHide+'" type="button">ON</button>'
     }else{
         drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonQuestHide+'" type="button">OFF</button>'
@@ -100,28 +100,28 @@ window.MenuAddon = function(){
     var onClickButtonMap =`window.ButtonPressMap()`
     var onClickButtonMapReset =`window.ButtonPressMapReset()`
     var drawButtonMapReset = '<button id="ButtonMap" style="color:rgb(0,0,0); width:55px; background:rgb(139,145,232);" onclick="'+onClickButtonMapReset+'" type="button">Reset</button>'
-    if (MapSTATUS === "true") {
+    if (window.MapSTATUS === "true") {
         var drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonMap+'" type="button">ON</button>'
     }else{
         drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">OFF</button>'
     }
     src += L11+drawButtonMap+" "+drawButtonMapReset+L11_1
     var onClickButtonStatsRange =`window.ButtonPressStatsRange()`
-    if (StatsRangeSTATUS === "true") {
+    if (window.StatsRangeSTATUS === "true") {
         var drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonStatsRange+'" type="button">ON</button>'
     }else{
         drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">OFF</button>'
     }
     src += L12+drawButtonStatsRange+L12_1
     var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
-    if (CombatLogSTATUS === "true") {
+    if (window.CombatLogSTATUS === "true") {
         var drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonCombatLog+'" type="button">ON</button>'
     }else{
         drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonCombatLog+'" type="button">OFF</button>'
     }
     src += L13+drawButtonCombatLog+L13_1
     src += L14+L14_1
-    if(gameStarted === "true") {
+    if(window.gameStarted === "true") {
     var numhours = parseInt(player.stats.stats.played / 3600);
     var numminutes = parseInt((player.stats.stats.played % 3600) / 60);
     var TextPlayed = "";
@@ -187,71 +187,71 @@ window.ButtonLinkM = function(){
     window.open('https://polfy.github.io/isleward-wiki-map/Zone/Fjolarok/', '_blank');
 }
 window.ButtonPressSalvage = function(){
-    if(SalvageSTATUS === "true") {
-        SalvageSTATUS = "false"
+    if(window.SalvageSTATUS === "true") {
+        window.SalvageSTATUS = "false"
     } else {
-        SalvageSTATUS = "true"
+        window.SalvageSTATUS = "true"
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on an item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressTimer = function(){
-    if(TimerSTATUS === "true") {
+    if(window.TimerSTATUS === "true") {
         jQuery(".Add-onTimer").remove()
-        TimerSTATUS = "false"
-        TimerSoundSTATUS = "false"
+        window.TimerSTATUS = "false"
+        window.TimerSoundSTATUS = "false"
     } else {
-        TimerSTATUS = "true"
+        window.TimerSTATUS = "true"
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressTimerSound = function(){
-    if(TimerSoundSTATUS === "true") {
-        TimerSoundSTATUS = "false"
+    if(window.TimerSoundSTATUS === "true") {
+        window.TimerSoundSTATUS = "false"
     } else {
-	if(TimerSTATUS === "true") {TimerSoundSTATUS = "true"}
+	if(window.TimerSTATUS === "true") {window.TimerSoundSTATUS = "true"}
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressWhisperSound = function(){
-    if(WhisperSoundSTATUS === "true") {
-        WhisperSoundSTATUS = "false"
+    if(window.WhisperSoundSTATUS === "true") {
+        window.WhisperSoundSTATUS = "false"
     } else {
-        WhisperSoundSTATUS = "true"
+        window.WhisperSoundSTATUS = "true"
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressQuestHide = function(){
-    if(QuestHideSTATUS === "true") {
-        QuestHideSTATUS = "false"
+    if(window.QuestHideSTATUS === "true") {
+        window.QuestHideSTATUS = "false"
         $(".ui-container .right .uiQuests .heading").text("Quests");
         $(".ui-container .right .uiQuests .list").toggle(true);
     } else {
-        QuestHideSTATUS = "true"
+        window.QuestHideSTATUS = "true"
         $(".ui-container .right .uiQuests .heading").text("Quests hidden ❌ ");
         $(".ui-container .right .uiQuests .list").toggle(false);
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressMap = function(){
-    if(MapSTATUS === "true") {
-        MapSTATUS = "false";
+    if(window.MapSTATUS === "true") {
+        window.MapSTATUS = "false";
         window.toggleMap();
         jQuery(".addon-loader").remove()
         window.MenuAddon();
     } else {
-        MapSTATUS = "true";
+        window.MapSTATUS = "true";
         window.toggleMap();
         jQuery(".addon-loader").remove()
         window.MenuAddon();
@@ -264,31 +264,31 @@ window.ButtonPressMapReset = function(){
     map_xOffset=0;
     map_yOffset=0;
     window.drawMap();
-    setUserData()
+    window.setUserData();
     jQuery(".addon-loader").remove()
     window.MenuAddon();
 }
 window.ButtonPressStatsRange = function(){
-    if(StatsRangeSTATUS === "true") {
-        StatsRangeSTATUS = "false"
+    if(window.StatsRangeSTATUS === "true") {
+        window.StatsRangeSTATUS = "false"
     } else {
-        StatsRangeSTATUS = "true"
+        window.StatsRangeSTATUS = "true"
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.ButtonPressCombatLog = function(){
-    if(CombatLogSTATUS === "true") {
-        CombatLogSTATUS = "false"
+    if(window.CombatLogSTATUS === "true") {
+        window.CombatLogSTATUS = "false"
     } else {
-        CombatLogSTATUS = "true"
+        window.CombatLogSTATUS = "true"
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The Combat log is in the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drops/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".addon-loader").remove()
     window.MenuAddon();
-    setUserData()
+    window.setUserData();
 }
 window.menuButton();
