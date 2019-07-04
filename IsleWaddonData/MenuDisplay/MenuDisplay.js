@@ -191,7 +191,7 @@ window.ButtonPressSalvage = function(){
         window.SalvageSTATUS = "false"
     } else {
         window.SalvageSTATUS = "true"
-        window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+SalvageKey+"' on an item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+        window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+window.SalvageKey+"' on an item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".addon-loader").remove()
