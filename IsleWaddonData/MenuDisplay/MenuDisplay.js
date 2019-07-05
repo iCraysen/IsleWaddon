@@ -132,7 +132,7 @@ window.MenuAddon = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += "<br>► You have played this character for <br><font color='#ffeb38'>"+TextPlayed+"<br>(Not accurate)'</font></span></div></td>'
+    src += "<br>► You have played this character for <br><font color='#ffeb38'>"+TextPlayed+"<br>(Not accurate)"'</font></span></div></td>'
     }
     src += tooltipTextEndLine
     src += L15+L15_1
