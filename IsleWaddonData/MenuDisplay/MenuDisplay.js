@@ -132,7 +132,7 @@ window.MenuAddon = function(){
         TextPlayed += "<br>and ";
     }
     TextPlayed += numminutes+" minutes";
-    src += "<br>► You have played this character for <br><font color='#ffeb38'>"+TextPlayed+"<br>(Not accurate)"+'</font></span></div></td>'
+    src += "<br>► You have played this character for <br><font color='#ffeb38'>"+TextPlayed+"</font><br>(Not accurate)"+'</span></div></td>'
     }
     src += tooltipTextEndLine
     src += L15+L15_1
@@ -148,7 +148,7 @@ window.menuButton = function(){
     var onClick =`window.menuButtonPress()`
     var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:95px; background:rgb(58,59,74,0.9);" onclick="'+onClick+'" type="button">IsleWaddon Menu</button>';
     src += '<tr><td></td><td>'+drawButton+'</td>';
-    src += "</table>";
+    src += '</table>';
     window.menuButtonTooltip.html(src)
 }
 window.menuButtonPress = function(){
