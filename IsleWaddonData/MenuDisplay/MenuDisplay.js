@@ -1,7 +1,7 @@
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
 var tooltipTextEndLine = '</span></div></td>'
- var L1 = tooltipTextStart+"╔═════ISLEWADDON═══" , L1_1 = tooltipTextEnd+"By Polfy#6924<br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord<br>The IsleWaddon remove the <font color='#ffeb38'>Login Reward</font> text (Will fix it if someone found how)<br>Enjoy this add-on :p"+tooltipTextEndLine
+ var L1 = tooltipTextStart+"╔═════ISLEWADDON═══" , L1_1 = tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord<br>The IsleWaddon remove the <font color='#ffeb38'>Login Reward</font> text (Will fix it if someone found how)"+tooltipTextEndLine
  var L2 = tooltipTextStart+"║Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
  var L3 = tooltipTextStart+"║Version : "+window.Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
  var L4 = tooltipTextStart+"║ " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+tooltipTextEndLine
