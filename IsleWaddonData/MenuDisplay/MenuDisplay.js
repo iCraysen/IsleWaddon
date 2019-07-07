@@ -1,19 +1,19 @@
 var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 var tooltipTextEnd = '</font><span class="tooltiptext">'
 var tooltipTextEndLine = '</span></div></td>'
- var L1 = tooltipTextStart+"    <font color='#48edff'>ISLEWADDON</font>   " , L1_1 = tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+tooltipTextEndLine
- var L2 = tooltipTextStart+" Hover here 🔍" , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
- var L3 = tooltipTextStart+" Version : "+window.Version+" " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
+ var L1 = tooltipTextStart+"   <font color='#48edff'>ISLEWADDON </font>" , L1_1 = tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+tooltipTextEndLine
+ var L2 = tooltipTextStart+" Hover here 🔍  " , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
+ var L3 = tooltipTextStart+" Version : "+window.Version+"  " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
  var L4 = tooltipTextStart+" " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+tooltipTextEndLine
- var L5 = tooltipTextStart+" Easy Salvage " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+window.SalvageKey+"</font> on an item<br>"+tooltipTextEndLine
- var L6 = tooltipTextStart+" Timer ⏳ " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"+tooltipTextEndLine
- var L7 = tooltipTextStart+" ► Timer Sound " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"+tooltipTextEndLine
- var L8 = tooltipTextStart+" Whisper" , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"+tooltipTextEndLine
- var L9 = tooltipTextStart+" ► Whisper Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"+tooltipTextEndLine
-var L10 = tooltipTextStart+" Hide Quests " , L10_1 = tooltipTextEnd+"Hide the Quests tab"+tooltipTextEndLine
-var L11 = tooltipTextStart+" Map " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+tooltipTextEndLine
-var L12 = tooltipTextStart+" Stats range " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+tooltipTextEndLine
-var L13 = tooltipTextStart+" Combat Log " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+tooltipTextEndLine
+ var L5 = tooltipTextStart+" Easy Salvage   " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+window.SalvageKey+"</font> on an item"+tooltipTextEndLine
+ var L6 = tooltipTextStart+" Timer ⏳         " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"+tooltipTextEndLine
+ var L7 = tooltipTextStart+" ► Timer Sound  " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"+tooltipTextEndLine
+ var L8 = tooltipTextStart+" Whisper         " , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"+tooltipTextEndLine
+ var L9 = tooltipTextStart+" ► Whisp Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"+tooltipTextEndLine
+var L10 = tooltipTextStart+" Hide Quests     " , L10_1 = tooltipTextEnd+"Hide the Quests tab"+tooltipTextEndLine
+var L11 = tooltipTextStart+" Map     " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+tooltipTextEndLine
+var L12 = tooltipTextStart+" Stats range    " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+tooltipTextEndLine
+var L13 = tooltipTextStart+" Combat Log     " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+tooltipTextEndLine
 var L14 = tooltipTextStart+" + Little Features" , L14_1 = tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
 var tooltipStyle =
     `<style>
@@ -52,39 +52,39 @@ window.MenuAddon = function(){
     var src = tooltipStyle+'<table>'
     var onClickX =`window.menuButtonXPress()`
     var drawButtonX = '<button id="ButtonX" style="color:rgb(0,0,0); width:23px; background:rgb(255,0,0);" onclick="'+onClickX+'" type="button">X</button>'
-    src += L1+drawButtonX+L1_1
+    src += L1+L1_1+'<td>'+"  "+drawButtonX+'</td>'
     src += L2+L2_1
     var onClickLinkL =`window.ButtonLinkL()`
     var drawButtonLinkL = '<button id="ButtonLinkL" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkL+'" type="button">Log</button>'
-    src += L3+drawButtonLinkL+L3_1
+    src += L3+L3_1+'<td>'+drawButtonLinkL+'</td>'
     var onClickLinkW =`window.ButtonLinkW()`
     var drawButtonLinkW = '<button id="ButtonLinkW" style="color:rgb(0,0,0); width:40px; background:rgb(139,145,232);" onclick="'+onClickLinkW+'" type="button">Wiki</button>'
     var onClickLinkD =`window.ButtonLinkD()`
     var drawButtonLinkD = '<button id="ButtonPvpLinkD" style="color:rgb(0,0,0); width:65px; background:rgb(55,67,232);" onclick="'+onClickLinkD+'" type="button">Discord</button>'
     var onClickLinkM =`window.ButtonLinkM()`
     var drawButtonLinkM = '<button id="ButtonLinkM" style="color:rgb(0,0,0); width:40px; background:rgb(174, 13, 221);" onclick="'+onClickLinkM+'" type="button">Map</button>'
-    src += L4+drawButtonLinkW+"  "+drawButtonLinkD+"  "+drawButtonLinkM+L4_1
+    src += L4+drawButtonLinkW+"    "+drawButtonLinkD+L4_1+'<td>'+drawButtonLinkM+'</td>'
     var onClickButtonSalvage =`window.ButtonPressSalvage()`
     if (window.SalvageSTATUS === "true") {
         var drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonSalvage+'" type="button">ON</button>'
     }else{
         drawButtonSalvage = '<button id="ButtonSalvage" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonSalvage+'" type="button">OFF</button>'
     }
-    src += L5+drawButtonSalvage+L5_1
+    src += L5+L5_1+'<td>'+drawButtonSalvage+'</td>'
     var onClickButtonTimer =`window.ButtonPressTimer()`
     if (window.TimerSTATUS === "true") {
         var drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimer+'" type="button">ON</button>'
     }else{
         drawButtonTimer = '<button id="ButtonTimer" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimer+'" type="button">OFF</button>'
     }
-    src += L6+drawButtonTimer+L6_1
+    src += L6+L6_1+'<td>'+drawButtonTimer+'</td>'
     var onClickButtonTimerSound =`window.ButtonPressTimerSound()`
     if (window.TimerSoundSTATUS === "true") {
         var drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonTimerSound+'" type="button">ON</button>'
     }else{
         drawButtonTimerSound = '<button id="ButtonTimerSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonTimerSound+'" type="button">OFF</button>'
     }
-    src += L7+drawButtonTimerSound+L7_1
+    src += L7+L7_1+'<td>'+drawButtonTimerSound+'</td>'
     src += L8+L8_1
     var onClickButtonWhisperSound =`window.ButtonPressWhisperSound()`
     if (window.WhisperSoundSTATUS === "true") {
@@ -92,14 +92,14 @@ window.MenuAddon = function(){
     }else{
         drawButtonWhisperSound = '<button id="ButtonWhisperSound" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonWhisperSound+'" type="button">OFF</button>'
     }
-    src += L9+drawButtonWhisperSound+L9_1
+    src += L9+L9_1+'<td>'+drawButtonWhisperSound+'</td>'
     var onClickButtonQuestHide =`window.ButtonPressQuestHide()`
     if (window.QuestHideSTATUS === "true") {
         var drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonQuestHide+'" type="button">ON</button>'
     }else{
         drawButtonQuestHide = '<button id="ButtonQuestHide" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonQuestHide+'" type="button">OFF</button>'
     }
-    src += L10+drawButtonQuestHide+L10_1
+    src += L10+L10_1+'<td>'+drawButtonQuestHide+'</td>'
     var onClickButtonMap =`window.ButtonPressMap()`
     var onClickButtonMapReset =`window.ButtonPressMapReset()`
     var drawButtonMapReset = '<button id="ButtonMap" style="color:rgb(0,0,0); width:55px; background:rgb(139,145,232);" onclick="'+onClickButtonMapReset+'" type="button">Reset</button>'
@@ -108,21 +108,21 @@ window.MenuAddon = function(){
     }else{
         drawButtonMap = '<button id="ButtonMap" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonMap+'" type="button">OFF</button>'
     }
-    src += L11+drawButtonMap+" "+drawButtonMapReset+L11_1
+    src += L11+drawButtonMapReset+" "+L11_1+'<td>'+drawButtonMap+'</td>'
     var onClickButtonStatsRange =`window.ButtonPressStatsRange()`
     if (window.StatsRangeSTATUS === "true") {
         var drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonStatsRange+'" type="button">ON</button>'
     }else{
         drawButtonStatsRange = '<button id="ButtonStatsRange" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonStatsRange+'" type="button">OFF</button>'
     }
-    src += L12+drawButtonStatsRange+L12_1
+    src += L12+L12_1+'<td>'+drawButtonStatsRange+'</td>'
     var onClickButtonCombatLog =`window.ButtonPressCombatLog()`
     if (window.CombatLogSTATUS === "true") {
         var drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(0,255,0);" onclick="'+onClickButtonCombatLog+'" type="button">ON</button>'
     }else{
         drawButtonCombatLog = '<button id="ButtonCombatLog" style="color:rgb(0,0,0); width:40px; background:rgb(255,0,0);" onclick="'+onClickButtonCombatLog+'" type="button">OFF</button>'
     }
-    src += L13+drawButtonCombatLog+L13_1
+    src += L13+L13_1+'<td>'+drawButtonCombatLog+'</td>'
     src += L14+L14_1
     if(window.gameStarted === "true") {
     var numhours = parseInt(player.stats.stats.played / 3600);
