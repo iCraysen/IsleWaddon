@@ -190,7 +190,6 @@ if (window.stopTwiceLoad !== "true") {
             if (!key) {
                 return;
             } else if (window.SalvageSTATUS == "true" && key == window.SalvageKey) {
-                window.menuButton();
                 if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
                     jQuery(".ui-container .uiInventory .grid .item").eq(itemPos).find(".icon").contextmenu();
                     for(var i=0;i< $(".uiContext .list .option").length;++i){
