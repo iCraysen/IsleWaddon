@@ -295,23 +295,16 @@ window.ButtonPressCombatLog = function(){
     window.MenuAddon();
     window.setUserData();
 }
-
-
+window.menuButton("bottom:130px;right:10px;");
 addons.register({
         init: function(events) {
             // ALL EVENT USED //
             events.on('onShowCharacterSelect', this.onShowCharacterSelect.bind(this));
-            events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
             events.on('onEnterGame', this.onEnterGame.bind(this));
         },
 
         onShowCharacterSelect: function(obj) {
             jQuery(".menuButton").remove()
-            window.menuButton("bottom:130px;right:10px;");
-            window.buttonInGame = 0
-        },
-
-        onResourcesLoaded: function() {
             window.menuButton("bottom:130px;right:10px;");
             window.buttonInGame = 0
         },
