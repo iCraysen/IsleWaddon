@@ -1,20 +1,3 @@
-var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
-var tooltipTextEnd = '</font><span class="tooltiptext">'
-var tooltipTextEndLine = '</span></div></td>'
- var L1 = tooltipTextStart+"   <font color='#48edff'>ISLEWADDON </font>" , L1_1 = tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+tooltipTextEndLine
- var L2 = tooltipTextStart+" Hover here 🔍  " , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
- var L3 = tooltipTextStart+" Version : "+window.Version+"  " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
- var L4 = tooltipTextStart+" " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+tooltipTextEndLine
- var L5 = tooltipTextStart+" Easy Salvage   " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+window.SalvageKey+"</font> on an item"+tooltipTextEndLine
- var L6 = tooltipTextStart+" Timer ⏳         " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"+tooltipTextEndLine
- var L7 = tooltipTextStart+" ► Timer Sound  " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"+tooltipTextEndLine
- var L8 = tooltipTextStart+" Whisper         " , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"+tooltipTextEndLine
- var L9 = tooltipTextStart+" ► Whisp Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"+tooltipTextEndLine
-var L10 = tooltipTextStart+" Hide Quests     " , L10_1 = tooltipTextEnd+"Hide the Quests tab"+tooltipTextEndLine
-var L11 = tooltipTextStart+" Map     " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+tooltipTextEndLine
-var L12 = tooltipTextStart+" Stats range    " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+tooltipTextEndLine
-var L13 = tooltipTextStart+" Combat Log     " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+tooltipTextEndLine
-var L14 = tooltipTextStart+" + Little Features" , L14_1 = tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
 var tooltipStyle =
     `<style>
 table {
@@ -47,6 +30,24 @@ visibility: visible;
 }
 </style>
 `
+var tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
+var tooltipTextEnd = '</font><span class="tooltiptext">'
+var tooltipTextEndLine = '</span></div></td>'
+ var L1 = tooltipTextStart+"   <font color='#48edff'>ISLEWADDON </font>" , L1_1 = tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+tooltipTextEndLine
+ var L2 = tooltipTextStart+" Hover here 🔍  " , L2_1 = tooltipTextEnd+"Put your cursor on all the menu items!"+tooltipTextEndLine
+ var L3 = tooltipTextStart+" Version : "+window.Version+"  " , L3_1 = tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+tooltipTextEndLine
+ var L4 = tooltipTextStart+" " , L4_1 = tooltipTextEnd+"Direct link to<br>► official wiki<br>► IsleWaddon Discord<br>► Online Map"+tooltipTextEndLine
+ var L5 = tooltipTextStart+" Easy Salvage   " , L5_1 = tooltipTextEnd+"Enable fast salvage by pressing <font color='#ffeb38'>"+window.SalvageKey+"</font> on an item"+tooltipTextEndLine
+ var L6 = tooltipTextStart+" Timer ⏳         " , L6_1 = tooltipTextEnd+"Add an in-game timer that counts down until a boss respawns"+tooltipTextEndLine
+ var L7 = tooltipTextStart+" ► Timer Sound  " , L7_1 = tooltipTextEnd+"Play a sound before a boss respawns"+tooltipTextEndLine
+ var L8 = tooltipTextStart+" Whisper         " , L8_1 = tooltipTextEnd+"Use <font color='#ffeb38'>/r</font> to quickly respond to whispers"+tooltipTextEndLine
+ var L9 = tooltipTextStart+" ► Whisp Sound " , L9_1 = tooltipTextEnd+"Play a sound when you receive a whisper"+tooltipTextEndLine
+var L10 = tooltipTextStart+" Hide Quests     " , L10_1 = tooltipTextEnd+"Hide the Quests tab"+tooltipTextEndLine
+var L11 = tooltipTextStart+" Map     " , L11_1 = tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>+</font> , <font color='#ffeb38'>-</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+tooltipTextEndLine
+var L12 = tooltipTextStart+" Stats range    " , L12_1 = tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+tooltipTextEndLine
+var L13 = tooltipTextStart+" Combat Log     " , L13_1 = tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+tooltipTextEndLine
+var L14 = tooltipTextStart+" + Little Features" , L14_1 = tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
+
 window.MenuAddon = function(){
     window.menu = jQuery('<div class="addon-loader" style="position:absolute;right:10px;bottom:164px;"></div>').appendTo(jQuery('.ui-container'))
     var src = tooltipStyle+'<table>'
@@ -144,19 +145,19 @@ window.MenuAddon = function(){
 
 // BUTTON CODE //
 
-window.menuButton = function(){
-    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;top:100px;right:340px;z-index:99999;"></div>').appendTo(jQuery('.ui-container'));
+window.menuButton = function(buttonPos){
+    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;'+buttonPos+'z-index:99999;"></div>').appendTo(jQuery('.ui-container'));
     var src = tooltipStyle+'<table#1>';
     var onClick =`window.menuButtonPress()`
-    if (window.creatorHere == 0) {var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';}
-    else {drawButton = '<button id="ButtonMenu" style="color:rgb(255,150,0); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';}
+    var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';
     src += '<tr><td></td><td>'+drawButton+'</td>';
     src += '</table>';
     window.menuButtonTooltip.html(src)
 }
 window.menuButtonPress = function(){
     jQuery(".menuButton").remove()
-    window.menuButton();
+    if (window.buttonInGame === 1) {window.menuButton("top:100px;right:340px;")}
+    else {window.menuButton("bottom:130px;right:10px;")}
     if (window.MenuSTATUS === "false"){
         window.MenuAddon();
         window.MenuSTATUS = "true"
@@ -294,4 +295,30 @@ window.ButtonPressCombatLog = function(){
     window.MenuAddon();
     window.setUserData();
 }
-window.menuButton();
+
+
+addons.register({
+        init: function(events) {
+            // ALL EVENT USED //
+            events.on('onShowCharacterSelect', this.onShowCharacterSelect.bind(this));
+            events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
+            events.on('onEnterGame', this.onEnterGame.bind(this));
+        },
+
+        onShowCharacterSelect: function(obj) {
+            jQuery(".menuButton").remove()
+            window.menuButton("bottom:130px;right:10px;");
+            window.buttonInGame = 0
+        },
+
+        onResourcesLoaded: function() {
+            window.menuButton("bottom:130px;right:10px;");
+            window.buttonInGame = 0
+        },
+
+        onEnterGame: function() {
+            jQuery(".menuButton").remove()
+            window.menuButton("top:100px;right:340px;");
+            window.buttonInGame = 1
+        }
+})
