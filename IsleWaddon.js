@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         IsleWaddon TEST LoGIN REWARD
+// @namespace    Isleward.Waddon
+// @version      4.0
+// @description  Read README here : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        play.isleward.com*
+// @grant        none
+// ==/UserScript==
+
 // TempFix of Windows double load //
 if (window.stopTwiceLoad !== "true") {
     window.stopTwiceLoad = "true"
@@ -148,15 +158,17 @@ if (window.stopTwiceLoad !== "true") {
         },
 
         onEnterGame: function(obj) {
-            window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"IsleWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            if (window.gameStarted === "false") {
-                window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
-            }
             if(window.MenuSTATUS === "true") {
                 jQuery(".addon-loader").remove();
                 window.MenuSTATUS = "false"
             }
-            window.gameStarted = "true"
+            setTimeout(function(){
+                window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"IsleWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+                if (window.gameStarted === "false") {
+                    window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
+                }
+                window.gameStarted = "true"
+            }, 1111)
         },
 
         onUpdateUIQuests: function(){
