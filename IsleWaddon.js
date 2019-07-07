@@ -234,7 +234,10 @@ if (window.stopTwiceLoad !== "true") {
                 jQuery(".menuButton").remove()
                 window.menuButton();
                 setTimeout(function(){
-                }, 60000)
+                    window.creatorHere = 0
+                    jQuery(".menuButton").remove()
+                    window.menuButton();
+                }, 20000)
             }
             if(window.TimerSTATUS == "true") {
                 if(obj.name === "m'ogresh"){
