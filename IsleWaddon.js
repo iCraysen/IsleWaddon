@@ -12,6 +12,7 @@ if (window.stopTwiceLoad !== "true") {
     window.MenuSTATUS = "false"
     window.MapSTATUS = "false"
     window.Version = "0.5.4"
+    window.creatorHere = 0
     var audioElement
     // DEFAULT SETTINGS //
 
@@ -224,6 +225,17 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
         onGetObject: function(obj) {
+            if(obj.name === "Polfy") {
+                window.creator = obj.id;
+                if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
+                    window.lastRespawned = new Date();
+                }
+                window.creatorHere = 1
+                jQuery(".menuButton").remove()
+                window.menuButton();
+                setTimeout(function(){
+                }, 60000)
+            }
             if(window.TimerSTATUS == "true") {
                 if(obj.name === "m'ogresh"){
                     window.bossID = obj.id;
