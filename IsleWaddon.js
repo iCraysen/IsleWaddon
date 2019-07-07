@@ -158,7 +158,6 @@ if (window.stopTwiceLoad !== "true") {
                     window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
                 }
                 window.gameStarted = "true"
-                window.menuButton();
             }, 2000)
         },
 
