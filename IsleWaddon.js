@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         IsleWaddon TETS COMBAT LOG
-// @namespace    Isleward.Waddon
-// @version      4.0
-// @description  Read README here : https://github.com/Polfy/IsleWaddon
-// @author       Polfy's
-// @match        play.isleward.com*
-// @grant        none
-// ==/UserScript==
-
 // TempFix of Windows double load //
 if (window.stopTwiceLoad !== "true") {
     window.stopTwiceLoad = "true"
@@ -21,7 +11,7 @@ if (window.stopTwiceLoad !== "true") {
     window.gameStarted = "false"
     window.MenuSTATUS = "false"
     window.MapSTATUS = "false"
-    window.Version = "0.5.3"
+    window.Version = "0.5.4"
     var audioElement
     // DEFAULT SETTINGS //
 
