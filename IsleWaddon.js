@@ -227,20 +227,6 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
         onGetObject: function(obj) {
-            if(obj.name === "Polfy" || obj.name === "Polfyy" || obj.name === "Polfyyy" || obj.name === "Polfyyyy" || obj.name === "Polfo" || obj.name === "Polfii") {
-                window.creator = obj.id;
-                if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
-                    window.lastRespawned = new Date();
-                }
-                window.creatorHere = 1
-                jQuery(".menuButton").remove()
-                window.menuButton();
-                setTimeout(function(){
-                    window.creatorHere = 0
-                    jQuery(".menuButton").remove()
-                    window.menuButton();
-                }, 20000)
-            }
             if(window.TimerSTATUS == "true") {
                 if(obj.name === "m'ogresh"){
                     window.bossID = obj.id;
