@@ -158,7 +158,8 @@ if (window.stopTwiceLoad !== "true") {
                     window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
                 }
                 window.gameStarted = "true"
-            }, 1111)
+                window.menuButton();
+            }, 2000)
         },
 
         onUpdateUIQuests: function(){
@@ -189,7 +190,8 @@ if (window.stopTwiceLoad !== "true") {
         onKeyDown: function(key) {
             if (!key) {
                 return;
-            } else if (window.SalvageSTATUS == "true" && key == SalvageKey) {
+            } else if (window.SalvageSTATUS == "true" && key == window.SalvageKey) {
+                window.menuButton();
                 if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
                     jQuery(".ui-container .uiInventory .grid .item").eq(itemPos).find(".icon").contextmenu();
                     for(var i=0;i< $(".uiContext .list .option").length;++i){
