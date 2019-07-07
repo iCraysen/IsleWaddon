@@ -145,7 +145,7 @@ window.MenuAddon = function(){
 // BUTTON CODE //
 
 window.menuButton = function(){
-    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:121px;right:10px;"></div>').appendTo(jQuery('.ui-container'));
+    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;bottom:121px;right:10px;z-index:99999;"></div>').appendTo(jQuery('.ui-container'));
     var src = tooltipStyle+'<table#1>';
     var onClick =`window.menuButtonPress()`
     if (window.creatorHere == 0) {var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';}
