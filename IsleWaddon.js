@@ -1,7 +1,17 @@
+// ==UserScript==
+// @name         IsleWaddon TETS COMBAT LOG
+// @namespace    Isleward.Waddon
+// @version      4.0
+// @description  Read README here : https://github.com/Polfy/IsleWaddon
+// @author       Polfy's
+// @match        play.isleward.com*
+// @grant        none
+// ==/UserScript==
+
 // TempFix of Windows double load //
 if (window.stopTwiceLoad !== "true") {
     window.stopTwiceLoad = "true"
-    
+
     function initIsleWaddon() {
         $.getScript("https://polfy.github.io/IsleWaddon/IsleWaddonData/MenuDisplay/MenuDisplay.js")
         $.getScript("https://polfy.github.io/IsleWaddon/IsleWaddonData/RuneToolTip/RuneToolTip.js")
@@ -87,7 +97,7 @@ if (window.stopTwiceLoad !== "true") {
             localStorage.removeItem('isleWaddonHideQuest')
             localStorage.removeItem('isleWaddonCombatLog')
         }
-        setUserData()
+        window.setUserData()
     }
 
     // EVENT REGISTER //
@@ -112,7 +122,6 @@ if (window.stopTwiceLoad !== "true") {
             window.uiMap.css("opacity","1.0");
             events.on('onGetMap', this.onGetMap.bind(this));
             // COMBAT LOG
-            events.on('onGetSpellCooldowns', this.onGetSpellCooldowns.bind(this));
             events.on('onGetDamage',this.onGetDamage.bind(this));
         },
 
@@ -221,7 +230,7 @@ if (window.stopTwiceLoad !== "true") {
                     window.map_xOffset+=30;
                     window.uiMap.css('left',window.map_xOffset);
                 }
-                setUserData()
+                window.setUserData()
             }
         },
         onGetObject: function(obj) {
@@ -338,7 +347,7 @@ if (window.stopTwiceLoad !== "true") {
             if (window.CombatLogSTATUS === "true") {
                 if(obj.destroyed !== undefined && obj.destroyed == true){
                     if(obj.id in inCombatWith){
-                        addCombatMessage(idToName[obj.id] + " has been killed.");
+                        setTimeout(function(){addCombatMessage(idToName[obj.id] + " has been killed", "redA")}, 100)
                         delete inCombatWith[obj.id];
                     }
                 }
@@ -361,13 +370,6 @@ if (window.stopTwiceLoad !== "true") {
                 }
             }
         },
-        onGetSpellCooldowns: function(spell) {
-            if (window.CombatLogSTATUS === "true") {
-                if(spell.id !== undefined && window.player !== undefined && spell.id == window.player.id && spell.spell !== undefined){
-                    addCombatMessage("You cast "+window.player.spellbook.getSpell(spell.spell).name);
-                }
-            }
-        },
         onGetDamage: function(dmg) {
             if (window.CombatLogSTATUS === "true") {
                 if(dmg.crit !== undefined){
@@ -380,17 +382,17 @@ if (window.stopTwiceLoad !== "true") {
                         if(window.player !== undefined && dmg.source == window.player.id){
                             inCombatWith[dmg.id] = true;
                             enemyName = idToName[dmg.id];
-                            addCombatMessage("You "+(dmg.crit == true ? "critically ":"")+action+" "+enemyName+" for "+ (~~dmg.amount) +" damage.");
+                            addCombatMessage("You "+(dmg.crit == true ? "critically ":"")+action+" "+enemyName+" for "+ (~~dmg.amount) +" damage", "blueA");
                         } else if(window.player !== undefined && dmg.id == window.player.id){
                             enemyName = idToName[dmg.source];
                             inCombatWith[dmg.source] = true;
-                            addCombatMessage(enemyName+(dmg.crit == true ? " critically":"")+" "+action+"s you for "+ (~~dmg.amount) +" damage.");
+                            addCombatMessage(enemyName+(dmg.crit == true ? " critically":"")+" "+action+"s you for "+ (~~dmg.amount) +" damage", "tealC");
                         }
                     }
                 } else{
                     if(dmg.event !== undefined){
                         if(window.player !== undefined && dmg.id == window.player.id && dmg.text.indexOf(" xp") != -1){
-                            addCombatMessage("You gained "+dmg.text+".");
+                            setTimeout(function(){addCombatMessage("You gained "+dmg.text, "redA")}, 200)
                         }
                     }
                 }
@@ -894,10 +896,9 @@ if (window.stopTwiceLoad !== "true") {
         window.menuTimer.html(src);
     }
 
-    function addCombatMessage(txt){
+    function addCombatMessage(txt, colortxt){
         var msg = "*"+txt+"*";
-        var color = "redA";
-        jQuery('<div class="list-message color-'+color+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
+        jQuery('<div class="list-message color-'+colortxt+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
 
