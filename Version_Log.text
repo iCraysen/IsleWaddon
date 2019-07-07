@@ -13,3 +13,5 @@ Version LOG :
       - Removed Map oppacity feature
     - v0.5.3 :
       - Menu code cleaning
+    - v0.5.4 :
+      - Add Combat Log color + small msg fix
