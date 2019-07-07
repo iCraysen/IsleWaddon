@@ -36,7 +36,7 @@ if (window.stopTwiceLoad !== "true") {
     var colorTooltip
     var text
     var numberOfStat
-    var weaponMult
+    var weaponMult = 1
     var rangeDmg
     var rangeArmor
 
@@ -524,8 +524,7 @@ if (window.stopTwiceLoad !== "true") {
             });
             // LVL 20 GEAR STATS
             if(obj.level === 20 || obj.originalLevel === 20 || (obj.level+obj.stats.lvlRequire) === 20) {
-                if(obj.slot === "twoHanded") {weaponMult = 2;}
-                else {weaponMult = 1;}
+                if(obj.slot === "twoHanded") {weaponMult = 2}
                 // DAMAGE
                 if(obj.slot === "twoHanded" || obj.slot === "oneHanded") {
                     if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]";}
@@ -586,21 +585,21 @@ if (window.stopTwiceLoad !== "true") {
                     text = $(this).html();
                     $(this).html(text.replaceAll("spell crit multiplier", "spell crit multiplier <font color="+colorTooltip+">[1-"+28*weaponMult+"]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("increased item quality", "increased item quality <font color="+colorTooltip+">[1-"+15*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("increased item quality", "increased item quality <font color="+colorTooltip+">[1-15]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("increased item quantity", "increased item quantity <font color="+colorTooltip+">[2-"+27*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("increased item quantity", "increased item quantity <font color="+colorTooltip+">[2-27]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("additional xp per kill", "additional xp per kill <font color="+colorTooltip+">[1-"+6*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("additional xp per kill", "additional xp per kill <font color="+colorTooltip+">[1-6]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("level requirement reduction", "level requirement reduction <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("level requirement reduction", "level requirement reduction <font color="+colorTooltip+">[1-10]</font>"));
                     text = $(this).html();
                     $(this).html(text.replaceAll("vitality", "vitality <font color="+colorTooltip+">[1-"+7*weaponMult+"]</font>"));
                     text = $(this).html();
                     $(this).html(text.replaceAll("health regeneration", "health regeneration <font color="+colorTooltip+">[1-"+14*weaponMult+"]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("maximum mana", "maximum mana <font color="+colorTooltip+">[1-"+8*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("maximum mana", "maximum mana <font color="+colorTooltip+">[1-8]</font>"));
                     text = $(this).html();
-                    $(this).html(text.replaceAll("mana regeneration", "mana regeneration <font color="+colorTooltip+">[1-"+5*weaponMult+"]</font>"));
+                    $(this).html(text.replaceAll("mana regeneration", "mana regeneration <font color="+colorTooltip+">[1-5]</font>"));
                     text = $(this).html();
                     $(this).html(text.replaceAll("arcane resistance", "arcane resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
                     text = $(this).html();
