@@ -11,7 +11,7 @@ if (window.stopTwiceLoad !== "true") {
     window.gameStarted = "false"
     window.MenuSTATUS = "false"
     window.MapSTATUS = "false"
-    window.Version = "0.5.4"
+    window.Version = "0.5.5"
     window.creatorHere = 0
     var audioElement
     // DEFAULT SETTINGS //
