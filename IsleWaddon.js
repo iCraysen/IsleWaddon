@@ -254,7 +254,7 @@ if (window.stopTwiceLoad !== "true") {
 
                     audioElement = document.createElement("audio");
                     audioElement.type = "audio/wav";
-                    audioElement.src = "http://wavlist.com/soundfx/027/drum_stick.wav";
+                    audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/drum_stick.wav";
                     audioElement.volume = 0.2;
                     audioElement.play();
 
@@ -351,7 +351,7 @@ if (window.stopTwiceLoad !== "true") {
                     if(window.WhisperSoundSTATUS === "true") {
                         audioElement = document.createElement("audio");
                         audioElement.type = "audio/wav";
-                        audioElement.src = "http://www.wavlist.com/soundfx/027/drum_stick.wav";
+                        audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/drum_stick.wav";
                         audioElement.volume = 0.2;
                         audioElement.play();
                     }
@@ -802,7 +802,7 @@ if (window.stopTwiceLoad !== "true") {
             if(window.respawnTime == 14 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
                 audioElement = document.createElement("audio");
                 audioElement.type = "audio/wav";
-                audioElement.src = "http://www.wavlist.com/soundfx/002/cat-meow3.wav";
+                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/cat-meow3.wav";
                 audioElement.volume = 0.2;
                 audioElement.play();
             }
@@ -813,7 +813,7 @@ if (window.stopTwiceLoad !== "true") {
             if(window.respawnTime1 == 4 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
                 audioElement = document.createElement("audio");
                 audioElement.type = "audio/wav";
-                audioElement.src = "http://www.wavlist.com/soundfx/020/clock-tick1.wav";
+                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/clock-tick1.wav";
                 audioElement.volume = 0.2;
                 audioElement.play();
             }
@@ -824,7 +824,7 @@ if (window.stopTwiceLoad !== "true") {
             if(window.respawnTime2== 10 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
                 audioElement = document.createElement("audio");
                 audioElement.type = "audio/wav";
-                audioElement.src = "http://www.wavlist.com/soundfx/014/cricket-3.wav";
+                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/cricket-3.wav";
                 audioElement.volume = 0.05;
                 audioElement.play();
             }
