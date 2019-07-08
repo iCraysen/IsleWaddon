@@ -304,12 +304,20 @@ addons.register({
         },
 
         onShowCharacterSelect: function(obj) {
+            if(window.MenuSTATUS === "true") {
+                jQuery(".addon-loader").remove();
+                window.MenuSTATUS = "false"
+            }
             jQuery(".menuButton").remove()
             window.menuButton("bottom:130px;right:10px;");
             window.buttonInGame = 0
         },
 
         onEnterGame: function() {
+            if(window.MenuSTATUS === "true") {
+                jQuery(".addon-loader").remove();
+                window.MenuSTATUS = "false"
+            }
             jQuery(".menuButton").remove()
             window.menuButton("top:100px;right:340px;");
             window.buttonInGame = 1
