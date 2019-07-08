@@ -516,6 +516,7 @@ if (window.stopTwiceLoad !== "true") {
             // LVL 20 GEAR STATS
             if(obj.level === 20 || obj.originalLevel === 20 || (obj.level+obj.stats.lvlRequire) === 20) {
                 if(obj.slot === "twoHanded") {weaponMult = 2}
+                else {weaponMult = 1}
                 // DAMAGE
                 if(obj.slot === "twoHanded" || obj.slot === "oneHanded") {
                     if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]";}
