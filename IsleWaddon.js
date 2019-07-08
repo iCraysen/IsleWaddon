@@ -148,10 +148,6 @@ if (window.stopTwiceLoad !== "true") {
         },
 
         onEnterGame: function(obj) {
-            if(window.MenuSTATUS === "true") {
-                jQuery(".addon-loader").remove();
-                window.MenuSTATUS = "false"
-            }
             setTimeout(function(){
                 window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"IsleWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
                 if (window.gameStarted === "false") {
