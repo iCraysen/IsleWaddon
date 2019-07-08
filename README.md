@@ -1,4 +1,4 @@
-# ISLEWADDON v0.5.3 for ISLEWARD v0.3.2
+# ISLEWADDON v0.6 for ISLEWARD v0.3.2
 Install explanation + Feature VID :  https://www.youtube.com/watch?v=ioSmA3vHz2Q
 
 # How to install IsleWaddon

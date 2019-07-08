@@ -1,48 +1,34 @@
-// TempFix of Windows double load //
+// TempFix of Windows double load
 if (window.stopTwiceLoad !== "true") {
     window.stopTwiceLoad = "true"
+    console.log('*************************')
+    console.log('*********WARNING*********')
+    console.log('**IF YOU LOG IWD ISSUES**')
+    console.log('****IsleWaddon LOADED****')
+    console.log('*************************')
+    window.initIsleWaddonVersion = "IsleWaddon"
 
     function initIsleWaddon() {
-        $.getScript("https://polfy.github.io/IsleWaddon/IsleWaddonData/MenuDisplay/MenuDisplay.js")
-        $.getScript("https://polfy.github.io/IsleWaddon/IsleWaddonData/RuneToolTip/RuneToolTip.js")
+        // GET FEATURES
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/MenuDisplay.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/EasySalvage.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/RespawnTimer.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/ToolTipExpand/ToolTipExpand.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/AutoReply.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/CombatLog.js")
+        $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/QuestHide.js")
     }
 
-    window.SalvageKey = "f"
+    // DEFAULT SETTINGS
+    window.Version = "0.6"
     window.gameStarted = "false"
     window.MenuSTATUS = "false"
     window.MapSTATUS = "false"
-    window.Version = "0.5.5"
-    window.creatorHere = 0
-    var audioElement
-    // DEFAULT SETTINGS //
+    window.audioElement = document.createElement("audio");
+    window.audioElement.type = "audio/wav";
+    window.audioElement.volume = 0.2;
 
-    // SEND CHAT MSG FUNCTION //
-    window.deferTillChat = function(method) {
-        if (jQuery(".uiMessages .list")[0] !== undefined) {
-            method();
-        } else {
-            setTimeout(function() { deferTillChat(method) }, 50);
-        }
-    }
-    // COMBAT LOG VALUES //
-    var idToName = {}
-    var inCombatWith = {}
-
-    // INVENTORY POSITION + EXPAND STATS RANGES VALUES //
-    var itemPos = -1
-    var Obj = -1
-    String.prototype.replaceAll = String.prototype.replaceAll || function(string, replaced) {
-    return this.replace(new RegExp(string, 'g'), replaced);
-    };
-    var colorTooltip
-    var text
-    var numberOfStat
-    var weaponMult = 1
-    var rangeDmg
-    var rangeArmor
-
-    // GET USER SETTINGS //
-
+    // GET USER SETTINGS
     window.SalvageSTATUS = "false"
     window.TimerSTATUS = "true"
     window.TimerSoundSTATUS = "true"
@@ -59,11 +45,6 @@ if (window.stopTwiceLoad !== "true") {
     }
 
     function initUserData() {
-        console.log('*************************')
-        console.log('*********WARNING*********')
-        console.log('**IF YOU LOG IWD ISSUES**')
-        console.log('****IsleWaddon LOADED****')
-        console.log('*************************')
         var userData = localStorage.getObject('IsleWaddonUserData')
         if(userData !== undefined && userData !== null){
             //if(userData.newtest !== undefined && userData.newtest !== null){newtest = userData.newtest}
@@ -91,20 +72,23 @@ if (window.stopTwiceLoad !== "true") {
         window.setUserData()
     }
 
-    // EVENT REGISTER //
+    // SEND CHAT MSG FUNCTION
+    window.deferTillChat = function(method) {
+        if (jQuery(".uiMessages .list")[0] !== undefined) {
+            method();
+        } else {
+            setTimeout(function() { deferTillChat(method) }, 50);
+        }
+    }
+
     addons.register({
         init: function(events) {
-            // ALL EVENT USED //
+            // ALL EVENT USED
             events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
-            events.on('onBuiltItemTooltip', this.onBuiltItemTooltip.bind(this));
-            events.on('onShowItemTooltip', this.onShowItemTooltip.bind(this));
-            events.on('onHideItemTooltip', this.onHideItemTooltip.bind(this));
             events.on('onKeyDown', this.onKeyDown.bind(this));
             events.on('onRezone', this.onRezone.bind(this));
-            events.on('onObtainQuest', this.onObtainQuest.bind(this));
             events.on('onEnterGame', this.onEnterGame.bind(this));
             events.on('onGetObject', this.onGetObject.bind(this));
-            events.on('onGetMessages', this.onGetMessages.bind(this));
             // MAP
             window.uiContainer = jQuery('.ui-container');
             window.uiMap = jQuery('<canvas class="addon-uiMap"></canvas>').appendTo(window.uiContainer);
@@ -112,32 +96,11 @@ if (window.stopTwiceLoad !== "true") {
             window.uiMap.css("pointer-events","none");
             window.uiMap.css("opacity","1.0");
             events.on('onGetMap', this.onGetMap.bind(this));
-            // COMBAT LOG
-            events.on('onGetDamage',this.onGetDamage.bind(this));
         },
 
         onResourcesLoaded: function() {
             initIsleWaddon();
             initUserData();
-        },
-
-        onShowItemTooltip: function(obj) {
-            Obj = obj;
-            if(obj.material === true || obj.noSalvage === true){
-                itemPos = -1;
-            } else{
-                itemPos = obj.pos;
-            }
-
-        },
-
-        onHideItemTooltip: function(obj) {
-            Obj = -1;
-            itemPos = -1;
-        },
-
-        onBuiltItemTooltip: function(obj) {
-            itemType(Obj);
         },
 
         onGetMap: function(mapData) {
@@ -157,17 +120,7 @@ if (window.stopTwiceLoad !== "true") {
             }, 2000)
         },
 
-        onUpdateUIQuests: function(){
-            if (window.QuestHideSTATUS == "true") {
-                $(".ui-container .right .uiQuests .heading").text("Quests hidden ❌ ");
-                $(".ui-container .right .uiQuests .list").toggle(false);
-        } else if (window.QuestHideSTATUS == "false" && $(".ui-container .right .uiQuests .heading").text() != 'Quests') {
-                $(".ui-container .right .uiQuests .heading").text("Quests");
-                $(".ui-container .right .uiQuests .list").toggle(true);
-        }
-        },
         onRezone: function () {
-            this.onUpdateUIQuests();
             window.thingsToDraw = {};
             if (window.uiMap.css("display") == "block") {
                 window.drawMap();
@@ -177,25 +130,12 @@ if (window.stopTwiceLoad !== "true") {
                 jQuery(".minimapName").eq(i).remove();
             }
         },
-        onObtainQuest: function () {
-            this.onUpdateUIQuests();
-        },
 
         // KEYS
         onKeyDown: function(key) {
             if (!key) {
                 return;
-            } else if (window.SalvageSTATUS == "true" && key == window.SalvageKey) {
-                if(jQuery(".ui-container .uiInventory").css("display") == "block" && itemPos != -1 && typeof jQuery(".uiMessages .active .typing")[0] === "undefined"){
-                    jQuery(".ui-container .uiInventory .grid .item").eq(itemPos).find(".icon").contextmenu();
-                    for(var i=0;i< $(".uiContext .list .option").length;++i){
-                        if(jQuery(".uiContext .list .option").eq(i).text() == "salvage"){
-                            jQuery(".uiContext .list .option").eq(i).click();
-                            break;
-                        }
-                    }
-                }
-            } else if (window.MapSTATUS == "true") {
+            }  else if (window.MapSTATUS == "true") {
                 if (key == "13") {
                     if (window.mapScale > 1) {
                         window.mapScale-=0.1;
@@ -223,67 +163,6 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
         onGetObject: function(obj) {
-            if(window.TimerSTATUS == "true") {
-                if(obj.name === "m'ogresh"){
-                    window.bossID = obj.id;
-                    if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
-                        window.lastRespawned = new Date();
-                    }
-                }
-                if (typeof window.bossID != "undefined" && obj.id == window.bossID && obj.destroyed){
-                    if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
-                        window.lastKilled = new Date();
-                    }
-                    window.respawnTime = 146+1;
-                }
-                if(obj.name === "Stinktooth"){
-
-                    window.bossID1 = obj.id;
-                    if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
-                        window.lastRespawned = new Date();
-                    }
-                }
-                if (typeof window.bossID1 != "undefined" && obj.id == window.bossID1 && obj.destroyed){
-                    if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
-                        window.lastKilled = new Date();
-                    }
-                    window.respawnTime1 = 60+1;
-                }
-
-                if(obj.name === "Steelclaw"){
-
-                    audioElement = document.createElement("audio");
-                    audioElement.type = "audio/wav";
-                    audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/drum_stick.wav";
-                    audioElement.volume = 0.2;
-                    audioElement.play();
-
-                    window.bossID2 = obj.id;
-                    if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
-                        window.lastRespawned = new Date();
-                    }
-                }
-                if (typeof window.bossID2 != "undefined" && obj.id == window.bossID2 && obj.destroyed){
-                    if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
-                        window.lastKilled = new Date();
-                    }
-                    window.respawnTime1 = 60+1;
-                }
-
-                if(obj.name === "Radulos"){
-
-                    window.bossID3 = obj.id;
-                    if(typeof window.lastRespawned === "undefined" && typeof window.lastKilled !== "undefined"){
-                        window.lastRespawned = new Date();
-                    }
-                }
-                if (typeof window.bossID3 != "undefined" && obj.id == window.bossID3 && obj.destroyed){
-                    if(typeof window.lastKilled === "undefined" && typeof window.lastRespawned === "undefined"){
-                        window.lastKilled = new Date();
-                    }
-                    window.respawnTime2 = 600+1;
-                }
-            }
             // MAP
             if(obj.name !== undefined){
                 var safeName = obj.name.split(' ').join('_');
@@ -329,347 +208,10 @@ if (window.stopTwiceLoad !== "true") {
                     }
                 }
             }
-            // COMBAT LOG
-            if(obj.name !== undefined){
-                idToName[obj.id]=obj.name;
-            }
-            if (window.CombatLogSTATUS === "true") {
-                if(obj.destroyed !== undefined && obj.destroyed == true){
-                    if(obj.id in inCombatWith){
-                        setTimeout(function(){addCombatMessage(idToName[obj.id] + " has been killed", "redA")}, 100)
-                        delete inCombatWith[obj.id];
-                    }
-                }
-            }
-        },
-        // REPLY
-        onGetMessages: function(msg) {
-            if(msg.messages && msg.messages[0] != undefined && msg.messages[0].type != undefined && msg.messages[0].type == "chat" && msg.messages[0].message != undefined){
-                var myReg =   /\((\b[a-zA-Z]*)(\[\d{1,2}\])? to you\): \b.*/g;
-                var matched = myReg.exec(msg.messages[0].message);
-                if(matched != undefined && matched.length >= 2){
-                    if(window.WhisperSoundSTATUS === "true") {
-                        audioElement = document.createElement("audio");
-                        audioElement.type = "audio/wav";
-                        audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/drum_stick.wav";
-                        audioElement.volume = 0.2;
-                        audioElement.play();
-                    }
-                    window.lastReply = matched[1];
-                }
-            }
-        },
-        onGetDamage: function(dmg) {
-            if (window.CombatLogSTATUS === "true") {
-                if(dmg.crit !== undefined){
-                    if(dmg.id !== undefined && dmg.source !== undefined){
-                        var enemyName;
-                        var action="hit";
-                        if(dmg.heal !== undefined && dmg.heal == true){
-                            action="heal";
-                        }
-                        if(window.player !== undefined && dmg.source == window.player.id){
-                            inCombatWith[dmg.id] = true;
-                            enemyName = idToName[dmg.id];
-                            addCombatMessage("You "+(dmg.crit == true ? "critically ":"")+action+" "+enemyName+" for "+ (~~dmg.amount) +" damage", "blueA");
-                        } else if(window.player !== undefined && dmg.id == window.player.id){
-                            enemyName = idToName[dmg.source];
-                            inCombatWith[dmg.source] = true;
-                            addCombatMessage(enemyName+(dmg.crit == true ? " critically":"")+" "+action+"s you for "+ (~~dmg.amount) +" damage", "tealC");
-                        }
-                    }
-                } else{
-                    if(dmg.event !== undefined){
-                        if(window.player !== undefined && dmg.id == window.player.id && dmg.text.indexOf(" xp") != -1){
-                            setTimeout(function(){addCombatMessage("You gained "+dmg.text, "redA")}, 200)
-                        }
-                    }
-                }
-            }
         },
     });
 
-    // LVL 20 ROLL RANGE + CARD SET TO TRADE COUNT
-    function itemType(obj){
-        if(obj.quality === 0) {colorTooltip = "white"; numberOfStat = " non-augmented stat";}
-        else {
-            numberOfStat = " non-augmented stats";
-            if(obj.quality === 1) {colorTooltip = "#4ac441";}
-            else if(obj.quality === 2) {colorTooltip = "#3fa7dd";}
-            else if(obj.quality === 3) {colorTooltip = "#a24eff";}
-            else if(obj.quality === 4) {colorTooltip = "#ff6942";}
-        }
-        numberOfStat = (obj.quality+1)+numberOfStat;
-        if(obj.type === "Fishing Rod" && obj.name !== "Competition Rod" && obj.name !== "Flimsy Fishing Rod"){
-            expandFishingRodTooltip(obj);
-        }else if(obj.ability !== true && obj.level) {
-            expandItemStats(obj);
-        }else if(obj.ability === true) {
-            expandRuneTooltip(obj);
-        }else if(obj.type === "Reward Card") {
-            expandRewardCardTooltip(obj);
-        }
-    }
-
-    function expandItemStats(obj) {
-        // IMPLICITS STATS
-        if(window.StatsRangeSTATUS == "true") {
-            $('.uiTooltipItem .tooltip .implicitStats').each(function() {
-                text = $(this).html();
-                if(obj.type === "Breastplate") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Helmet" ||obj.type === "Legplates") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gauntlets" || obj.type === "Steel Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Armor" || obj.type === "Scalemail") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Cap" || obj.type === "Facemask" || obj.type === "Leather Pants" || obj.type === "Scale Leggings") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Gloves" || obj.type === "Scale Gloves" || obj.type === "Leather Boots" || obj.type === "Scale Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Robe") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Cowl" || obj.type === "Pants") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gloves" || obj.type === "Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Pendant") {
-                    $(this).html(text.replace("strenght", "strenght <font color="+colorTooltip+">[1-4]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Amulet") {
-                    $(this).html(text.replace("intellect", "intellect <font color="+colorTooltip+">[1-4]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Locket") {
-                    $(this).html(text.replace("dexterity", "dexterity <font color="+colorTooltip+">[1-4]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Choker") {
-                    $(this).html(text.replace("health regeneration", "health regeneration <font color="+colorTooltip+">[2-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Signet") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+">[5-15]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Ring") {
-                    $(this).html(text.replace("mana regeneration", "mana regeneration <font color="+colorTooltip+">[1-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Loop") {
-                    $(this).html(text.replace("to all attributes", "to all attributes <font color="+colorTooltip+">[1-7]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Viridian Band") {
-                    $(this).html(text.replace("increased physical damage", "increased physical damage <font color="+colorTooltip+">[1-3]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Belt") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+">[10-20]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Sash") {
-                    $(this).html(text.replace("maximum mana", "maximum mana <font color="+colorTooltip+">[1-8]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Belt") {
-                    $(this).html(text.replace("global crit chance", "global crit chance <font color="+colorTooltip+">[0.5-2.5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Scaled Binding") {
-                    $(this).html(text.replace("vitality", "vitality <font color="+colorTooltip+">[2-6]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Forged Ember") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+">[25-70]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Smokey Orb") {
-                    $(this).html(text.replace("chance to dodge attacks", "chance to dodge attacks <font color="+colorTooltip+">[1-3]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Quartz Fragment") {
-                    $(this).html(text.replace("increased arcane damage", "increased arcane damage <font color="+colorTooltip+">[3-12]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Mystic Card") {
-                    $(this).html(text.replace("increased item quality", "Increased item quality <font color="+colorTooltip+">[3-12]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Dragon Fang") {
-                    $(this).html(text.replace("attack speed", "attack speed <font color="+colorTooltip+">[1-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Sword") {
-                    $(this).html(text.replace("attack speed", "attack speed <font color="+colorTooltip+">[1-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Axe") {
-                    $(this).html(text.replace("attack crit multiplier", "attack crit multiplier <font color="+colorTooltip+">[10-30]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Wand") {
-                    $(this).html(text.replace("cast speed", "cast speed <font color="+colorTooltip+">[1-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gnarled Staff") {
-                    $(this).html(text.replace("mana regeneration", "mana regeneration <font color="+colorTooltip+">[3-9]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Dagger") {
-                    $(this).html(text.replace("attack crit chance", "attack crit chance <font color="+colorTooltip+">[0.5-2.5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Spear") {
-                    $(this).html(text.replace("chance to dodge attacks", "chance to dodge attacks <font color="+colorTooltip+">[1-7]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Wooden Shield") {
-                    $(this).html(text.replace("chance to block attacks", "chance to block attacks <font color="+colorTooltip+">[1-10]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gilded Shield") {
-                    $(this).html(text.replace("chance to block attacks", "chance to block attacks <font color="+colorTooltip+">[1-5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Brittle Tome") {
-                    $(this).html(text.replace("spell crit chance", "spell crit chance <font color="+colorTooltip+">[0.5-2.5]<br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Ancient Tome") {
-                    $(this).html(text.replace("spell crit multiplier", "spell crit multiplier <font color="+colorTooltip+">[10-30]<br>+"+numberOfStat+"</font>"));
-                }
-            });
-            // HACK FOR OLD ARMOR GEAR
-            $('.uiTooltipItem .tooltip .stats').each(function() {
-                text = $(this).html();
-                if(obj.type === "Breastplate") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Helmet" ||obj.type === "Legplates") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gauntlets" || obj.type === "Steel Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Armor" || obj.type === "Scalemail") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Cap" || obj.type === "Facemask" || obj.type === "Leather Pants" || obj.type === "Scale Leggings") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Leather Gloves" || obj.type === "Scale Gloves" || obj.type === "Leather Boots" || obj.type === "Scale Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Robe") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Cowl" || obj.type === "Pants") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                } else if(obj.type === "Gloves" || obj.type === "Boots") {
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+"><br>+"+numberOfStat+"</font>"));
-                }
-            });
-            // LVL 20 GEAR STATS
-            if(obj.level === 20 || obj.originalLevel === 20 || (obj.level+obj.stats.lvlRequire) === 20) {
-                if(obj.slot === "twoHanded") {weaponMult = 2}
-                else {weaponMult = 1}
-                // DAMAGE
-                if(obj.slot === "twoHanded" || obj.slot === "oneHanded") {
-                    if(obj.type === "Trident") {rangeDmg = "[1.65-10.81]";}
-                    else if(obj.type === "Sword") {rangeDmg = "[1.47-9.65]";}
-                    else if(obj.type === "Dagger") {rangeDmg = "[0.88-5.79]";}
-                    else if(obj.type === "Wand") {rangeDmg = "[1.17-7.72]";}
-                    else if(obj.type === "Axe") {rangeDmg = "[2.64-17.37]";}
-                    else if(obj.type === "Gnarled Staff") {rangeDmg = "[1.65-10.81]";}
-                    else if(obj.type === "Spear") {rangeDmg = "[1.76-11.58]";}
-                    else if(obj.type === "Curved Dagger") {rangeDmg = "[0.88-5.79]";}
-                    else if(obj.type === "Sickle" || obj.type === "Jade Sickle" || obj.type === "Golden Sickle" || obj.type === "Bone Sickle") {rangeDmg = "[1.5-5.7]";}
-                    $('.uiTooltipItem .tooltip .damage').each(function() {
-                        text = $(this).html();
-                        $(this).html(text.replace("damage", "<font color='white'>"+rangeDmg+"</font> damage"));
-                    });
-                }
-                // IMPLICIT ARMOR
-                if(obj.type === "Breastplate") {rangeArmor = "[160-400]";}
-                else if(obj.type === "Helmet" ||obj.type === "Legplates") {rangeArmor = "[80-200]";}
-                else if(obj.type === "Gauntlets" || obj.type === "Steel Boots") {rangeArmor = "[40-100]";}
-                else if(obj.type === "Leather Armor" || obj.type === "Scalemail") {rangeArmor = "[96-240]";}
-                else if(obj.type === "Leather Cap" ||obj.type === "Facemask" || obj.type === "Leather Pants" || obj.type === "Scale Leggings") {rangeArmor = "[48-120]";}
-                else if(obj.type === "Leather Gloves" || obj.type === "Scale Gloves" || obj.type === "Leather Boots" || obj.type === "Scale Boots") {rangeArmor = "[24-60]";}
-                else if(obj.type === "Robe") {rangeArmor = "[56-140]";}
-                else if(obj.type === "Cowl" ||obj.type === "Pants") {rangeArmor = "[28-70]";}
-                else if(obj.type === "Gloves" || obj.type === "Boots") {rangeArmor = "[14-35]";}
-                else if(obj.type === "Wooden Shield") {rangeArmor = "[120-300]";}
-                else if(obj.type === "Gilded Shield") {rangeArmor = "[240-600]";}
-                $('.uiTooltipItem .tooltip .implicitStats').each(function() {
-                    text = $(this).html();
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+">"+rangeArmor+"</font>"));
-                });
-                // HACK FOR OLD ARMOR GEAR
-                $('.uiTooltipItem .tooltip .stats').each(function() {
-                    text = $(this).html();
-                    $(this).html(text.replace("armor", "armor <font color="+colorTooltip+">"+rangeArmor+"</font>"));
-                });
-                // STATS
-                $('.uiTooltipItem .tooltip .stats').each(function() {
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("intellect", "intellect <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("dexterity", "dexterity <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("strength", "strength <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("to all attributes", "to all attributes <font color="+colorTooltip+">[1-10]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("global crit chance", "global crit chance <font color="+colorTooltip+">[0.05-"+3.9*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("global crit multiplier", "global crit multiplier <font color="+colorTooltip+">[1-"+28*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("attack crit chance", "attack crit chance <font color="+colorTooltip+">[0.05-"+3.9*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("attack crit multiplier", "attack crit multiplier <font color="+colorTooltip+">[1-"+28*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("spell crit chance", "spell crit chance <font color="+colorTooltip+">[0.05-"+3.9*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("spell crit multiplier", "spell crit multiplier <font color="+colorTooltip+">[1-"+28*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased item quality", "increased item quality <font color="+colorTooltip+">[1-15]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased item quantity", "increased item quantity <font color="+colorTooltip+">[2-27]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("additional xp per kill", "additional xp per kill <font color="+colorTooltip+">[1-6]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("level requirement reduction", "level requirement reduction <font color="+colorTooltip+">[1-10]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("vitality", "vitality <font color="+colorTooltip+">[1-"+7*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("health regeneration", "health regeneration <font color="+colorTooltip+">[1-"+14*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("maximum mana", "maximum mana <font color="+colorTooltip+">[1-8]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("mana regeneration", "mana regeneration <font color="+colorTooltip+">[1-5]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("arcane resistance", "arcane resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("fire resistance", "fire resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("frost resistance", "frost resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("holy resistance", "holy resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("poison resistance", "poison resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("all resistance", "all resistance <font color="+colorTooltip+">[1-"+10*weaponMult+"]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased arcane damage", "increased arcane damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased frost damage", "increased frost damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased fire damage", "increased fire damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased holy damage", "increased holy damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased poison damage", "increased poison damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased elemental damage", "increased elemental damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased spell damage", "increased spell damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("increased physical damage", "increased physical damage <font color="+colorTooltip+">[1-3]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("cast speed", "cast speed <font color="+colorTooltip+">[1-8.75]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("attack speed", "attack speed <font color="+colorTooltip+">[1-8.75]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("sprint chance", "sprint chance <font color="+colorTooltip+">[1-20]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("chance to block attacks", "chance to block attacks <font color="+colorTooltip+">[1-10]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("chance to block spells", "chance to block spells <font color="+colorTooltip+">[1-10]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("chance to dodge attacks", "chance to dodge attacks <font color="+colorTooltip+">[1-10]</font>"));
-                    text = $(this).html();
-                    $(this).html(text.replaceAll("chance to dodge spells", "chance to dodge spells <font color="+colorTooltip+">[1-10]</font>"));
-                });
-            }
-        }
-    }
-
-    function expandFishingRodTooltip(obj) {
-        if(window.StatsRangeSTATUS == "true") {
-            $('.uiTooltipItem .tooltip .name').each(function() {
-                text = $(this).html();
-                $(this).html(text.replace(text, text + "+"+numberOfStat));
-            });
-            $('.uiTooltipItem .tooltip .stats').each(function() {
-                text = $(this).html();
-                $(this).html(text.replaceAll("extra catch chance", "extra catch chance <font color="+colorTooltip+">[0-60]</font>"));
-                text = $(this).html();
-                $(this).html(text.replaceAll("faster catch speed", "faster catch speed <font color="+colorTooltip+">[0-150]</font>"));
-                text = $(this).html();
-                $(this).html(text.replaceAll("higher fish rarity", "higher fish rarity <font color="+colorTooltip+">[0-100]</font>"));
-                text = $(this).html();
-                $(this).html(text.replaceAll("increased fish weight", "increased fish weight <font color="+colorTooltip+">[0-75]</font>"));
-                text = $(this).html();
-                $(this).html(text.replaceAll("extra chance to hook items", "extra chance to hook items <font color="+colorTooltip+">[0-30]</font>"));
-            });
-        }
-    }
-
-    function expandRewardCardTooltip(obj) {
-        $('.uiTooltipItem .tooltip .name').each(function() {
-            var setToTrade = (~~(obj.quantity/obj.setSize));
-            var text = $(this).html();
-            if (setToTrade == 0) {$(this).html(text.replace(text, text+"<font color='red'>"+setToTrade+" set to trade</font>"));}
-            else {$(this).html(text.replace(text, text+"<font color='#ff6942'>"+setToTrade+" set to trade</font>"));}
-        })
-    }
-
-    // MAP //
+    // MAP
     Storage.prototype.setObject = function(key, value) {
         this.setItem(key, JSON.stringify(value));
     }
@@ -786,120 +328,4 @@ if (window.stopTwiceLoad !== "true") {
             }
         });
     }
-    // AFFICHE TIMER //
-    var repeatEverySec = function(){
-        if(typeof window.respawnTime === "undefined"){
-            window.respawnTime = 0;
-        }
-        if(typeof window.respawnTime1 === "undefined"){
-            window.respawnTime1 = 0;
-        }
-        if(typeof window.respawnTime2 === "undefined"){
-            window.respawnTime2 = 0;
-        }
-
-        if(window.respawnTime > 0){
-            window.respawnTime--;
-            if(window.respawnTime == 14 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
-                audioElement = document.createElement("audio");
-                audioElement.type = "audio/wav";
-                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/cat-meow3.wav";
-                audioElement.volume = 0.2;
-                audioElement.play();
-            }
-        }
-
-        if(window.respawnTime1 > 0){
-            window.respawnTime1--;
-            if(window.respawnTime1 == 4 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
-                audioElement = document.createElement("audio");
-                audioElement.type = "audio/wav";
-                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/clock-tick1.wav";
-                audioElement.volume = 0.2;
-                audioElement.play();
-            }
-        }
-
-        if(window.respawnTime2 > 0){
-            window.respawnTime2--;
-            if(window.respawnTime2== 10 && window.TimerSTATUS == "true" && window.TimerSoundSTATUS == "true"){
-                audioElement = document.createElement("audio");
-                audioElement.type = "audio/wav";
-                audioElement.src = "https://polfy.github.io/IsleWaddon/IsleWaddonData/Sound/cricket-3.wav";
-                audioElement.volume = 0.05;
-                audioElement.play();
-            }
-        }
-
-        var toHHMMSS = (secs) => {
-            var sec_num = parseInt(secs, 10);
-            var hours = Math.floor(sec_num / 3600) % 24;
-            var minutes = Math.floor(sec_num / 60) % 60;
-            var seconds = sec_num % 60;
-            return [hours,minutes,seconds]
-                .map(v => v < 10 ? "0" + v : v)
-                .filter((v,i) => v !== "00" || i > 0)
-                .join(":")
-        }
-        if(window.respawnTime1 != 0 && window.TimerSTATUS == "true"){
-            L1T = "Stinktooth respawns in "+ toHHMMSS(window.respawnTime1-1);
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-        if(window.respawnTime2 != 0 && window.TimerSTATUS == "true"){
-            L2T = "Radulos respawns in "+ toHHMMSS(window.respawnTime2-1);
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-        if(window.respawnTime != 0 && window.TimerSTATUS == "true"){
-            L3T = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime-1);
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-        if(window.respawnTime1 == 1){
-            L1T = "";
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-        if(window.respawnTime2 == 1){
-            L2T = "";
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-        if(window.respawnTime == 1){
-            L3T = "";
-            jQuery(".Add-onTimer").remove()
-            window.TimerAddon();
-        }
-    };
-    setInterval(repeatEverySec, 1000);
-    var L1T = "";
-    var L2T = "";
-    var L3T = "";
-    window.TimerAddon = function(){
-        window.menuTimer = jQuery('<div class="Add-onTimer" style="position:absolute;left:632px;top:10px;"></div>').appendTo(jQuery('.ui-container'))
-        var src = tooltipStyle+'<table bgcolor="#3c3f4c">'
-        if (L1T != "") {src += tooltipTextStart+L1T+'</span></div></td>'}
-        if (L2T != "") {src += tooltipTextStart+L2T+'</span></div></td>'}
-        if (L3T != "") {src += tooltipTextStart+L3T+'</span></div></td>'}
-        src += '</table>'
-        window.menuTimer.html(src);
-    }
-
-    function addCombatMessage(txt, colortxt){
-        var msg = "*"+txt+"*";
-        jQuery('<div class="list-message color-'+colortxt+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
-        jQuery(".uiMessages .list").scrollTop(9999999);
-    }
-
-    // GET REPLY //
-    var chatCheck = function(){
-        if(window.gameStarted === "true") {
-            if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 2) == "/r" && window.lastReply != undefined){
-            jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/r", "@"+window.lastReply+" "));
-            jQuery(".uiMessages .list").scrollTop(9999999);
-            }
-        }
-    }
-    setInterval(chatCheck,100);
 }

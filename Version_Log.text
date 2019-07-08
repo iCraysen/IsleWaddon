@@ -17,3 +17,6 @@ Version LOG :
       - Add Combat Log color + small msg fix
     - v0.5.5 :
       - Menu/Button menu remake for the eyes
+- v0.6 : Code refont
+  - Refont the code to be easier to edit/work
+  - Small bug fix
