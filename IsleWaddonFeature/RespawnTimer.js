@@ -44,7 +44,7 @@ addons.register({
 })
 
 window.TimerAddon = function(){
-    window.menuTimer = jQuery('<div class="Add-onTimer" style="position:absolute;left:632px;top:10px;"></div>').appendTo(jQuery('.ui-container'))
+    window.menuTimer = jQuery('<div class="isleWaddon-uiTimer" style="position:absolute;left:632px;top:10px;"></div>').appendTo(jQuery('.ui-container'))
     var src = window.tooltipStyle+'<table bgcolor="#3c3f4c">'
     if (L1T != "") {src += window.tooltipTextStart+L1T+'</span></div></td>'}
     if (L2T != "") {src += window.tooltipTextStart+L2T+'</span></div></td>'}
@@ -89,36 +89,36 @@ window.repeatEverySec = function(){
     }
     if(window.respawnTime1 != 0 && window.TimerSTATUS == "true"){
         L1T = "Stinktooth respawns in "+ toHHMMSS(window.respawnTime1-1);
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime2 != 0 && window.TimerSTATUS == "true"){
         L2T = "Radulos respawns in "+ toHHMMSS(window.respawnTime2-1);
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime0 != 0 && window.TimerSTATUS == "true"){
         L3T = "M'ogresh respawns in "+ toHHMMSS(window.respawnTime0-1);
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime1 == 1){
         L1T = "";
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime2 == 1){
         L2T = "";
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime0 == 1){
         L3T = "";
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerAddon();
     }
     if(window.respawnTime0 == 1 && window.respawnTime1 == 1 && window.respawnTime2 == 1){
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
     }
 };
 setInterval(window.repeatEverySec, 1000);
