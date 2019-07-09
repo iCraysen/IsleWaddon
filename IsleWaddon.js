@@ -10,39 +10,51 @@ if (window.stopTwiceLoad !== "true") {
 
     function initIsleWaddon() {
         // GET FEATURES
-        window.download = jQuery('<div class="isleWaddon-uiDownload" style="position:absolute;right:10px;top:10px;width: 220px;padding: 5px;border: 2px solid gray;background-color: rgba(55, 48, 65, 0.7);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
-        var src = "<font color='#ffeb38'>IsleWaddon<br>Download ░░░░░░░</font>"
+        window.download = jQuery('<div class="isleWaddon-uiDownload" style="position:absolute;bottom:170px;right:10px;width: 210px;padding: 5px;border: 2px solid gray;background-color: rgba(55, 48, 65, 0.7);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
+        var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download ░░░░░░░░</font>"
         window.download.html(src);
         $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/MenuDisplay.js")
         .done(function(){
-            var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓░░░░░░</font>"
+            var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓░░░░░░░</font>"
             window.download.html(src);
             $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/EasySalvage.js")
             .done(function(){
-                var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓░░░░░</font>"
+                var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓░░░░░░</font>"
                 window.download.html(src);
                 $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/RespawnTimer.js")
                 .done(function(){
-                    var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓▓░░░░</font>"
+                    var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓░░░░░</font>"
                     window.download.html(src);
                     $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/ToolTipExpand/ToolTipExpand.js")
                     .done(function(){
-                        var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓▓▓░░░</font>"
+                        var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓▓░░░░</font>"
                         window.download.html(src);
                         $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/AutoReply.js")
                         .done(function(){
-                            var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓▓▓▓░░</font>"
+                            var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓▓▓░░░</font>"
                             window.download.html(src);
                             $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/CombatLog.js")
                             .done(function(){
-                                var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓▓▓▓▓░</font>"
+                                var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓▓▓▓░░</font>"
                                 window.download.html(src);
                                 $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/QuestHide.js")
                                 .done(function(){
-                                    var src = "<font color='#ffeb38'>IsleWaddon<br>Download : ▓▓▓▓▓▓▓</font>"
+                                    var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓▓▓▓▓░</font>"
                                     window.download.html(src);
+                                    /*$.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/MiniMap.js")
+                                    .done(function(){
+                                        var src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Download : ▓▓▓▓▓▓▓▓</font>"
+                                        window.download.html(src);
+                                        initUserData();
+                                        src = "<font color='#ffeb38'>IsleWaddon<br>Download complete</font>"
+                                        window.download.html(src);
+                                        setTimeout(function(){jQuery(".isleWaddon-uiDownload").remove()},5000)
+                                    })
+                                    .fail(function(){
+                                        window.errorMsg()
+                                    })*/
                                     initUserData();
-                                    src = "<font color='#ffeb38'>IsleWaddon<br>Download complete</font>"
+                                    src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Loaded for iwd 0.3.2</font>"
                                     window.download.html(src);
                                     setTimeout(function(){jQuery(".isleWaddon-uiDownload").remove()},5000)
                                 })
@@ -77,9 +89,11 @@ if (window.stopTwiceLoad !== "true") {
 
     // ERROR MSG //
     window.errorMsg = function() {
+        jQuery(".isleWaddon-uiMenuButton").remove()
         var src = "<font color='#ffeb38'>IsleWaddon</font><br><font color='#ff5500'>⚠️Download Error<br>Try reloading the page<br>If it still doesn't work<br>Contact Polfy#6924<br>on Discord</font>"
         window.download.html(src);
     }
+
     // DEFAULT SETTINGS
     window.Version = "0.6"
     window.gameStarted = "false"
@@ -89,7 +103,7 @@ if (window.stopTwiceLoad !== "true") {
     window.audioElement.type = "audio/wav";
     window.audioElement.volume = 0.2;
 
-    // GET USER SETTINGS
+    // GET USER DATA
     window.SalvageSTATUS = "false"
     window.TimerSTATUS = "true"
     window.TimerSoundSTATUS = "true"
@@ -144,19 +158,18 @@ if (window.stopTwiceLoad !== "true") {
 
     addons.register({
         init: function(events) {
-            // ALL EVENT USED
             events.on('onResourcesLoaded', this.onResourcesLoaded.bind(this));
             events.on('onKeyDown', this.onKeyDown.bind(this));
             events.on('onRezone', this.onRezone.bind(this));
             events.on('onEnterGame', this.onEnterGame.bind(this));
             events.on('onGetObject', this.onGetObject.bind(this));
             // MAP
+            events.on('onGetMap', this.onGetMap.bind(this));
             window.uiContainer = jQuery('.ui-container');
-            window.uiMap = jQuery('<canvas class="addon-uiMap"></canvas>').appendTo(window.uiContainer);
+            window.uiMap = jQuery('<canvas class="isleWaddon-uiMap"></canvas>').appendTo(window.uiContainer);
             window.uiMap.css("display", "none");
             window.uiMap.css("pointer-events","none");
-            window.uiMap.css("opacity","1.0");
-            events.on('onGetMap', this.onGetMap.bind(this));
+            window.uiMap.css("opacity","0.8");
         },
 
         onResourcesLoaded: function() {
@@ -170,15 +183,14 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
 
-        onEnterGame: function(obj) {
-            jQuery(".isleWaddonDownload").remove()
+        onEnterGame: function() {
             setTimeout(function(){
                 window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"IsleWaddon v"+Version+" loaded for iwd v0.3.2"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
                 if (window.gameStarted === "false") {
                     window.deferTillChat(function(){jQuery('<div class="list-message color-'+"greenB"+' info">' +"I can't guarantee this add-on doesn't produce lag/fps drops. Notify me (Polfy#6924) of any bugs/problems on Discord"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
                 }
-                window.gameStarted = "true"
-            }, 2000)
+            }, 1000)
+            window.gameStarted = "true"
         },
 
         onRezone: function () {
@@ -192,17 +204,16 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
 
-        // KEYS
         onKeyDown: function(key) {
             if (!key) {
                 return;
             }  else if (window.MapSTATUS == "true") {
-                if (key == "13") {
+                if (key == "5") {
                     if (window.mapScale > 1) {
                         window.mapScale-=0.1;
                         window.drawMap();
                     }
-                } else if (key == "11") {
+                } else if (key == "6") {
                     if (window.mapScale < 11) {
                         window.mapScale+=0.1;
                         window.drawMap();
@@ -224,7 +235,6 @@ if (window.stopTwiceLoad !== "true") {
             }
         },
         onGetObject: function(obj) {
-            // MAP
             if(obj.name !== undefined){
                 var safeName = obj.name.split(' ').join('_');
                 if((obj.account !== undefined) || (safeName.toLowerCase() === "m'ogresh" || safeName.toLowerCase() === "radulos" || safeName.toLowerCase() === "sun_carp" || (obj.isRare != undefined && obj.isRare == true)) || safeName.toLowerCase().indexOf("pumpkin") != -1 ){
