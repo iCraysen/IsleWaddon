@@ -6,20 +6,20 @@ addons.register({
 
     onShowCharacterSelect: function(obj) {
         if(window.MenuSTATUS === "true") {
-            jQuery(".addon-loader").remove();
+            jQuery(".isleWaddon-uiMenu").remove();
             window.MenuSTATUS = "false"
         }
-        jQuery(".menuButton").remove()
+        jQuery(".isleWaddon-uiMenuButton").remove()
         window.menuButton("bottom:130px;right:10px;");
         window.buttonInGame = 0
     },
 
     onEnterGame: function() {
         if(window.MenuSTATUS === "true") {
-            jQuery(".addon-loader").remove();
+            jQuery(".isleWaddon-uiMenu").remove();
             window.MenuSTATUS = "false"
         }
-        jQuery(".menuButton").remove()
+        jQuery(".isleWaddon-uiMenuButton").remove()
         window.menuButton("top:100px;right:340px;");
         window.buttonInGame = 1
     }
@@ -74,7 +74,7 @@ var L13 = window.tooltipTextStart+" Combat Log     " , L13_1 = windo
 var L14 = window.tooltipTextStart+" + Little Features" , L14_1 = window.tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
 
 window.MenuAddon = function(){
-    window.menu = jQuery('<div class="addon-loader" style="position:absolute;right:10px;bottom:164px;"></div>').appendTo(jQuery('.ui-container'))
+    window.menu = jQuery('<div class="isleWaddon-uiMenu" style="position:absolute;right:10px;bottom:164px;"></div>').appendTo(jQuery('.ui-container'))
     var src = window.tooltipStyle+'<table>'
     var onClickX =`window.menuButtonXPress()`
     var drawButtonX = '<button id="ButtonX" style="color:rgb(0,0,0); width:23px; background:rgb(255,0,0);" onclick="'+onClickX+'" type="button">X</button>'
@@ -169,7 +169,7 @@ window.MenuAddon = function(){
 // BUTTON CODE //
 
 window.menuButton = function(buttonPos){
-    window.menuButtonTooltip = jQuery('<div class="menuButton" style="position:absolute;'+buttonPos+'"></div>').appendTo(jQuery('.ui-container'));
+    window.menuButtonTooltip = jQuery('<div class="isleWaddon-uiMenuButton" style="position:absolute;'+buttonPos+'"></div>').appendTo(jQuery('.ui-container'));
     var src = window.tooltipStyle+'<table#1>';
     var onClick =`window.menuButtonPress()`
     var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';
@@ -178,7 +178,7 @@ window.menuButton = function(buttonPos){
     window.menuButtonTooltip.html(src)
 }
 window.menuButtonPress = function(){
-    jQuery(".menuButton").remove()
+    jQuery(".isleWaddon-uiMenuButton").remove()
     if (window.buttonInGame === 1) {window.menuButton("top:100px;right:340px;")}
     else {window.menuButton("bottom:130px;right:10px;")}
     if (window.MenuSTATUS === "false"){
@@ -186,30 +186,30 @@ window.menuButtonPress = function(){
         window.MenuSTATUS = "true"
     }else{
         window.MenuSTATUS = "false";
-        jQuery(".addon-loader").remove();
+        jQuery(".isleWaddon-uiMenu").remove();
     }
 }
 window.menuButtonXPress = function(){
     window.MenuSTATUS = "false";
-    jQuery(".addon-loader").remove();
+    jQuery(".isleWaddon-uiMenu").remove();
 }
 window.ButtonLinkL = function(){
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.open('https://polfy.github.io/'+window.initIsleWaddonVersion+'/Version_Log.text', '_blank');
 }
 window.ButtonLinkW = function(){
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.open('http://wiki.isleward.com/Main_Page', '_blank');
 }
 window.ButtonLinkD = function(){
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.open('https://discord.gg/3P43RRb', '_blank');
 }
 window.ButtonLinkM = function(){
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.open('https://polfy.github.io/isleward-wiki-map/Zone/Fjolarok/', '_blank');
 }
@@ -221,19 +221,19 @@ window.ButtonPressSalvage = function(){
         window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ Pressing '"+window.SalvageKey+"' on an item will now salvage it"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
 window.ButtonPressTimer = function(){
     if(window.TimerSTATUS === "true") {
-        jQuery(".Add-onTimer").remove()
+        jQuery(".isleWaddon-uiTimer").remove()
         window.TimerSTATUS = "false"
         window.TimerSoundSTATUS = "false"
     } else {
         window.TimerSTATUS = "true"
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
@@ -243,7 +243,7 @@ window.ButtonPressTimerSound = function(){
     } else {
 	if(window.TimerSTATUS === "true") {window.TimerSoundSTATUS = "true"}
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
@@ -253,7 +253,7 @@ window.ButtonPressWhisperSound = function(){
     } else {
         window.WhisperSoundSTATUS = "true"
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
@@ -267,7 +267,7 @@ window.ButtonPressQuestHide = function(){
         $(".ui-container .right .uiQuests .heading").text("Quests hidden ❌ ");
         $(".ui-container .right .uiQuests .list").toggle(false);
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
@@ -275,15 +275,15 @@ window.ButtonPressMap = function(){
     if(window.MapSTATUS === "true") {
         window.MapSTATUS = "false";
         window.toggleMap();
-        jQuery(".addon-loader").remove()
+        jQuery(".isleWaddon-uiMenu").remove()
         window.MenuAddon();
     } else {
         window.MapSTATUS = "true";
         window.toggleMap();
-        jQuery(".addon-loader").remove()
+        jQuery(".isleWaddon-uiMenu").remove()
         window.MenuAddon();
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
 }
 window.ButtonPressMapReset = function(){
@@ -292,7 +292,7 @@ window.ButtonPressMapReset = function(){
     window.map_yOffset=0;
     window.drawMap();
     window.setUserData();
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
 }
 window.ButtonPressStatsRange = function(){
@@ -301,7 +301,7 @@ window.ButtonPressStatsRange = function(){
     } else {
         window.StatsRangeSTATUS = "true"
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
@@ -314,7 +314,7 @@ window.ButtonPressCombatLog = function(){
         window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drops/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
-    jQuery(".addon-loader").remove()
+    jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
     window.setUserData();
 }
