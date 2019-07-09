@@ -272,16 +272,18 @@ window.ButtonPressQuestHide = function(){
     window.setUserData();
 }
 window.ButtonPressMap = function(){
-    if(window.MapSTATUS === "true") {
-        window.MapSTATUS = "false";
-        window.toggleMap();
-        jQuery(".isleWaddon-uiMenu").remove()
-        window.MenuAddon();
-    } else {
-        window.MapSTATUS = "true";
-        window.toggleMap();
-        jQuery(".isleWaddon-uiMenu").remove()
-        window.MenuAddon();
+    if(window.gameStarted === "true") {
+	    if(window.MapSTATUS === "true") {
+		window.MapSTATUS = "false";
+		window.toggleMap();
+		jQuery(".isleWaddon-uiMenu").remove()
+		window.MenuAddon();
+	    } else {
+		window.MapSTATUS = "true";
+		window.toggleMap();
+		jQuery(".isleWaddon-uiMenu").remove()
+		window.MenuAddon();
+	    }
     }
     jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
