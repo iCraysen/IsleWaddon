@@ -60,7 +60,7 @@ visibility: visible;
 window.tooltipTextStart = '<tr><td><div class="tooltip"><font color="#ffeb38">'
 window.tooltipTextEnd = '</font><span class="tooltiptext">'
 window.tooltipTextEndLine = '</span></div></td>'
- var L1 = window.tooltipTextStart+"   <font color='#48edff'>ISLEWADDON </font>" , L1_1 = window.tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+window.tooltipTextEndLine
+ var L1 = window.tooltipTextStart+"   <font color='#48edff'>ISLEWADDON </font>" , L1_1 = window.tooltipTextEnd+"<font color='#ffeb38'>By Polfy#6924<br>Enjoy this add-on :p</font><br>I can't guarantee this add-on doesn't produce lag/fps drops or any issues<br>Notify me (Polfy#6924) of any bugs/problems on Discord"+window.tooltipTextEndLine
  var L2 = window.tooltipTextStart+" Hover here 🔍  " , L2_1 = window.tooltipTextEnd+"Put your cursor on all the menu items!"+window.tooltipTextEndLine
  var L3 = window.tooltipTextStart+" Version : "+window.Version+"  " , L3_1 = window.tooltipTextEnd+"Current add-on Version<br>For <font color='#ffeb38'>Isleward v0.3.2</font><br>► Link to the update log"+window.tooltipTextEndLine
  var L4 = window.tooltipTextStart+" " , L4_1 = window.tooltipTextEnd+"Direct link to<br>► Official wiki<br>► IsleWaddon Discord<br>► Online Map"+window.tooltipTextEndLine
