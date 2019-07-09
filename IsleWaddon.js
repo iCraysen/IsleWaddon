@@ -10,7 +10,7 @@ if (window.stopTwiceLoad !== "true") {
 
     function initIsleWaddon() {
         // GET FEATURES
-        window.download = jQuery('<div class="isleWaddonDownload" style="position:absolute;right:10px;top:10px;width: 220px;padding: 5px;border: 2px solid gray;background-color: rgba(55, 48, 65, 0.7);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
+        window.download = jQuery('<div class="isleWaddon-uiDownload" style="position:absolute;right:10px;top:10px;width: 220px;padding: 5px;border: 2px solid gray;background-color: rgba(55, 48, 65, 0.7);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
         var src = "<font color='#ffeb38'>IsleWaddon<br>Download : 0/7</font>"
         window.download.html(src);
         $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/MenuDisplay.js")
@@ -44,7 +44,7 @@ if (window.stopTwiceLoad !== "true") {
                                     initUserData();
                                     src = "<font color='#ffeb38'>IsleWaddon<br>Download complete</font>"
                                     window.download.html(src);
-                                    setTimeout(function(){jQuery(".isleWaddonDownload").remove()},5000)
+                                    setTimeout(function(){jQuery(".isleWaddon-uiDownload").remove()},5000)
                                 })
                                 .fail(function(){
                                     window.errorMsg()
