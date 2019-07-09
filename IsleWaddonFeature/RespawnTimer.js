@@ -50,6 +50,7 @@ window.TimerAddon = function(){
     if (L2T != "") {src += window.tooltipTextStart+L2T+'</span></div></td>'}
     if (L3T != "") {src += window.tooltipTextStart+L3T+'</span></div></td>'}
     src += '</table>'
+    if (L1T === "" && L2T === "" && L3T === "") {src = ""}
     window.menuTimer.html(src);
 }
 
