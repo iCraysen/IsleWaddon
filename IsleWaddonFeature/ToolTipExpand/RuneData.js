@@ -66,7 +66,7 @@ window.spells = {
         statType: ['dex', 'int'],
         random: {
             damage: [3, 14],
-            i_delay: [1, 4]
+            i_delay: [4, 1] // Real value [1, 4]
         },
         negativeStats: [
             'i_delay'
