@@ -1,7 +1,8 @@
 # ISLEWADDON v0.6 for ISLEWARD v0.3.2
-Install explanation + Feature VID :  https://www.youtube.com/watch?v=ioSmA3vHz2Q
 
 # How to install IsleWaddon
+  **INSTALLATION VID :** https://www.youtube.com/watch?v=ioSmA3vHz2Q
+  
   **BROWSER :**
 
 - 1: Get Tampermonkey addon :
