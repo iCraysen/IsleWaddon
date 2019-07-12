@@ -1,4 +1,4 @@
-# ISLEWADDON v0.6 for ISLEWARD v0.3.2
+# ISLEWADDON v0.7 for [ISLEWARD](https://gitlab.com/Isleward/isleward) v0.3.2
 
 # How to install IsleWaddon
   [**INSTALLATION VID**](https://www.youtube.com/watch?v=ioSmA3vHz2Q)
@@ -42,12 +42,12 @@ Some info [**here**](https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.b
 - Quick whisper respond : Use /r to quick respond to the last whisper + sound when you receive a whisp
 - Timer/whips sound disablelable
 - Quest hide : Full fonctionnal hide function for the quest tab
-- In-game MiniMap
-  - Press - , + to change the map scale
-  - Press 7 , 8 , 9 , 0 to change the map position
-  - Reset : debug/reset the map settings
 - Stats range : Show stats roll range on level 20 gear
   - Link to my work [**here**](https://docs.google.com/spreadsheets/d/19QyBzRNMCFd3l8GwQPfDfPvwvXO_vnDtY3IHFa6kQeU/edit?usp=sharing)
+- In-game MiniMap
+  - Press 5 , 6 to change the map scale
+  - Press 7 , 8 , 9 , 0 to change the map position
+  - Reset : debug/reset the map settings
 - Combat Log : Add a combat log in the "reputation" chat
 - Little Feature :
   - Add how much set of card you can trade
@@ -55,3 +55,12 @@ Some info [**here**](https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.b
   - Show how much time you have played on a char
 
 # [Version LOG](https://github.com/Polfy/IsleWaddon/blob/master/Version_Log.text)
+
+# CONTRIBUTOR
+
+Lot of base source code come from an old [Qndel add-on](https://github.com/qndel/IslewardAddonBundle)
+
+Thanks to : 
+  - Gilgamesh
+  - Chronus
+  - Vildravn

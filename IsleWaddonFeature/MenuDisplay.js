@@ -1,7 +1,7 @@
 addons.register({
     init: function(events) {
         events.on('onShowCharacterSelect', this.onShowCharacterSelect.bind(this));
-        events.on('onEnterGame', this.onEnterGame.bind(this));
+        events.on('onGetPlayer', this.onGetPlayer.bind(this));
     },
 
     onShowCharacterSelect: function(obj) {
@@ -12,9 +12,10 @@ addons.register({
         jQuery(".isleWaddon-uiMenuButton").remove()
         window.menuButton("bottom:130px;right:10px;");
         window.buttonInGame = 0
+        window.gameStarted = "false"
     },
 
-    onEnterGame: function() {
+    onGetPlayer: function() {
         if(window.MenuSTATUS === "true") {
             jQuery(".isleWaddon-uiMenu").remove();
             window.MenuSTATUS = "false"
@@ -22,7 +23,7 @@ addons.register({
         jQuery(".isleWaddon-uiMenuButton").remove()
         window.menuButton("top:100px;right:340px;");
         window.buttonInGame = 1
-    }
+    },
 })
 
 window.tooltipStyle =
@@ -68,7 +69,7 @@ window.tooltipTextEndLine = '</span></div></td>'
  var L6 = window.tooltipTextStart+" Timer       " , L6_1 = window.tooltipTextEnd+"► Add an in-game timer that counts down until a boss respawns<br>► Play a sound before a boss respawns<br>► Click the 🔈/🔊 button to toggle on/off the sound"+window.tooltipTextEndLine
  var L8 = window.tooltipTextStart+" Whisper       " , L8_1 = window.tooltipTextEnd+"► Use <font color='#ffeb38'>/r</font> to quickly respond to whispers<br>► Play a sound when you receive a whisper<br>► Click the 🔈/🔊 button to toggle on/off the sound"+window.tooltipTextEndLine
 var L10 = window.tooltipTextStart+" Hide Quests     " , L10_1 = window.tooltipTextEnd+"Hide the Quests tab"+window.tooltipTextEndLine
-var L11 = window.tooltipTextStart+" Map     " , L11_1 = window.tooltipTextEnd+"In-game map<br>► Change the Size<br><font color='#ffeb38'>5</font> , <font color='#ffeb38'>6</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+window.tooltipTextEndLine
+var L11 = window.tooltipTextStart+" Map     " , L11_1 = window.tooltipTextEnd+"In-game map<br><font color='#ffeb38'>You need to be on Char Selection to enable it</font><br>► Press <font color='#ffeb38'>n</font> in-game to open it<br>► Change the Size<br><font color='#ffeb38'>5</font> , <font color='#ffeb38'>6</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+window.tooltipTextEndLine
 var L12 = window.tooltipTextStart+" Stats range    " , L12_1 = window.tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+window.tooltipTextEndLine
 var L13 = window.tooltipTextStart+" Combat Log     " , L13_1 = window.tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+window.tooltipTextEndLine
 var L14 = window.tooltipTextStart+" + Little Features" , L14_1 = window.tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes"
@@ -272,33 +273,41 @@ window.ButtonPressQuestHide = function(){
     window.setUserData();
 }
 window.ButtonPressMap = function(){
+    if(window.MapSTATUS === "true") {
+        window.MapPopUp = jQuery('<div class="isleWaddon-uiMapPopUp" style="position:absolute;z-index:2;bottom:210px;right:60px;width: 210px;padding: 5px;border: 2px solid gray;background-color: rgb(55, 48, 65);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
+        src = "<font color='#ffeb38'>You need to reload the game to fully disable the in-game Map</font>"
+        window.MapPopUp.html(src);
+        setTimeout(function(){jQuery(".isleWaddon-uiMapPopUp").remove()},4000)
+    }
     if(window.gameStarted === "true") {
-	    if(window.MapSTATUS === "true") {
-		window.MapSTATUS = "false";
-		window.toggleMap();
-		jQuery(".isleWaddon-uiMenu").remove()
-		window.MenuAddon();
-	    } else {
-		window.MapSTATUS = "true";
-		window.toggleMap();
-		jQuery(".isleWaddon-uiMenu").remove()
-		window.MenuAddon();
-	    }
+        if(window.MapSTATUS === "false") {
+            window.MapPopUp = jQuery('<div class="isleWaddon-uiMapPopUp" style="position:absolute;z-index:2;bottom:210px;right:60px;width: 210px;padding: 5px;border: 2px solid gray;background-color: rgb(55, 48, 65);text-align: center;"></div>').appendTo(jQuery('.ui-container'))
+            var src = "<font color='#ffeb38'>You need to be on Char Selection Screen to enable the in-game Map</font>"
+            window.MapPopUp.html(src);
+            setTimeout(function(){jQuery(".isleWaddon-uiMapPopUp").remove()},4000)
+        }
+    } else {
+        if(window.MapSTATUS === "false") {
+            $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/MiniMap.js");
+        }
+        window.MapSTATUS = "true"
     }
     jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
 }
 window.ButtonPressMapReset = function(){
-    window.mapScale = 2;
-    window.map_xOffset=0;
-    window.map_yOffset=0;
-    window.drawMap();
-    window.setUserData();
+    if(window.miniMapLoaded === "true") {
+        window.mapScale = 2;
+        window.map_xOffset=0;
+        window.map_yOffset=0;
+        window.drawMap();
+        window.setUserData();
+    }
     jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
 }
 window.ButtonPressStatsRange = function(){
-    if(window.StatsRangeSTATUS === "true") {
+    if(window.StatsRangeSTATUS === "true"){
         window.StatsRangeSTATUS = "false"
     } else {
         window.StatsRangeSTATUS = "true"
@@ -312,12 +321,15 @@ window.ButtonPressCombatLog = function(){
         window.CombatLogSTATUS = "false"
     } else {
         window.CombatLogSTATUS = "true"
+        if(window.combatLogLoaded !== "true") {
+            $.getScript("https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/CombatLog.js");
+            window.combatLogLoaded = "true";
+        }
         window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"The Combat log is in the 'Reputation' chat tab"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         window.deferTillChat(function(){jQuery('<div class="list-message color-'+"yellowB"+' chat">' +"⚠️ The Combat log can cause some fps drops/lag"+ '</div>').appendTo(jQuery(".uiMessages .list"))});
         jQuery(".uiMessages .list").scrollTop(9999999);
     }
     jQuery(".isleWaddon-uiMenu").remove()
     window.MenuAddon();
-    window.setUserData();
 }
 window.menuButton("bottom:130px;right:10px;");

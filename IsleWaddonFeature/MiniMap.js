@@ -25,13 +25,9 @@ addons.register({
           for(var i=jQuery(".minimapName").length-1;i>=0;--i){
               jQuery(".minimapName").eq(i).remove();
           }
-          if (window.MapSTATUS === "true") {
-              window.toggleMap()
-              window.MapSTATUS = "false"
-              if (window.MenuSTATUS === "true") {
-                  jQuery(".isleWaddon-uiMenu").remove()
-                  window.MenuAddon();
-              }
+          if(window.MapOpen === "true") {
+                window.MapOpen = "false"
+                window.toggleMap();
           }
       },
 
@@ -40,20 +36,20 @@ addons.register({
           for(var i=jQuery(".minimapName").length-1;i>=0;--i){
               jQuery(".minimapName").eq(i).remove();
           }
-          if (window.MapSTATUS === "true") {
-              window.toggleMap()
-              window.MapSTATUS = "false"
-              if (window.MenuSTATUS === "true") {
-                  jQuery(".isleWaddon-uiMenu").remove()
-                  window.MenuAddon();
-              }
+          if(window.MapOpen === "true") {
+                window.MapOpen = "false"
+                window.toggleMap();
           }
       },
 
       onKeyDown: function(key) {
           if (!key) {
               return;
-          }  else if (window.MapSTATUS == "true") {
+          }  else if (key == "n" && window.gameStarted === "true" && window.MapSTATUS === "true") {
+                  if(window.MapOpen === "true") {window.MapOpen = "false"}
+                  else {window.MapOpen = "true"}
+                  window.toggleMap();
+              } else if (window.MapOpen === "true") {
               if (key == "5") {
                   if (window.mapScale > 1) {
                       window.mapScale-=0.1;
@@ -127,14 +123,6 @@ addons.register({
           }
       },
   });
-
-  Storage.prototype.setObject = function(key, value) {
-      this.setItem(key, JSON.stringify(value));
-  }
-  Storage.prototype.getObject = function(key) {
-      var value = this.getItem(key);
-      return value && JSON.parse(value);
-  }
   window.thingsToDraw = {};
   window.thingsToDrawOld = {};
   var fun = function(){
