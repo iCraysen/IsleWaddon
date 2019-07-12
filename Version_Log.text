@@ -21,9 +21,9 @@ Version LOG :
   - Refont the code to be easier to edit/work
   - Small bug fix
 - v0.7 : Fully disable Map/Combat log if you don't use it to reduce some fps drop
-  - Hope it fix the EnterGame msg
+  -  ̶H̶o̶p̶e̶ ̶i̶t̶ ̶f̶i̶x̶ ̶t̶h̶e̶ ̶E̶n̶t̶e̶r̶G̶a̶m̶e̶ ̶m̶s̶g̶
   
   
 TO DO : 
-  - Resort/Redo menu code
-  - Continue code easier to read
+  - Polish menu ui/code
+  - Continue polish code 
