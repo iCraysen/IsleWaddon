@@ -296,7 +296,7 @@ window.ButtonPressMap = function(){
     window.MenuAddon();
 }
 window.ButtonPressMapReset = function(){
-    if(window.miniMapLoaded === "true") {
+    if(window.MapSTATUS === "true") {
         window.mapScale = 2;
         window.map_xOffset=0;
         window.map_yOffset=0;
