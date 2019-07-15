@@ -96,7 +96,7 @@ window.MenuAddon = function(){
                                      else{drawButtonSalvage += 'background:rgb(255,0,0);">OFF</button>';}
     src += L5+L5_1+drawButtonSalvage+window.endTableElem;
     //
-    var drawButtonTimer = '<button id="ButtonTimer" type="button" onclick="window.ButtonPressTimer()" style="color:rgb(0,0,0); width:40px; height:23.6px;';
+    var drawButtonTimer = '<button id="ButtonTimer" type="button" onclick="window.ButtonPressTimer()" style="color:rgb(0,0,0); width:40px;';
     if (window.TimerSTATUS == "true") {drawButtonTimer += 'background:rgb(0,255,0);">ON</button>';}
                                    else{drawButtonTimer += 'background:rgb(255,0,0);">OFF</button>';}
     var drawButtonTimerSound = '<button id="ButtonTimerSound" type="button" onclick="window.ButtonPressTimerSound()" style="float:right; color:rgb(0,0,0); width:40px;';
