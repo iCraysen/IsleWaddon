@@ -9,7 +9,7 @@ addons.register({
             var matched = myReg.exec(msg.messages[0].message);
             if(matched != undefined && matched.length >= 2){
                 if(window.WhisperSoundSTATUS === "true") {
-                    window.audioElement.src = "https://polfy.github.io/"+window.initIsleWaddonVersion+"/IsleWaddonFeature/Sound/drum_stick.wav";
+                    window.audioElement.src = "https://"+window.IsleWaddonVersion+"/IsleWaddonFeature/Sound/drum_stick.wav";
                     window.audioElement.play();
                 }
                 window.lastReply = matched[1];
@@ -19,7 +19,7 @@ addons.register({
 })
 
 var chatCheck = function(){
-    if(window.gameStarted === "true") {
+    if(window.gameStarted == "true") {
         if(jQuery(".el.textbox.message")[0] != undefined && jQuery(".el.textbox.message").val().substring(0, 2) == "/r" && window.lastReply != undefined){
         jQuery(".el.textbox.message").val(jQuery(".el.textbox.message").val().replace("/r", "@"+window.lastReply+" "));
         jQuery(".uiMessages .list").scrollTop(9999999);

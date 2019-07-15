@@ -1,12 +1,6 @@
 var idToName = {};
 var inCombatWith = {};
 
-function addCombatMessage(txt, colortxt){
-    var msg = "*"+txt+"*";
-    jQuery('<div class="list-message color-'+colortxt+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
-    jQuery(".uiMessages .list").scrollTop(9999999);
-}
-
 addons.register({
     init: function(events) {
         events.on('onGetObject', this.onGetObject.bind(this));
@@ -56,3 +50,9 @@ addons.register({
         }
     }
 });
+
+function addCombatMessage(txt, colortxt){
+    var msg = "*"+txt+"*";
+    jQuery('<div class="list-message color-'+colortxt+' rep">' + msg + '</div>').appendTo(jQuery(".uiMessages .list"));
+    jQuery(".uiMessages .list").scrollTop(9999999);
+}

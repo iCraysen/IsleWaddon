@@ -40,7 +40,7 @@ Some info [**here**](https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.b
 - Easy salvage : Salvage an item by pressing "F"
 - Bosses Timer : Add a in-game timer to know when bosses will respawn + sound
 - Quick whisper respond : Use /r to quick respond to the last whisper + sound when you receive a whisp
-- Timer/whips sound disablelable
+  - Timer/whips sound disablelable
 - Quest hide : Full fonctionnal hide function for the quest tab
 - Stats range : Show stats roll range on level 20 gear
   - Link to my work [**here**](https://docs.google.com/spreadsheets/d/19QyBzRNMCFd3l8GwQPfDfPvwvXO_vnDtY3IHFa6kQeU/edit?usp=sharing)

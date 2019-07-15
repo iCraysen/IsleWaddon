@@ -10,7 +10,7 @@ addons.register({
 
     onObtainQuest: function () {
         window.onUpdateUIQuests();
-    },
+    }
 })
 
 window.onUpdateUIQuests = function(){

@@ -1,5 +1,5 @@
-window.SalvageKey = "f"
-var itemPos = -1
+window.SalvageKey = "f";
+var itemPos = -1;
 
 addons.register({
     init: function(events) {
@@ -9,7 +9,7 @@ addons.register({
     },
 
     onShowItemTooltip: function(obj) {
-        if(obj.material === true || obj.noSalvage === true){
+        if(obj.material == true || obj.noSalvage == true){
             itemPos = -1;
         } else{
             itemPos = obj.pos;
