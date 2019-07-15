@@ -1,4 +1,4 @@
-# ISLEWADDON v0.7 for [ISLEWARD](https://gitlab.com/Isleward/isleward) v0.3.2
+# ISLEWADDON v0.7.1 for [ISLEWARD](https://gitlab.com/Isleward/isleward) v0.3.2
 
 # How to install IsleWaddon
   [**INSTALLATION VID**](https://www.youtube.com/watch?v=ioSmA3vHz2Q)
