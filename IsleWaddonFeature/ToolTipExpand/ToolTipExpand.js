@@ -288,18 +288,23 @@ function expandItemStats(obj) {
 function expandRuneTooltip(obj) {
     var name = obj.spell.name.toLowerCase();
     var txt;
-    if(Array.isArray(spells[name].statType) == true){
-        txt = spells[name].statType.map(x => "<font color='orange'>"+x+"</font>");
+    if(Array.isArray(window.spells[name].statType) == true){
+        txt = window.spells[name].statType.map(x => "<font color='orange'>"+x+"</font>");
     } else{
-        txt = "<font color='orange'>"+spells[name].statType+"</font>";
+        txt = "<font color='orange'>"+window.spells[name].statType+"</font>";
     }
-    var newText = "Benefits from stats: ["+txt+"]<br>";
+    var newText = "";
+    if (window.spells[name].statType == "none") {
+        newText = "Benefits from no stat<br>";
+    } else {
+        newText = "Benefits from stats: ["+txt+"]<br>";
+    }
     Object.keys(obj.spell.values).forEach(function(key) {
         var minmax;
-        if(key in spells[name].random){
-            minmax = spells[name].random[key];
+        if(key in window.spells[name].random){
+            minmax = window.spells[name].random[key];
         } else{
-            minmax = spells[name].random["i_"+key];
+            minmax = window.spells[name].random["i_"+key];
         }
         var maxrange = minmax[1]-minmax[0];
         var currange = obj.spell.values[key]-minmax[0];
@@ -311,6 +316,14 @@ function expandRuneTooltip(obj) {
         var mycolor = "rgb("+r+","+g+","+b+")";
         newText += key + ": <font style='color:"+mycolor+";'>" + obj.spell.values[key] + "</font>  [<font style='color:rgb("+startcolor.r+","+startcolor.g+","+startcolor.b+");'>"+minmax[0] +"</font>-<font style='color:rgb("+endcolor.r+","+endcolor.g+","+endcolor.b+");'>"+minmax[1]+"</font>]<br>";
     });
+    if (window.spells[name].spellType != "none") {
+        if(Array.isArray(window.spells[name].spellType) == true){
+            txt = window.spells[name].spellType.map(x => x);
+        } else{
+            txt = window.spells[name].spellType;
+        }
+        newText += "<font style='color:#bfc3c7'><br>Rune type : "+txt+"</font>";
+    }
     $(".uiTooltipItem .tooltip .damage").eq(0).html(newText);
 }
 
