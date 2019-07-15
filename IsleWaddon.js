@@ -6,7 +6,7 @@ if (window.stopDoubleLoad != "true") {
     console.log('***IsleWaddon LOADED***');
     // Link to the right GitHub source
     window.IsleWaddonVersion = "polfy.github.io/IsleWaddon";
-    window.Version = "0.7";
+    window.Version = "0.7.1";
 
     addons.register({
         init: function(events) {
