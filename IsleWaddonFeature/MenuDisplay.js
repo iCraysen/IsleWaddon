@@ -73,7 +73,7 @@ window.endTableElem = '</div></td>';
  var L9 = window.tooltipTextStart+"► Stats range" , L9_1 = window.tooltipTextEnd+"Add more information about implicit stats and level 20 roll range on items<br>⚠️ 1 stat can be a stack of 2 or more of the same stat (Can't track it)"+window.tooltipTextEndLine;
 var L10 = window.tooltipTextStart+"► Map" , L10_1 = window.tooltipTextEnd+"In-game map<br><font color='#ffeb38'>⚠️ You need to be on Char Selection to enable it</font><br>► Press <font color='#ffeb38'>n</font> in-game to open it<br>► Change the Size<br><font color='#ffeb38'>5</font> , <font color='#ffeb38'>6</font><br>► Change the Position<br><font color='#ffeb38'>7</font> , <font color='#ffeb38'>8</font> , <font color='#ffeb38'>9</font> , <font color='#ffeb38'>0</font>"+window.tooltipTextEndLine;
 var L11 = window.tooltipTextStart+"► Combat Log" , L11_1 = window.tooltipTextEnd+"Add a combat log in the <font color='green'>Reputation</font> chat<br>⚠️ Can cause lag/fps drops"+window.tooltipTextEndLine;
-var L12 = window.tooltipTextStart+"► Small infos" , L12_1 = window.tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add stats range for runes";
+var L12 = window.tooltipTextStart+"► Small infos" , L12_1 = window.tooltipTextEnd+"► Add the amount of sets you can trade to Vikar<br>► Add more infos on runes";
 
 window.MenuAddon = function(){
     window.menu = jQuery('<div class="isleWaddon-uiMenu" style="position:absolute;right:10px;bottom:164px;"></div>').appendTo(jQuery('.ui-container'));
