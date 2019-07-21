@@ -18,8 +18,10 @@ addons.register({
             jQuery(".isleWaddon-uiMenu").remove();
             window.MenuSTATUS = "false";
         }
-        jQuery(".isleWaddon-uiMenuButton").remove()
+        jQuery(".isleWaddon-uiMenuButton").remove();
         window.menuButton("top:0px;right:0px;");
+	setTimeout(function(){jQuery(".isleWaddon-uiMenuButton").remove(); window.menuButton("top:0px;right:0px;");},5000);
+	setTimeout(function(){jQuery(".isleWaddon-uiMenuButton").remove(); window.menuButton("top:0px;right:0px;");},10000);
     }
 });
 
