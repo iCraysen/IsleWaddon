@@ -19,7 +19,7 @@ addons.register({
             window.MenuSTATUS = "false";
         }
         jQuery(".isleWaddon-uiMenuButton").remove()
-        window.menuButton("top:100px;right:340px;");
+        window.menuButton("top:0px;right:0px;");
     }
 });
 
@@ -155,7 +155,11 @@ window.MenuAddon = function(){
 
 // BUTTON CODE
 window.menuButton = function(buttonPos){
-    window.menuButtonTooltip = jQuery('<div class="isleWaddon-uiMenuButton" style="position:absolute;'+buttonPos+'"></div>').appendTo(jQuery('.ui-container'));
+    if (buttonPos == "bottom:130px;right:10px;") {
+        window.menuButtonTooltip = jQuery('<div class="isleWaddon-uiMenuButton" style="position:absolute;'+buttonPos+'"></div>').appendTo(jQuery('.ui-container'));
+    }else {
+        window.menuButtonTooltip = jQuery('<div class="isleWaddon-uiMenuButton" style="position:absolute;'+buttonPos+'"></div>').appendTo(jQuery('.uiMenu'));
+    }
     var src = window.tooltipStyle+'<table#1>';
     var onClick =`window.menuButtonPress()`
     var drawButton = '<button id="ButtonMenu" style="color:rgb(255,255,30); width:65px; background:rgba(55, 48, 65, 0.9);" onclick="'+onClick+'" type="button">Isle Waddon</button>';
@@ -166,7 +170,7 @@ window.menuButton = function(buttonPos){
 
 window.menuButtonPress = function(){
     jQuery(".isleWaddon-uiMenuButton").remove()
-    if (window.gameStarted == "true") {window.menuButton("top:100px;right:340px;");}
+    if (window.gameStarted == "true") {window.menuButton("top:0px;right:0px;");}
     else {window.menuButton("bottom:130px;right:10px;");}
     if (window.MenuSTATUS == "false"){
         window.MenuAddon();
