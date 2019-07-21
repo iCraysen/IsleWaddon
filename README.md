@@ -45,6 +45,8 @@ Some info [**here**](https://www.youtube.com/watch?v=naJfw4JabxM&feature=youtu.b
 - Stats range : Show stats roll range on level 20 gear
   - Link to my work [**here**](https://docs.google.com/spreadsheets/d/19QyBzRNMCFd3l8GwQPfDfPvwvXO_vnDtY3IHFa6kQeU/edit?usp=sharing)
 - In-game MiniMap
+  ** You need to ENABLE it on the character selection menu **
+  - Press n to open it
   - Press 5 , 6 to change the map scale
   - Press 7 , 8 , 9 , 0 to change the map position
   - Reset : debug/reset the map settings
