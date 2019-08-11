@@ -16,7 +16,7 @@ addons.register({
                 window.bossID0 = obj.id;
             }
             if (obj.id == window.bossID0 && obj.destroyed){
-                window.respawnTime0 = 1+146;
+                window.respawnTime0 = 1+143;
             }
             if(obj.name == "Stinktooth"){
                 window.bossID1 = obj.id;
