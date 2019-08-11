@@ -24,6 +24,8 @@ addons.register({
 	setTimeout(function(){jQuery(".isleWaddon-uiMenuButton").remove(); window.menuButton("top:0px;right:0px;");},10000);
     }
 });
+// TempFix for the display
+window.SalvageKey = "f";
 
 window.tooltipStyle =
     `<style>
