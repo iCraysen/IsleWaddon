@@ -87,7 +87,7 @@ addons.register({
                 } else if(safeName.toLowerCase() === "sun_carp"){
                     window.thingsToDraw[obj.id] = {x: obj.x, y: obj.y, color:"#00ffff", name:"sun_carp", textColor:"rgb(0,100,255)"};
                 } else if (safeName.toLowerCase().indexOf("pumpkin") != -1){
-                    window.thingsToDraw[obj.id] = {x: obj.x, y: obj.y, color:"#ffffff", name:"pumpkin", textColor:"rgb(0,100,255)"};
+                    window.thingsToDraw[obj.id] = {x: obj.x, y: obj.y, color:"#ff8400", name:"pumpkin", textColor:"rgb(0,100,255)"};
                 }else{
                     if(obj.isRare != undefined && obj.isRare == true){
                         if(jQuery(".minimapName."+safeName)[0] != undefined){
