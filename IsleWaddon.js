@@ -5,8 +5,8 @@ if (window.stopDoubleLoad != "true") {
     console.log('*IF YOU LOG IWD ISSUES*');
     console.log('***IsleWaddon LOADED***');
     // Link to the right GitHub source
-    window.IsleWaddonVersion = "polfy.github.io/IsleWaddon";
-    window.Version = "0.7.1";
+    window.IsleWaddonVersion = "polfy.github.io/IsleWaddonWork";
+    window.Version = "0.8";
 
     addons.register({
         init: function(events) {
@@ -63,12 +63,16 @@ if (window.stopDoubleLoad != "true") {
                             var src = window.startDownloadText+"▓▓▓▓▓░</font>";
                             window.download.html(src);
                             $.getScript("https://"+window.IsleWaddonVersion+"/IsleWaddonFeature/QuestHide.js")
+                            .done(function(){
+                                $.getScript("https://"+window.IsleWaddonVersion+"/IsleWaddonFeature/HalloweenFeature.js")
                                 .done(function(){
-                                var src = window.startDownloadText+"▓▓▓▓▓▓</font>";
-                                window.download.html(src);
-                                setTimeout(function(){src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Loaded for iwd 0.3.2</font>";window.download.html(src);},200);
-                                initUserData();
-                                setTimeout(function(){jQuery(".isleWaddon-uiDownload").remove()},6000);
+                                    var src = window.startDownloadText+"▓▓▓▓▓▓</font>";
+                                    window.download.html(src);
+                                    setTimeout(function(){src = "<font color='#ffeb38'>IsleWaddon v"+window.Version+"<br>Loaded for iwd 0.3.2</font>";window.download.html(src);},200);
+                                    initUserData();
+                                    setTimeout(function(){jQuery(".isleWaddon-uiDownload").remove()},6000);
+                                })
+                                .fail(function(){window.errorMsg(6);})
                             })
                             .fail(function(){window.errorMsg(5);})
                         })

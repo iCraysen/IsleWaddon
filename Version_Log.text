@@ -26,3 +26,4 @@ Version LOG :
   - Small fix (works sometimes) for EnterGame msg (login reward/mail)
     - v0.7.1 :
       - Add spell type on rune
+- v0.8 : Add Halloween Boss Timer
