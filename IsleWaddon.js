@@ -5,7 +5,7 @@ if (window.stopDoubleLoad != "true") {
     console.log('*IF YOU LOG IWD ISSUES*');
     console.log('***IsleWaddon LOADED***');
     // Link to the right GitHub source
-    window.IsleWaddonVersion = "polfy.github.io/IsleWaddonWork";
+    window.IsleWaddonVersion = "polfy.github.io/IsleWaddon";
     window.Version = "0.8";
 
     addons.register({
