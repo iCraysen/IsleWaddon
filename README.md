@@ -1,5 +1,7 @@
 # ISLEWADDON v0.8 for [ISLEWARD](https://gitlab.com/Isleward/isleward) v0.3.2
 
+# [**ISLEWADDON DISCORD**](https://discord.gg/3P43RRb)
+
 # How to install IsleWaddon
   [**INSTALLATION VID**](https://www.youtube.com/watch?v=ioSmA3vHz2Q)
   
