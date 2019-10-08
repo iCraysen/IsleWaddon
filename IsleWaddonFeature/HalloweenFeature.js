@@ -1,12 +1,4 @@
-// ==UserScript==
-// @name         IsleWaddonTESTPUMP
-// @namespace    Isleward.Waddon
-// @version      4.0
-// @description  Read README here : https://github.com/Polfy/IsleWaddon
-// @author       Polfy's
-// @match        play.isleward.com*
-// @grant        none
-// ==/UserScript==
+// For Soul's Moor 2019
 
 addons.register({
     init: function(events) {
