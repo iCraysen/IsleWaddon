@@ -11,7 +11,7 @@ addons.register({
 });
 
 window.getNextSpawn = function(){
-    window.bossWait = 598;
+    window.bossWait = 599;
     window.bossSpawn = 0;
     $(".ui-container .right .uiEvents .heading").text("Events   🎃");
     window.date = new Date();
@@ -22,7 +22,7 @@ window.getNextSpawn = function(){
     window.dateHours = window.dateHours / 4;
     window.dateHours = window.dateHours - Math.floor(window.dateHours);
 
-    window.dateSeconds = 240 * 60 - window.dateHours * 4 * 3600 - window.dateMinutes * 60 - window.dateSeconds;
+    window.dateSeconds = 240 * 60 - window.dateHours * 4 * 3600 - window.dateMinutes * 60 - window.dateSeconds - 1;
 };
 
 window.repeatEverySecHalloween = function(){
